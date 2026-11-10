@@ -5,9 +5,9 @@ use ieee.numeric_std.all;
 entity baud_generator is
 
 	generic (
-        F_CLK    			: integer    := 50_000000;  -- 50 MHz systemklokke 
-        BAUD_RATE	  		: integer    := 9600; 	 	-- 
-        OVERSAMPLE     	: integer 	 := 8        	-- 
+        F_CLK    			: integer    := 50_000_000;  	-- 50 MHz systemklokke 
+        BAUD_RATE	  		: integer    := 9600; 	 		-- 
+        OVERSAMPLE     	: integer 	 := 8        		-- 
     );
 	 
 	port (
