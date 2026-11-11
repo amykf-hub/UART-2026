@@ -1,0 +1,191 @@
+-- Copyright (C) 2025  Altera Corporation. All rights reserved.
+-- Your use of Altera Corporation's design tools, logic functions 
+-- and other software and tools, and any partner logic 
+-- functions, and any output files from any of the foregoing 
+-- (including device programming or simulation files), and any 
+-- associated documentation or information are expressly subject 
+-- to the terms and conditions of the Altera Program License 
+-- Subscription Agreement, the Altera Quartus Prime License Agreement,
+-- the Altera IP License Agreement, or other applicable license
+-- agreement, including, without limitation, that your use is for
+-- the sole purpose of programming logic devices manufactured by
+-- Altera and sold by Altera or its authorized distributors.  Please
+-- refer to the Altera Software License Subscription Agreements 
+-- on the Quartus Prime software download page.
+--A1L1 is Add0~0
+A1L1 = baud_clk_counter[0] $ (VCC);
+
+--A1L2 is Add0~1
+A1L2 = CARRY(baud_clk_counter[0]);
+
+
+--A1L3 is Add0~2
+A1L3 = (baud_clk_counter[1] & (!A1L2)) # (!baud_clk_counter[1] & ((A1L2) # (GND)));
+
+--A1L4 is Add0~3
+A1L4 = CARRY((!A1L2) # (!baud_clk_counter[1]));
+
+
+--A1L5 is Add0~4
+A1L5 = (baud_clk_counter[2] & (A1L4 $ (GND))) # (!baud_clk_counter[2] & (!A1L4 & VCC));
+
+--A1L6 is Add0~5
+A1L6 = CARRY((baud_clk_counter[2] & !A1L4));
+
+
+--A1L7 is Add0~6
+A1L7 = (baud_clk_counter[3] & (!A1L6)) # (!baud_clk_counter[3] & ((A1L6) # (GND)));
+
+--A1L8 is Add0~7
+A1L8 = CARRY((!A1L6) # (!baud_clk_counter[3]));
+
+
+--A1L9 is Add0~8
+A1L9 = (baud_clk_counter[4] & (A1L8 $ (GND))) # (!baud_clk_counter[4] & (!A1L8 & VCC));
+
+--A1L10 is Add0~9
+A1L10 = CARRY((baud_clk_counter[4] & !A1L8));
+
+
+--A1L11 is Add0~10
+A1L11 = (baud_clk_counter[5] & (!A1L10)) # (!baud_clk_counter[5] & ((A1L10) # (GND)));
+
+--A1L12 is Add0~11
+A1L12 = CARRY((!A1L10) # (!baud_clk_counter[5]));
+
+
+--A1L13 is Add0~12
+A1L13 = (baud_clk_counter[6] & (A1L12 $ (GND))) # (!baud_clk_counter[6] & (!A1L12 & VCC));
+
+--A1L14 is Add0~13
+A1L14 = CARRY((baud_clk_counter[6] & !A1L12));
+
+
+--A1L15 is Add0~14
+A1L15 = (baud_clk_counter[7] & (!A1L14)) # (!baud_clk_counter[7] & ((A1L14) # (GND)));
+
+--A1L16 is Add0~15
+A1L16 = CARRY((!A1L14) # (!baud_clk_counter[7]));
+
+
+--A1L17 is Add0~16
+A1L17 = (baud_clk_counter[8] & (A1L16 $ (GND))) # (!baud_clk_counter[8] & (!A1L16 & VCC));
+
+--A1L18 is Add0~17
+A1L18 = CARRY((baud_clk_counter[8] & !A1L16));
+
+
+--A1L19 is Add0~18
+A1L19 = baud_clk_counter[9] $ (A1L18);
+
+
+--tick_8x is tick_8x
+tick_8x = OUTPUT(A1L43Q);
+
+
+--A1L43Q is tick_8x~reg0
+--register power-up is low
+
+A1L43Q = DFFEAS(A1L40, clk, rst,  ,  ,  ,  ,  ,  );
+
+
+--baud_clk_counter[9] is baud_clk_counter[9]
+--register power-up is low
+
+baud_clk_counter[9] = DFFEAS(A1L32, clk, rst,  ,  ,  ,  ,  ,  );
+
+
+--baud_clk_counter[7] is baud_clk_counter[7]
+--register power-up is low
+
+baud_clk_counter[7] = DFFEAS(A1L33, clk, rst,  ,  ,  ,  ,  ,  );
+
+
+--baud_clk_counter[8] is baud_clk_counter[8]
+--register power-up is low
+
+baud_clk_counter[8] = DFFEAS(A1L17, clk, rst,  ,  ,  ,  ,  ,  );
+
+
+--baud_clk_counter[6] is baud_clk_counter[6]
+--register power-up is low
+
+baud_clk_counter[6] = DFFEAS(A1L13, clk, rst,  ,  ,  ,  ,  ,  );
+
+
+--A1L38 is Equal0~0
+A1L38 = (baud_clk_counter[9] & (baud_clk_counter[7] & (!baud_clk_counter[8] & !baud_clk_counter[6])));
+
+
+--baud_clk_counter[3] is baud_clk_counter[3]
+--register power-up is low
+
+baud_clk_counter[3] = DFFEAS(A1L34, clk, rst,  ,  ,  ,  ,  ,  );
+
+
+--baud_clk_counter[5] is baud_clk_counter[5]
+--register power-up is low
+
+baud_clk_counter[5] = DFFEAS(A1L11, clk, rst,  ,  ,  ,  ,  ,  );
+
+
+--baud_clk_counter[4] is baud_clk_counter[4]
+--register power-up is low
+
+baud_clk_counter[4] = DFFEAS(A1L9, clk, rst,  ,  ,  ,  ,  ,  );
+
+
+--baud_clk_counter[2] is baud_clk_counter[2]
+--register power-up is low
+
+baud_clk_counter[2] = DFFEAS(A1L5, clk, rst,  ,  ,  ,  ,  ,  );
+
+
+--A1L39 is Equal0~1
+A1L39 = (baud_clk_counter[3] & (!baud_clk_counter[5] & (!baud_clk_counter[4] & !baud_clk_counter[2])));
+
+
+--baud_clk_counter[1] is baud_clk_counter[1]
+--register power-up is low
+
+baud_clk_counter[1] = DFFEAS(A1L35, clk, rst,  ,  ,  ,  ,  ,  );
+
+
+--baud_clk_counter[0] is baud_clk_counter[0]
+--register power-up is low
+
+baud_clk_counter[0] = DFFEAS(A1L36, clk, rst,  ,  ,  ,  ,  ,  );
+
+
+--A1L40 is Equal0~2
+A1L40 = (A1L38 & (A1L39 & (baud_clk_counter[1] & !baud_clk_counter[0])));
+
+
+--clk is clk
+clk = INPUT();
+
+
+--rst is rst
+rst = INPUT();
+
+
+--A1L32 is baud_clk_counter~0
+A1L32 = (A1L19 & !A1L40);
+
+
+--A1L33 is baud_clk_counter~1
+A1L33 = (A1L15 & !A1L40);
+
+
+--A1L34 is baud_clk_counter~2
+A1L34 = (A1L7 & !A1L40);
+
+
+--A1L35 is baud_clk_counter~3
+A1L35 = (A1L3 & !A1L40);
+
+
+--A1L36 is baud_clk_counter~4
+A1L36 = (A1L1 & !A1L40);
+
+

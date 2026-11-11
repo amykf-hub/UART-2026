@@ -1,0 +1,233 @@
+-- Copyright (C) 2025  Altera Corporation. All rights reserved.
+-- Your use of Altera Corporation's design tools, logic functions 
+-- and other software and tools, and any partner logic 
+-- functions, and any output files from any of the foregoing 
+-- (including device programming or simulation files), and any 
+-- associated documentation or information are expressly subject 
+-- to the terms and conditions of the Altera Program License 
+-- Subscription Agreement, the Altera Quartus Prime License Agreement,
+-- the Altera IP License Agreement, or other applicable license
+-- agreement, including, without limitation, that your use is for
+-- the sole purpose of programming logic devices manufactured by
+-- Altera and sold by Altera or its authorized distributors.  Please
+-- refer to the Altera Software License Subscription Agreements 
+-- on the Quartus Prime software download page.
+--A1L1 is Add0~0 at LCCOMB_X24_Y22_N10
+A1L1 = baud_clk_counter[0] $ (VCC);
+
+--A1L2 is Add0~1 at LCCOMB_X24_Y22_N10
+A1L2 = CARRY(baud_clk_counter[0]);
+
+
+--A1L3 is Add0~2 at LCCOMB_X24_Y22_N12
+A1L3 = (baud_clk_counter[1] & (!A1L2)) # (!baud_clk_counter[1] & ((A1L2) # (GND)));
+
+--A1L4 is Add0~3 at LCCOMB_X24_Y22_N12
+A1L4 = CARRY((!A1L2) # (!baud_clk_counter[1]));
+
+
+--A1L5 is Add0~4 at LCCOMB_X24_Y22_N14
+A1L5 = (baud_clk_counter[2] & (A1L4 $ (GND))) # (!baud_clk_counter[2] & (!A1L4 & VCC));
+
+--A1L6 is Add0~5 at LCCOMB_X24_Y22_N14
+A1L6 = CARRY((baud_clk_counter[2] & !A1L4));
+
+
+--A1L7 is Add0~6 at LCCOMB_X24_Y22_N16
+A1L7 = (baud_clk_counter[3] & (!A1L6)) # (!baud_clk_counter[3] & ((A1L6) # (GND)));
+
+--A1L8 is Add0~7 at LCCOMB_X24_Y22_N16
+A1L8 = CARRY((!A1L6) # (!baud_clk_counter[3]));
+
+
+--A1L9 is Add0~8 at LCCOMB_X24_Y22_N18
+A1L9 = (baud_clk_counter[4] & (A1L8 $ (GND))) # (!baud_clk_counter[4] & (!A1L8 & VCC));
+
+--A1L10 is Add0~9 at LCCOMB_X24_Y22_N18
+A1L10 = CARRY((baud_clk_counter[4] & !A1L8));
+
+
+--A1L11 is Add0~10 at LCCOMB_X24_Y22_N20
+A1L11 = (baud_clk_counter[5] & (!A1L10)) # (!baud_clk_counter[5] & ((A1L10) # (GND)));
+
+--A1L12 is Add0~11 at LCCOMB_X24_Y22_N20
+A1L12 = CARRY((!A1L10) # (!baud_clk_counter[5]));
+
+
+--A1L13 is Add0~12 at LCCOMB_X24_Y22_N22
+A1L13 = (baud_clk_counter[6] & (A1L12 $ (GND))) # (!baud_clk_counter[6] & (!A1L12 & VCC));
+
+--A1L14 is Add0~13 at LCCOMB_X24_Y22_N22
+A1L14 = CARRY((baud_clk_counter[6] & !A1L12));
+
+
+--A1L15 is Add0~14 at LCCOMB_X24_Y22_N24
+A1L15 = (baud_clk_counter[7] & (!A1L14)) # (!baud_clk_counter[7] & ((A1L14) # (GND)));
+
+--A1L16 is Add0~15 at LCCOMB_X24_Y22_N24
+A1L16 = CARRY((!A1L14) # (!baud_clk_counter[7]));
+
+
+--A1L17 is Add0~16 at LCCOMB_X24_Y22_N26
+A1L17 = (baud_clk_counter[8] & (A1L16 $ (GND))) # (!baud_clk_counter[8] & (!A1L16 & VCC));
+
+--A1L18 is Add0~17 at LCCOMB_X24_Y22_N26
+A1L18 = CARRY((baud_clk_counter[8] & !A1L16));
+
+
+--A1L19 is Add0~18 at LCCOMB_X24_Y22_N28
+A1L19 = A1L18 $ (baud_clk_counter[9]);
+
+
+--A1L49Q is tick_8x~reg0 at FF_X25_Y22_N9
+--register power-up is low
+
+A1L49Q = DFFEAS(A1L43, GLOBAL(A1L40), GLOBAL(A1L46),  ,  ,  ,  ,  ,  );
+
+
+--baud_clk_counter[9] is baud_clk_counter[9] at FF_X24_Y22_N1
+--register power-up is low
+
+baud_clk_counter[9] = DFFEAS(A1L33, GLOBAL(A1L40), GLOBAL(A1L46),  ,  ,  ,  ,  ,  );
+
+
+--baud_clk_counter[7] is baud_clk_counter[7] at FF_X24_Y22_N3
+--register power-up is low
+
+baud_clk_counter[7] = DFFEAS(A1L34, GLOBAL(A1L40), GLOBAL(A1L46),  ,  ,  ,  ,  ,  );
+
+
+--baud_clk_counter[8] is baud_clk_counter[8] at FF_X24_Y22_N27
+--register power-up is low
+
+baud_clk_counter[8] = DFFEAS(A1L17, GLOBAL(A1L40), GLOBAL(A1L46),  ,  ,  ,  ,  ,  );
+
+
+--baud_clk_counter[6] is baud_clk_counter[6] at FF_X24_Y22_N23
+--register power-up is low
+
+baud_clk_counter[6] = DFFEAS(A1L13, GLOBAL(A1L40), GLOBAL(A1L46),  ,  ,  ,  ,  ,  );
+
+
+--A1L41 is Equal0~0 at LCCOMB_X24_Y22_N8
+A1L41 = (!baud_clk_counter[6] & (baud_clk_counter[7] & (!baud_clk_counter[8] & baud_clk_counter[9])));
+
+
+--baud_clk_counter[3] is baud_clk_counter[3] at FF_X24_Y22_N31
+--register power-up is low
+
+baud_clk_counter[3] = DFFEAS(A1L35, GLOBAL(A1L40), GLOBAL(A1L46),  ,  ,  ,  ,  ,  );
+
+
+--baud_clk_counter[5] is baud_clk_counter[5] at FF_X24_Y22_N21
+--register power-up is low
+
+baud_clk_counter[5] = DFFEAS(A1L11, GLOBAL(A1L40), GLOBAL(A1L46),  ,  ,  ,  ,  ,  );
+
+
+--baud_clk_counter[4] is baud_clk_counter[4] at FF_X24_Y22_N19
+--register power-up is low
+
+baud_clk_counter[4] = DFFEAS(A1L9, GLOBAL(A1L40), GLOBAL(A1L46),  ,  ,  ,  ,  ,  );
+
+
+--baud_clk_counter[2] is baud_clk_counter[2] at FF_X24_Y22_N15
+--register power-up is low
+
+baud_clk_counter[2] = DFFEAS(A1L5, GLOBAL(A1L40), GLOBAL(A1L46),  ,  ,  ,  ,  ,  );
+
+
+--A1L42 is Equal0~1 at LCCOMB_X25_Y22_N30
+A1L42 = (!baud_clk_counter[2] & (baud_clk_counter[3] & (!baud_clk_counter[4] & !baud_clk_counter[5])));
+
+
+--baud_clk_counter[1] is baud_clk_counter[1] at FF_X24_Y22_N5
+--register power-up is low
+
+baud_clk_counter[1] = DFFEAS(A1L36, GLOBAL(A1L40), GLOBAL(A1L46),  ,  ,  ,  ,  ,  );
+
+
+--baud_clk_counter[0] is baud_clk_counter[0] at FF_X24_Y22_N7
+--register power-up is low
+
+baud_clk_counter[0] = DFFEAS(A1L37, GLOBAL(A1L40), GLOBAL(A1L46),  ,  ,  ,  ,  ,  );
+
+
+--A1L43 is Equal0~2 at LCCOMB_X25_Y22_N8
+A1L43 = (A1L42 & (!baud_clk_counter[0] & (baud_clk_counter[1] & A1L41)));
+
+
+--A1L33 is baud_clk_counter~0 at LCCOMB_X24_Y22_N0
+A1L33 = (!A1L43 & A1L19);
+
+
+--A1L34 is baud_clk_counter~1 at LCCOMB_X24_Y22_N2
+A1L34 = (!A1L43 & A1L15);
+
+
+--A1L35 is baud_clk_counter~2 at LCCOMB_X24_Y22_N30
+A1L35 = (A1L7 & !A1L43);
+
+
+--A1L36 is baud_clk_counter~3 at LCCOMB_X24_Y22_N4
+A1L36 = (A1L3 & !A1L43);
+
+
+--A1L37 is baud_clk_counter~4 at LCCOMB_X24_Y22_N6
+A1L37 = (A1L1 & !A1L43);
+
+
+--A1L48 is tick_8x~output at IOOBUF_X24_Y25_N9
+A1L48 = OUTPUT_BUFFER.O(.I(A1L49Q), , , , , , , , , , , , , , , , , );
+
+
+--tick_8x is tick_8x at PIN_B14
+tick_8x = OUTPUT();
+
+
+--A1L39 is clk~input at IOIBUF_X0_Y6_N15
+A1L39 = INPUT_BUFFER(.I(clk), , );
+
+
+--clk is clk at PIN_M8
+clk = INPUT();
+
+
+--A1L45 is rst~input at IOIBUF_X0_Y6_N22
+A1L45 = INPUT_BUFFER(.I(rst), , );
+
+
+--rst is rst at PIN_M9
+rst = INPUT();
+
+
+--A1L67 is ~QUARTUS_CREATED_GND~I at LCCOMB_X11_Y12_N16
+A1L67 = GND;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+--A1L46 is rst~inputclkctrl at CLKCTRL_G4
+A1L46 = fiftyfivenm_clkctrl(.INCLK[0] = A1L45) WITH (clock_type = "Global Clock", ena_register_mode = "none");
+
+
+--A1L40 is clk~inputclkctrl at CLKCTRL_G3
+A1L40 = fiftyfivenm_clkctrl(.INCLK[0] = A1L39) WITH (clock_type = "Global Clock", ena_register_mode = "none");
+
+

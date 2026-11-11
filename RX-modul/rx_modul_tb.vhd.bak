@@ -1,0 +1,113 @@
+---------------------------------------------------------------------------------
+-- Testbench of d4_pwm
+---------------------------------------------------------------------------------
+library ieee;
+use ieee.std_logic_1164.all;
+use ieee.numeric_std.all;
+
+entity d4_pwm_tb is
+end d4_pwm_tb;
+
+
+architecture SimulationModel of d4_pwm_tb is
+
+   -----------------------------------------------------------------------------
+   -- Constant declaration
+   -----------------------------------------------------------------------------
+   constant c_ClkPer : time := 20 ns;      -- 50 MHz
+
+
+   -----------------------------------------------------------------------------
+   -- Component declarasion
+   -----------------------------------------------------------------------------
+   component d4_pwm
+      port (
+ 		clk: in std_logic;
+		rstn: in std_logic;
+		duty: in  std_logic_vector(2 downto 0);
+		pwm_out: out std_logic
+      );
+   end component d4_pwm;
+
+
+   -----------------------------------------------------------------------------
+   -- Signal declaration
+   -----------------------------------------------------------------------------
+   -- DUT signals
+   signal clk      : std_logic;
+   signal rstn     : std_logic;
+   signal duty     : std_logic_vector(2 downto 0) := "000";
+   signal pwm_out	 : std_logic;  
+
+begin
+
+   -----------------------------------------------------------------------------
+   -- Component instantiations
+   -----------------------------------------------------------------------------
+   i_d4_pwm: component d4_pwm
+    port map (
+      clk       => clk,
+      rstn      => rstn,
+      duty      => duty,
+      pwm_out => pwm_out
+      );
+
+
+   -----------------------------------------------------------------------------
+   -- purpose: Generation of clock
+   -- type   : sequential
+   -- inputs : none
+   -- outputs: clk
+   -----------------------------------------------------------------------------
+   p_clk: process is
+   begin  -- process p_clk
+      clk <= '0';
+      wait for c_ClkPer/2;
+      clk <= '1';
+      wait for c_ClkPer/2;
+   end process p_clk;
+
+
+   -----------------------------------------------------------------------------
+   -- purpose: Generation of reset
+   -- type   : sequential
+   -- inputs : none
+   -- outputs: reset
+   -----------------------------------------------------------------------------
+   p_rstn: process is
+   begin  -- process p_rst
+      rstn <= '0';
+      wait for 2.2*c_ClkPer;
+      rstn <= '1';
+      wait;
+   end process p_rstn;
+
+
+   -----------------------------------------------------------------------------
+   -- purpose: Main process
+   -- type   : sequential
+   -- inputs : 
+   -----------------------------------------------------------------------------
+   p_main: process
+   begin
+      -- Initialize signals
+      duty  <= "000";
+
+      -- Initialize variables
+      -- Wait for falling edge after reset
+      wait until rstn = '1';
+      wait until rising_edge(clk);
+
+      -- Create data signal and check response
+      for i in 0 to 7 loop
+			duty <= std_logic_vector(to_unsigned(i, 3));
+			wait for 30 * c_ClkPer;
+      end loop;
+
+      -- Terminate testbench
+      wait for 5 * c_ClkPer;
+      report "Simulering er ferdig!" severity note;
+		wait;
+   end process p_main;
+
+end architecture SimulationModel;
