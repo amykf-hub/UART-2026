@@ -41,5 +41,5 @@ begin
 						  tick_8x <= '0';
                 end if;
 			end if;
-    end process p_pwm_single;
+    end process baud_generator;
 end architecture rtl;
