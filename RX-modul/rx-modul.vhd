@@ -15,7 +15,7 @@ entity rx_modul is
 end entity rx_modul;
 
 architecture RTL of rx_modul is
-	type state_type is (IDLE, START, SAMPLING, DONE);
+	type state_type is (IDLE, START, SAMPLING, WRONG, DONE);
 	signal state : state_type := IDLE;
 	
 	signal sample_count : integer range 0 to 7 := 0;
@@ -64,6 +64,8 @@ begin
 								sample_count <= 0;
 								shift_reg <= rx_in & shift_reg(7 downto 1);
 								
+								
+								
 								if bit_count = 7 then
 									bit_count <= 0;
 									state <= DONE;
@@ -73,6 +75,9 @@ begin
 							else	
 								sample_count <= sample_count + 1;
 							end if;
+							
+						when WRONG =>
+							if 
 						
 						when DONE =>
 							rx_data <= shift_reg;
