@@ -1,0 +1,348 @@
+-- Copyright (C) 2025  Altera Corporation. All rights reserved.
+-- Your use of Altera Corporation's design tools, logic functions 
+-- and other software and tools, and any partner logic 
+-- functions, and any output files from any of the foregoing 
+-- (including device programming or simulation files), and any 
+-- associated documentation or information are expressly subject 
+-- to the terms and conditions of the Altera Program License 
+-- Subscription Agreement, the Altera Quartus Prime License Agreement,
+-- the Altera IP License Agreement, or other applicable license
+-- agreement, including, without limitation, that your use is for
+-- the sole purpose of programming logic devices manufactured by
+-- Altera and sold by Altera or its authorized distributors.  Please
+-- refer to the Altera Software License Subscription Agreements 
+-- on the Quartus Prime software download page.
+--rx_data[0] is rx_data[0]
+rx_data[0] = OUTPUT(A1L12Q);
+
+
+--rx_data[1] is rx_data[1]
+rx_data[1] = OUTPUT(A1L14Q);
+
+
+--rx_data[2] is rx_data[2]
+rx_data[2] = OUTPUT(A1L16Q);
+
+
+--rx_data[3] is rx_data[3]
+rx_data[3] = OUTPUT(A1L18Q);
+
+
+--rx_data[4] is rx_data[4]
+rx_data[4] = OUTPUT(A1L20Q);
+
+
+--rx_data[5] is rx_data[5]
+rx_data[5] = OUTPUT(A1L22Q);
+
+
+--rx_data[6] is rx_data[6]
+rx_data[6] = OUTPUT(A1L24Q);
+
+
+--rx_data[7] is rx_data[7]
+rx_data[7] = OUTPUT(A1L26Q);
+
+
+--rx_done is rx_done
+rx_done = OUTPUT(A1L28Q);
+
+
+--A1L12Q is rx_data[0]~reg0
+--register power-up is low
+
+A1L12Q = DFFEAS(shift_reg[0], clk, rst,  , A1L11,  ,  ,  ,  );
+
+
+--A1L14Q is rx_data[1]~reg0
+--register power-up is low
+
+A1L14Q = DFFEAS(shift_reg[1], clk, rst,  , A1L11,  ,  ,  ,  );
+
+
+--A1L16Q is rx_data[2]~reg0
+--register power-up is low
+
+A1L16Q = DFFEAS(shift_reg[2], clk, rst,  , A1L11,  ,  ,  ,  );
+
+
+--A1L18Q is rx_data[3]~reg0
+--register power-up is low
+
+A1L18Q = DFFEAS(shift_reg[3], clk, rst,  , A1L11,  ,  ,  ,  );
+
+
+--A1L20Q is rx_data[4]~reg0
+--register power-up is low
+
+A1L20Q = DFFEAS(shift_reg[4], clk, rst,  , A1L11,  ,  ,  ,  );
+
+
+--A1L22Q is rx_data[5]~reg0
+--register power-up is low
+
+A1L22Q = DFFEAS(shift_reg[5], clk, rst,  , A1L11,  ,  ,  ,  );
+
+
+--A1L24Q is rx_data[6]~reg0
+--register power-up is low
+
+A1L24Q = DFFEAS(shift_reg[6], clk, rst,  , A1L11,  ,  ,  ,  );
+
+
+--A1L26Q is rx_data[7]~reg0
+--register power-up is low
+
+A1L26Q = DFFEAS(shift_reg[7], clk, rst,  , A1L11,  ,  ,  ,  );
+
+
+--A1L28Q is rx_done~reg0
+--register power-up is low
+
+A1L28Q = DFFEAS(A1L11, clk, rst,  ,  ,  ,  ,  ,  );
+
+
+--shift_reg[0] is shift_reg[0]
+--register power-up is low
+
+shift_reg[0] = DFFEAS(shift_reg[1], clk, rst,  , A1L52,  ,  ,  ,  );
+
+
+--clk is clk
+clk = INPUT();
+
+
+--rst is rst
+rst = INPUT();
+
+
+--rx_tick is rx_tick
+rx_tick = INPUT();
+
+
+--state.DONE is state.DONE
+--register power-up is low
+
+state.DONE = DFFEAS(A1L61, clk, rst,  ,  ,  ,  ,  ,  );
+
+
+--A1L11 is rx_data[0]~0
+A1L11 = (rx_tick & state.DONE);
+
+
+--shift_reg[1] is shift_reg[1]
+--register power-up is low
+
+shift_reg[1] = DFFEAS(shift_reg[2], clk, rst,  , A1L52,  ,  ,  ,  );
+
+
+--shift_reg[2] is shift_reg[2]
+--register power-up is low
+
+shift_reg[2] = DFFEAS(shift_reg[3], clk, rst,  , A1L52,  ,  ,  ,  );
+
+
+--shift_reg[3] is shift_reg[3]
+--register power-up is low
+
+shift_reg[3] = DFFEAS(shift_reg[4], clk, rst,  , A1L52,  ,  ,  ,  );
+
+
+--shift_reg[4] is shift_reg[4]
+--register power-up is low
+
+shift_reg[4] = DFFEAS(shift_reg[5], clk, rst,  , A1L52,  ,  ,  ,  );
+
+
+--shift_reg[5] is shift_reg[5]
+--register power-up is low
+
+shift_reg[5] = DFFEAS(shift_reg[6], clk, rst,  , A1L52,  ,  ,  ,  );
+
+
+--shift_reg[6] is shift_reg[6]
+--register power-up is low
+
+shift_reg[6] = DFFEAS(shift_reg[7], clk, rst,  , A1L52,  ,  ,  ,  );
+
+
+--shift_reg[7] is shift_reg[7]
+--register power-up is low
+
+shift_reg[7] = DFFEAS(rx_in, clk, rst,  , A1L52,  ,  ,  ,  );
+
+
+--state.SAMPLING is state.SAMPLING
+--register power-up is low
+
+state.SAMPLING = DFFEAS(A1L71, clk, rst,  , A1L73,  ,  ,  ,  );
+
+
+--sample_count[2] is sample_count[2]
+--register power-up is low
+
+sample_count[2] = DFFEAS(A1L41, clk, rst,  ,  ,  ,  ,  ,  );
+
+
+--sample_count[1] is sample_count[1]
+--register power-up is low
+
+sample_count[1] = DFFEAS(A1L36, clk, rst,  ,  ,  ,  ,  ,  );
+
+
+--sample_count[0] is sample_count[0]
+--register power-up is low
+
+sample_count[0] = DFFEAS(A1L34, clk, rst,  ,  ,  ,  ,  ,  );
+
+
+--A1L51 is shift_reg[0]~0
+A1L51 = (state.SAMPLING & (((!sample_count[0]) # (!sample_count[1])) # (!sample_count[2])));
+
+
+--A1L52 is shift_reg[0]~1
+A1L52 = (rx_tick & A1L51);
+
+
+--rx_in is rx_in
+rx_in = INPUT();
+
+
+--state.IDLE is state.IDLE
+--register power-up is low
+
+state.IDLE = DFFEAS(A1L74, clk, rst,  , A1L73,  ,  ,  ,  );
+
+
+--A1L66 is state~12
+A1L66 = (rx_in & !state.IDLE);
+
+
+--bit_count[1] is bit_count[1]
+--register power-up is low
+
+bit_count[1] = DFFEAS(A1L46, clk, rst,  , rx_tick,  ,  ,  ,  );
+
+
+--A1L67 is state~13
+A1L67 = (bit_count[1] & (((!sample_count[0]) # (!sample_count[1])) # (!sample_count[2])));
+
+
+--bit_count[2] is bit_count[2]
+--register power-up is low
+
+bit_count[2] = DFFEAS(A1L44, clk, rst,  , rx_tick,  ,  ,  ,  );
+
+
+--bit_count[0] is bit_count[0]
+--register power-up is low
+
+bit_count[0] = DFFEAS(A1L48, clk, rst,  , rx_tick,  ,  ,  ,  );
+
+
+--A1L68 is state~14
+A1L68 = (state.SAMPLING & (((!bit_count[0]) # (!bit_count[2])) # (!A1L67)));
+
+
+--state.START is state.START
+--register power-up is low
+
+state.START = DFFEAS(A1L65, clk, rst,  ,  ,  ,  ,  ,  );
+
+
+--A1L69 is state~15
+A1L69 = (state.START & ((sample_count[2]) # ((!sample_count[0]) # (!sample_count[1]))));
+
+
+--A1L70 is state~16
+A1L70 = (A1L66) # ((A1L68) # ((A1L69) # (!rx_tick)));
+
+
+--A1L61 is state.DONE~0
+A1L61 = (A1L70 & (state.DONE)) # (!A1L70 & ((state.SAMPLING)));
+
+
+--A1L71 is state~17
+A1L71 = (!rx_in & state.START);
+
+
+--A1L72 is state~18
+A1L72 = (rx_in & (!state.SAMPLING & !state.IDLE));
+
+
+--A1L73 is state~19
+A1L73 = (!A1L68 & (!A1L69 & (!A1L72 & rx_tick)));
+
+
+--A1L38 is sample_count[2]~0
+A1L38 = (sample_count[0] & (!sample_count[2] & (rx_in & state.START)));
+
+
+--A1L39 is sample_count[2]~1
+A1L39 = (rx_tick & (!state.DONE & ((!A1L38) # (!sample_count[1]))));
+
+
+--A1L40 is sample_count[2]~2
+A1L40 = (sample_count[1] & (sample_count[0] & (state.START & !sample_count[2])));
+
+
+--A1L33 is sample_count[0]~3
+A1L33 = (state.IDLE & (A1L39 & (!A1L51 & !A1L40)));
+
+
+--A1L1 is Add0~0
+A1L1 = (sample_count[1] & sample_count[0]);
+
+
+--A1L41 is sample_count[2]~4
+A1L41 = (sample_count[2] & (((A1L33 & !A1L1)) # (!A1L39))) # (!sample_count[2] & (A1L33 & (A1L1)));
+
+
+--A1L36 is sample_count[1]~5
+A1L36 = (sample_count[1] & (((A1L33 & !sample_count[0])) # (!A1L39))) # (!sample_count[1] & (A1L33 & (sample_count[0])));
+
+
+--A1L34 is sample_count[0]~6
+A1L34 = (sample_count[0] & ((!A1L39))) # (!sample_count[0] & (A1L33));
+
+
+--A1L74 is state~20
+A1L74 = (state.START & (!rx_in)) # (!state.START & ((!state.DONE)));
+
+
+--A1L7 is LessThan0~0
+A1L7 = ((!sample_count[0]) # (!sample_count[1])) # (!sample_count[2]);
+
+
+--A1L45 is Selector4~0
+A1L45 = (state.SAMPLING & (bit_count[1] $ (((A1L7 & bit_count[0])))));
+
+
+--A1L46 is Selector4~1
+A1L46 = (A1L45) # ((bit_count[1] & ((state.DONE) # (state.START))));
+
+
+--A1L42 is Selector3~0
+A1L42 = (A1L51 & (bit_count[1] & (bit_count[2] $ (bit_count[0]))));
+
+
+--A1L43 is Selector3~1
+A1L43 = (A1L42) # ((state.SAMPLING & (bit_count[2] & !A1L67)));
+
+
+--A1L44 is Selector3~2
+A1L44 = (A1L43) # ((bit_count[2] & ((state.DONE) # (state.START))));
+
+
+--A1L47 is Selector5~0
+A1L47 = (bit_count[0] & ((state.DONE) # (state.START)));
+
+
+--A1L48 is Selector5~1
+A1L48 = (A1L47) # ((state.SAMPLING & (A1L7 $ (bit_count[0]))));
+
+
+--A1L65 is state.START~0
+A1L65 = (state.START & (A1L70)) # (!state.START & (!A1L70 & (!state.DONE & !state.SAMPLING)));
+
+

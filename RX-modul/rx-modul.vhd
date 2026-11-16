@@ -104,6 +104,8 @@ begin
 								--Lagrer alle majoritetsbitene i shift_reg
 								shift_reg <= majority_set & shift_reg(7 downto 1);
 								
+								
+								
 								if bit_count = 7 then
 									bit_count <= 0;								
 									state <= PARITY_CHECK;
@@ -139,6 +141,9 @@ begin
 								samples_reg(sample_count) <= rx_in;
 								sample_count <= sample_count + 1;
 							end if;
+							
+						when WRONG =>
+							if 
 						
 							parity_bit_check <= shift_reg(0) xor shift_reg(1) xor shift_reg(2) xor shift_reg(3)
 													xor shift_reg(4) xor shift_reg(5) xor shift_reg(6) xor shift_reg(7);

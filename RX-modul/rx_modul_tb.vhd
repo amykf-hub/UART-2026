@@ -1,5 +1,5 @@
 ---------------------------------------------------------------------------------
--- Testbench of d4_pwm
+-- Testbench of RX modul
 ---------------------------------------------------------------------------------
 library ieee;
 use ieee.std_logic_1164.all;
@@ -9,64 +9,63 @@ entity rx_modul_tb is
 end rx_modul_tb;
 
 
-architecture SimulationModel of rx_modul is
+architecture SimulationModel of rx_modul_tb is
 
    -----------------------------------------------------------------------------
    -- Constant declaration
    -----------------------------------------------------------------------------
    constant c_ClkPer : time := 20 ns;      -- 50 MHz
 
-
-   -----------------------------------------------------------------------------
-   -- Component declarasion
-   -----------------------------------------------------------------------------
-   component rx_modul
-      port (
- 		clk 			: in std_logic;
-		rst 			: in std_logic;
-		rx_in 		: in std_logic;
-		rx_tick 		: in std_logic;
-		rx_data 		: out std_logic_vector(7 downto 0);
-		rx_done 		: out std_logic
-      );
-   end component rx_modul;
-
-
    -----------------------------------------------------------------------------
    -- Signal declaration
    -----------------------------------------------------------------------------
-   -- DUT signals
-   signal clk      : std_logic;
-   signal rst      : std_logic;
-	signal rx_in 	 : std_logic;
-	signal rx_tick  : std_logic;
-	signal rx_data  : std_logic_vector(7 downto 0) := "10010110";
-	signal rx_done  : std_logic;
-   signal rx_out	 : std_logic;  
+   --Signal for klokke
+   signal clk      : std_logic := '0';
+   signal rst      : std_logic := '0';
+	signal baud_sel : std_logic_vector (1 downto 0);
+	
+	--Signal fra baud_generator
+	signal rx_tick  : std_logic := '0';
+	signal tx_tick  : std_logic := '0';
+	
+	--Signal fra rx_modul
+	signal rx_in 	 	  : std_logic := '1';
+	signal rx_data  	  : std_logic_vector(7 downto 0);
+	signal rx_done  	  : std_logic;  
+	signal parity_wrong : std_logic_vector (1 downto 0);
 
 begin
 
    -----------------------------------------------------------------------------
    -- Component instantiations
    -----------------------------------------------------------------------------
-   i_d4_pwm: component d4_pwm
-    port map (
+ --Initialisering av baud_generator
+  baud_gen_init : entity work.baud_generator
+		generic map(
+			F_CLK 		=> 50_000_000,
+			OVERSAMPLE 	=> 8,
+		)
+		port map (
       clk       => clk,
       rst       => rst,
-		rx_in 	 => rx_in,
-		rx_tick	 => rx_tick,
-      rx_data   => rx_data,
-		rx_done 	 => rx_done,
-      rx_out 	 => rx_out
+		baud_sel  => baud_sel,
+		rx 		 => rx_tick,
+		tx 		 => tx_tick
+		);
+
+--Initialisering av rx-modul
+	rx_gen_init : entity work.rx_modul
+		clk          => clk,
+      rst          => rst,
+		rx_in 	    => rx_in,
+		rx_tick	    => rx_tick,
+      rx_data      => rx_data,
+		rx_done 	 	 => rx_done,
+		parity_wrong => parity_wrong
       );
 
 
-   -----------------------------------------------------------------------------
-   -- purpose: Generation of clock
-   -- type   : sequential
-   -- inputs : none
-   -- outputs: clk
-   -----------------------------------------------------------------------------
+--Klokke
    p_clk: process is
    begin  -- process p_clk
       clk <= '0';
@@ -76,12 +75,7 @@ begin
    end process p_clk;
 
 
-   -----------------------------------------------------------------------------
-   -- purpose: Generation of reset
-   -- type   : sequential
-   -- inputs : none
-   -- outputs: reset
-   -----------------------------------------------------------------------------
+--Reset
    p_rst: process is
    begin  -- process p_rst
       rst <= '0';
@@ -90,32 +84,64 @@ begin
       wait;
    end process p_rst;
 
-
-   -----------------------------------------------------------------------------
-   -- purpose: Main process
-   -- type   : sequential
-   -- inputs : 
-   -----------------------------------------------------------------------------
+--Hovedprosess
    p_main: process
+	procedure send_uart_byte(
+				 data_byte   : std_logic_vector(8 downto 0);
+				 bit_time    : time;
+				 parity_err  : boolean : '0';
+	) is
+	
+	variable v_parity := '0';
    begin
-      -- Initialize signals
-      rx_data  <= "10010110";
+		--parity
+		v_parity = '0';
+		for i in 0 to 7 loop
+			v_parity := v_parity xor data_byte(i);
+		end loop;
+		
+		if parity_err then 
+			v_parity := not v_parity;
+		end if;
+	
+	--start-bit
+		rx_in <= '0';
+		wait for bit_time;
+	--8-bits data
+		for i in 0 to 7 loop
+			rx_in <= data_byte(i);
+			wait for bit_time;
+		end loop;
+	--Paritet
+		rx_in <= v_parity;
+		wait for bit_time;
+	--stopp-bit
+		rx_in <= '1';
+		wait for bit_time;
+	end procedure;
+	
+	begin
+		wait until rst = '1';
+		wait for 100 ns;
+		
+--Tester ulike baudrates'
 
-      -- Initialize variables
-      -- Wait for falling edge after reset
-      wait until rst = '1';
-      wait until rising_edge(clk);
+		--Baudrate 9600
+		baud_sel := "00";
+		wait for 10 us;
 
-      -- Create data signal and check response
-      for i in 0 to 7 loop
-			rx_data <= std_logic_vector(to_unsigned(i, 8));
-			wait for 30 * c_ClkPer;
-      end loop;
+      send_uart_byte("00000001", time, parity_err);
+      wait for 200 us;
 
-      -- Terminate testbench
-      wait for 5 * c_ClkPer;
+		--Baudrate 115200
+		baud_sel := "11"
+		wait for 10 us;
+		
+		send_uart_byte("01010101", time, not parity_err);
+      wait for 200 us;
+		
+		--sim ferdig
       report "Simulering er ferdig!" severity note;
-		wait;
-   end process p_main;
-
+      wait;
+  end process p_main;
 end architecture SimulationModel;
