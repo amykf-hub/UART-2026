@@ -43,8 +43,9 @@ begin
   baud_gen_init : entity work.baud_generator
 		generic map(
 			F_CLK 		=> 50_000_000,
-			OVERSAMPLE 	=> 8,
+			OVERSAMPLE 	=> 8
 		)
+		
 		port map (
       clk       => clk,
       rst       => rst,
@@ -54,7 +55,8 @@ begin
 		);
 
 --Initialisering av rx-modul
-	rx_gen_init : entity work.rx_modul
+	rx_gen_init : entity work.rx_modul 
+		port map (
 		clk          => clk,
       rst          => rst,
 		rx_in 	    => rx_in,
@@ -87,15 +89,15 @@ begin
 --Hovedprosess
    p_main: process
 	procedure send_uart_byte(
-				 data_byte   : std_logic_vector(8 downto 0);
+				 data_byte   : std_logic_vector(7 downto 0);
 				 bit_time    : time;
-				 parity_err  : boolean : '0';
+				 parity_err  : boolean := false
 	) is
 	
-	variable v_parity := '0';
+		variable v_parity : std_logic := '0';
    begin
 		--parity
-		v_parity = '0';
+		v_parity := '0';
 		for i in 0 to 7 loop
 			v_parity := v_parity xor data_byte(i);
 		end loop;
@@ -130,14 +132,14 @@ begin
 		baud_sel := "00";
 		wait for 10 us;
 
-      send_uart_byte("00000001", time, parity_err);
+      send_uart_byte("00000001", 104 us, parity_err => false);
       wait for 200 us;
 
 		--Baudrate 115200
-		baud_sel := "11"
+		baud_sel := "11";
 		wait for 10 us;
 		
-		send_uart_byte("01010101", time, not parity_err);
+		send_uart_byte("01010101", 104 us, parity_err => true);
       wait for 200 us;
 		
 		--sim ferdig

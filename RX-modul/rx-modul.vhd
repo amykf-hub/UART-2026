@@ -143,10 +143,13 @@ begin
 							end if;
 							
 						when WRONG =>
-							if 
-						
-							parity_bit_check <= shift_reg(0) xor shift_reg(1) xor shift_reg(2) xor shift_reg(3)
-													xor shift_reg(4) xor shift_reg(5) xor shift_reg(6) xor shift_reg(7);
+							if parity_bit_check <= shift_reg(0) xor shift_reg(1) 
+																			xor shift_reg(2) 
+																			xor shift_reg(3)
+																			xor shift_reg(4) 
+																			xor shift_reg(5) 
+																			xor shift_reg(6) 
+																			xor shift_reg(7);
 													
 							if parity_bit_check = majority_set then
 								parity_wrong <= '0';
