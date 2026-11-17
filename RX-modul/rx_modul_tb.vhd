@@ -49,9 +49,9 @@ begin
 		port map (
       clk       => clk,
       rst       => rst,
-		baud_sel  => baud_sel,
-		rx 		 => rx_tick,
-		tx 		 => tx_tick
+		baud_sel  => baud_sel, --kommer fra baud.gen
+		rx 		 => rx_tick,  --rx kommer fra utgang av baud.gen 
+		tx 		 => tx_tick	  --tx kommer fra utgang av baud.gen
 		);
 
 --Initialisering av rx-modul
@@ -63,7 +63,7 @@ begin
 		rx_tick	    => rx_tick,
       rx_data      => rx_data,
 		rx_done 	 	 => rx_done,
-		parity_wrong => parity_wrong
+		parity_wrong => parity_wrong --mottar 1 fra RX-modul når feil oppdages
       );
 
 
