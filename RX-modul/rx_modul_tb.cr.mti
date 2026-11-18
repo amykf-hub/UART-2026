@@ -1,1 +1,13 @@
+{C:/Users/Amy Fiamingo/git/Projects/UART-2026/RX-modul/rx_modul_tb.vhd} {0 {vcom -work work -2002 -explicit -vopt -stats=none {C:/Users/Amy Fiamingo/git/Projects/UART-2026/RX-modul/rx_modul_tb.vhd}
+Questa Altera Starter FPGA Edition-64 vcom 2025.2 Compiler 2025.05 May 31 2025
+** Note: (vcom-220) 'C:/Users/Amy Fiamingo/git/Projects/UART-2026/RX-modul/rx_modul_tb.mpf' is used as the ini file.
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity rx_modul_tb
+-- Compiling architecture SimulationModel of rx_modul_tb
+** Error: C:/Users/Amy Fiamingo/git/Projects/UART-2026/RX-modul/rx_modul_tb.vhd(18): near "constand": (vcom-1576) expecting BEGIN.
+** Note: C:/Users/Amy Fiamingo/git/Projects/UART-2026/RX-modul/rx_modul_tb.vhd(18): VHDL Compiler exiting
 
+} {10.0 11.0} {}}

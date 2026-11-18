@@ -23,21 +23,15 @@ architecture RTL of rx_modul is
 	signal bit_count : integer range 0 to 7 := 0;
 	signal samples_reg: std_logic_vector(7 downto 0) := (others => '0');
 	signal shift_reg: std_logic_vector(7 downto 0) := (others => '0');
-	
-	signal store_bit : integer range 0 to 7 := 0;
-	
-	
 	signal buffer_counter : integer range 0 to 16 := 0;
 	signal buffer_full : std_logic;
-	
 
-	
 begin
 	p1_process: process(clk, rst)
 	
-		variable majority_check : integer range 0 to 5 := 0;
-		variable majority_set : std_logic;
-		variable parity_bit_check : std_logic;
+		variable majority_check 	: integer range 0 to 5 := 0;
+		variable majority_set 		: std_logic;
+		variable parity_bit_check  : std_logic;
 		
 	begin 
 	
@@ -208,11 +202,3 @@ begin
 		end if;
 	end process;
 end architecture RTL;	
-			
-		
-	
-	
-	
-	
-	
-	

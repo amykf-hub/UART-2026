@@ -1,5 +1,5 @@
 Analysis & Synthesis report for rx-modul
-Tue Nov 17 10:44:06 2026
+Wed Nov 18 11:42:06 2026
 Quartus Prime Version 25.1std.0 Build 1129 10/21/2025 SC Lite Edition
 
 
@@ -37,7 +37,7 @@ on the Quartus Prime software download page.
 +--------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status        ; Failed - Tue Nov 17 10:44:06 2026               ;
+; Analysis & Synthesis Status        ; Failed - Wed Nov 18 11:42:06 2026               ;
 ; Quartus Prime Version              ; 25.1std.0 Build 1129 10/21/2025 SC Lite Edition ;
 ; Revision Name                      ; rx-modul                                        ;
 ; Top-level Entity Name              ; rx_modul                                        ;
@@ -164,19 +164,21 @@ on the Quartus Prime software download page.
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 25.1std.0 Build 1129 10/21/2025 SC Lite Edition
-    Info: Processing started: Tue Nov 17 10:43:55 2026
+    Info: Processing started: Wed Nov 18 11:42:01 2026
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off rx-modul -c rx-modul
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 10 of the 10 processors detected
-Error (10500): VHDL syntax error at rx-modul.vhd(152) near text ";";  expecting "then" File: C:/Users/Amy Fiamingo/git/Projects/UART-2026/RX-modul/rx-modul.vhd Line: 152
-Info (12021): Found 0 design units, including 0 entities, in source file rx-modul.vhd
+Info (12021): Found 2 design units, including 1 entities, in source file rx-modul.vhd
+    Info (12022): Found design unit 1: rx_modul-RTL File: C:/Users/Amy Fiamingo/git/Projects/UART-2026/RX-modul/rx-modul.vhd Line: 18
+    Info (12023): Found entity 1: rx_modul File: C:/Users/Amy Fiamingo/git/Projects/UART-2026/RX-modul/rx-modul.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file rx_modul_tb.vhd
     Info (12022): Found design unit 1: rx_modul_tb-SimulationModel File: C:/Users/Amy Fiamingo/git/Projects/UART-2026/RX-modul/rx_modul_tb.vhd Line: 12
     Info (12023): Found entity 1: rx_modul_tb File: C:/Users/Amy Fiamingo/git/Projects/UART-2026/RX-modul/rx_modul_tb.vhd Line: 8
+Error (10481): VHDL Use Clause error at rx_modul_tb.vhd(55): design library "work" does not contain primary unit "baud_generator". Verify that the primary unit exists in the library and has been successfully compiled. File: C:/Users/Amy Fiamingo/git/Projects/UART-2026/RX-modul/rx_modul_tb.vhd Line: 55
 Error: Quartus Prime Analysis & Synthesis was unsuccessful. 1 error, 1 warning
     Error: Peak virtual memory: 4808 megabytes
-    Error: Processing ended: Tue Nov 17 10:44:06 2026
-    Error: Elapsed time: 00:00:11
-    Error: Total CPU time (on all processors): 00:00:26
+    Error: Processing ended: Wed Nov 18 11:42:06 2026
+    Error: Elapsed time: 00:00:05
+    Error: Total CPU time (on all processors): 00:00:13
 
 
