@@ -12,394 +12,2379 @@
 -- Altera and sold by Altera or its authorized distributors.  Please
 -- refer to the Altera Software License Subscription Agreements 
 -- on the Quartus Prime software download page.
---A1L18Q is rx_data[0]~reg0 at FF_X14_Y22_N9
+--buffer_counter[4] is buffer_counter[4] at FF_X27_Y15_N27
 --register power-up is low
 
-A1L18Q = DFFEAS( , GLOBAL(A1L9), GLOBAL(A1L13),  , A1L16, shift_reg[0],  ,  , VCC);
+buffer_counter[4] = DFFEAS(A1L20, GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43,  ,  ,  ,  );
 
 
---A1L21Q is rx_data[1]~reg0 at FF_X14_Y22_N23
+--buffer_counter[3] is buffer_counter[3] at FF_X27_Y15_N25
 --register power-up is low
 
-A1L21Q = DFFEAS( , GLOBAL(A1L9), GLOBAL(A1L13),  , A1L16, shift_reg[1],  ,  , VCC);
+buffer_counter[3] = DFFEAS(A1L17, GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43,  ,  ,  ,  );
 
 
---A1L24Q is rx_data[2]~reg0 at FF_X14_Y22_N15
+--buffer_counter[2] is buffer_counter[2] at FF_X27_Y15_N23
 --register power-up is low
 
-A1L24Q = DFFEAS(A1L25, GLOBAL(A1L9), GLOBAL(A1L13),  , A1L16,  ,  ,  ,  );
+buffer_counter[2] = DFFEAS(A1L14, GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43,  ,  ,  ,  );
 
 
---A1L28Q is rx_data[3]~reg0 at FF_X14_Y22_N19
+--buffer_counter[1] is buffer_counter[1] at FF_X27_Y15_N21
 --register power-up is low
 
-A1L28Q = DFFEAS(A1L29, GLOBAL(A1L9), GLOBAL(A1L13),  , A1L16,  ,  ,  ,  );
+buffer_counter[1] = DFFEAS(A1L11, GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43,  ,  ,  ,  );
 
 
---A1L32Q is rx_data[4]~reg0 at FF_X14_Y22_N31
+--A1L11 is buffer_counter[1]~4 at LCCOMB_X27_Y15_N20
+A1L11 = (buffer_counter[0] & (buffer_counter[1] $ (VCC))) # (!buffer_counter[0] & (buffer_counter[1] & VCC));
+
+--A1L12 is buffer_counter[1]~5 at LCCOMB_X27_Y15_N20
+A1L12 = CARRY((buffer_counter[0] & buffer_counter[1]));
+
+
+--A1L14 is buffer_counter[2]~6 at LCCOMB_X27_Y15_N22
+A1L14 = (buffer_counter[2] & (!A1L12)) # (!buffer_counter[2] & ((A1L12) # (GND)));
+
+--A1L15 is buffer_counter[2]~7 at LCCOMB_X27_Y15_N22
+A1L15 = CARRY((!A1L12) # (!buffer_counter[2]));
+
+
+--A1L17 is buffer_counter[3]~8 at LCCOMB_X27_Y15_N24
+A1L17 = (buffer_counter[3] & (A1L15 $ (GND))) # (!buffer_counter[3] & (!A1L15 & VCC));
+
+--A1L18 is buffer_counter[3]~9 at LCCOMB_X27_Y15_N24
+A1L18 = CARRY((buffer_counter[3] & !A1L15));
+
+
+--A1L20 is buffer_counter[4]~10 at LCCOMB_X27_Y15_N26
+A1L20 = buffer_counter[4] $ (A1L18);
+
+
+--A1L522Q is rx_data[0]~reg0 at FF_X20_Y15_N29
 --register power-up is low
 
-A1L32Q = DFFEAS(A1L33, GLOBAL(A1L9), GLOBAL(A1L13),  , A1L16,  ,  ,  ,  );
+A1L522Q = DFFEAS( , GLOBAL(A1L24), GLOBAL(A1L40),  , A1L520, shift_reg[0],  ,  , VCC);
 
 
---A1L36Q is rx_data[5]~reg0 at FF_X14_Y22_N27
+--A1L525Q is rx_data[1]~reg0 at FF_X25_Y15_N1
 --register power-up is low
 
-A1L36Q = DFFEAS(A1L37, GLOBAL(A1L9), GLOBAL(A1L13),  , A1L16,  ,  ,  ,  );
+A1L525Q = DFFEAS(A1L526, GLOBAL(A1L24), GLOBAL(A1L40),  , A1L520,  ,  ,  ,  );
 
 
---A1L40Q is rx_data[6]~reg0 at FF_X14_Y22_N29
+--A1L529Q is rx_data[2]~reg0 at FF_X25_Y15_N23
 --register power-up is low
 
-A1L40Q = DFFEAS( , GLOBAL(A1L9), GLOBAL(A1L13),  , A1L16, shift_reg[6],  ,  , VCC);
+A1L529Q = DFFEAS(A1L530, GLOBAL(A1L24), GLOBAL(A1L40),  , A1L520,  ,  ,  ,  );
 
 
---A1L43Q is rx_data[7]~reg0 at FF_X14_Y22_N7
+--A1L533Q is rx_data[3]~reg0 at FF_X25_Y15_N13
 --register power-up is low
 
-A1L43Q = DFFEAS(A1L44, GLOBAL(A1L9), GLOBAL(A1L13),  , A1L16,  ,  ,  ,  );
+A1L533Q = DFFEAS( , GLOBAL(A1L24), GLOBAL(A1L40),  , A1L520, shift_reg[3],  ,  , VCC);
 
 
---A1L47Q is rx_done~reg0 at FF_X13_Y22_N25
+--A1L536Q is rx_data[4]~reg0 at FF_X20_Y15_N19
 --register power-up is low
 
-A1L47Q = DFFEAS(A1L48, GLOBAL(A1L9), GLOBAL(A1L13),  ,  ,  ,  ,  ,  );
+A1L536Q = DFFEAS(A1L537, GLOBAL(A1L24), GLOBAL(A1L40),  , A1L520,  ,  ,  ,  );
 
 
---shift_reg[0] is shift_reg[0] at FF_X14_Y22_N21
+--A1L540Q is rx_data[5]~reg0 at FF_X20_Y15_N17
 --register power-up is low
 
-shift_reg[0] = DFFEAS( , GLOBAL(A1L9), GLOBAL(A1L13),  , A1L74, shift_reg[1],  ,  , VCC);
+A1L540Q = DFFEAS(A1L541, GLOBAL(A1L24), GLOBAL(A1L40),  , A1L520,  ,  ,  ,  );
 
 
---state.DONE is state.DONE at FF_X16_Y22_N17
+--A1L544Q is rx_data[6]~reg0 at FF_X20_Y15_N27
 --register power-up is low
 
-state.DONE = DFFEAS(A1L88, GLOBAL(A1L9), GLOBAL(A1L13),  ,  ,  ,  ,  ,  );
+A1L544Q = DFFEAS( , GLOBAL(A1L24), GLOBAL(A1L40),  , A1L520, shift_reg[6],  ,  , VCC);
 
 
---A1L16 is rx_data[0]~0 at LCCOMB_X14_Y22_N28
-A1L16 = (A1L52 & state.DONE);
-
-
---shift_reg[1] is shift_reg[1] at FF_X14_Y22_N5
+--A1L547Q is rx_data[7]~reg0 at FF_X25_Y15_N27
 --register power-up is low
 
-shift_reg[1] = DFFEAS(A1L76, GLOBAL(A1L9), GLOBAL(A1L13),  , A1L74,  ,  ,  ,  );
+A1L547Q = DFFEAS( , GLOBAL(A1L24), GLOBAL(A1L40),  , A1L520, shift_reg[7],  ,  , VCC);
 
 
---shift_reg[2] is shift_reg[2] at FF_X14_Y22_N11
+--A1L550Q is rx_done~reg0 at FF_X22_Y15_N13
 --register power-up is low
 
-shift_reg[2] = DFFEAS(A1L78, GLOBAL(A1L9), GLOBAL(A1L13),  , A1L74,  ,  ,  ,  );
+A1L550Q = DFFEAS( , GLOBAL(A1L24), GLOBAL(A1L40),  ,  , A1L520,  ,  , VCC);
 
 
---shift_reg[3] is shift_reg[3] at FF_X14_Y22_N3
+--A1L45Q is rx_buffer[0]~reg0 at FF_X18_Y15_N17
 --register power-up is low
 
-shift_reg[3] = DFFEAS(A1L80, GLOBAL(A1L9), GLOBAL(A1L13),  , A1L74,  ,  ,  ,  );
+A1L45Q = DFFEAS( , GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43, A1L74Q,  ,  , VCC);
 
 
---shift_reg[4] is shift_reg[4] at FF_X14_Y22_N13
+--A1L48Q is rx_buffer[1]~reg0 at FF_X29_Y11_N1
 --register power-up is low
 
-shift_reg[4] = DFFEAS(A1L82, GLOBAL(A1L9), GLOBAL(A1L13),  , A1L74,  ,  ,  ,  );
+A1L48Q = DFFEAS( , GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43, A1L78Q,  ,  , VCC);
 
 
---shift_reg[5] is shift_reg[5] at FF_X14_Y22_N17
+--A1L51Q is rx_buffer[2]~reg0 at FF_X28_Y21_N5
 --register power-up is low
 
-shift_reg[5] = DFFEAS( , GLOBAL(A1L9), GLOBAL(A1L13),  , A1L74, shift_reg[6],  ,  , VCC);
+A1L51Q = DFFEAS(A1L52, GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43,  ,  ,  ,  );
 
 
---shift_reg[6] is shift_reg[6] at FF_X14_Y22_N25
+--A1L55Q is rx_buffer[3]~reg0 at FF_X30_Y17_N13
 --register power-up is low
 
-shift_reg[6] = DFFEAS(A1L85, GLOBAL(A1L9), GLOBAL(A1L13),  , A1L74,  ,  ,  ,  );
+A1L55Q = DFFEAS(A1L56, GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43,  ,  ,  ,  );
 
 
---shift_reg[7] is shift_reg[7] at FF_X14_Y22_N1
+--A1L59Q is rx_buffer[4]~reg0 at FF_X28_Y15_N9
 --register power-up is low
 
-shift_reg[7] = DFFEAS( , GLOBAL(A1L9), GLOBAL(A1L13),  , A1L74, A1L50,  ,  , VCC);
+A1L59Q = DFFEAS(A1L60, GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43,  ,  ,  ,  );
 
 
---state.SAMPLING is state.SAMPLING at FF_X16_Y22_N27
+--A1L63Q is rx_buffer[5]~reg0 at FF_X25_Y13_N1
 --register power-up is low
 
-state.SAMPLING = DFFEAS(A1L98, GLOBAL(A1L9), GLOBAL(A1L13),  , A1L100,  ,  ,  ,  );
+A1L63Q = DFFEAS(A1L64, GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43,  ,  ,  ,  );
 
 
---sample_count[2] is sample_count[2] at FF_X15_Y22_N9
+--A1L67Q is rx_buffer[6]~reg0 at FF_X19_Y15_N9
 --register power-up is low
 
-sample_count[2] = DFFEAS(A1L63, GLOBAL(A1L9), GLOBAL(A1L13),  ,  ,  ,  ,  ,  );
+A1L67Q = DFFEAS( , GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43, A1L98Q,  ,  , VCC);
 
 
---sample_count[1] is sample_count[1] at FF_X15_Y22_N7
+--A1L70Q is rx_buffer[7]~reg0 at FF_X25_Y15_N25
 --register power-up is low
 
-sample_count[1] = DFFEAS(A1L58, GLOBAL(A1L9), GLOBAL(A1L13),  ,  ,  ,  ,  ,  );
+A1L70Q = DFFEAS(A1L71, GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43,  ,  ,  ,  );
 
 
---sample_count[0] is sample_count[0] at FF_X15_Y22_N17
+--A1L74Q is rx_buffer[8]~reg0 at FF_X18_Y15_N27
 --register power-up is low
 
-sample_count[0] = DFFEAS(A1L56, GLOBAL(A1L9), GLOBAL(A1L13),  ,  ,  ,  ,  ,  );
+A1L74Q = DFFEAS(A1L75, GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43,  ,  ,  ,  );
 
 
---A1L73 is shift_reg[0]~0 at LCCOMB_X15_Y22_N2
-A1L73 = (state.SAMPLING & (((!sample_count[2]) # (!sample_count[0])) # (!sample_count[1])));
-
-
---A1L74 is shift_reg[0]~1 at LCCOMB_X14_Y22_N20
-A1L74 = (A1L52 & A1L73);
-
-
---state.IDLE is state.IDLE at FF_X16_Y22_N25
+--A1L78Q is rx_buffer[9]~reg0 at FF_X29_Y11_N31
 --register power-up is low
 
-state.IDLE = DFFEAS(A1L101, GLOBAL(A1L9), GLOBAL(A1L13),  , A1L100,  ,  ,  ,  );
+A1L78Q = DFFEAS(A1L79, GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43,  ,  ,  ,  );
 
 
---A1L93 is state~12 at LCCOMB_X16_Y22_N30
-A1L93 = (A1L50 & !state.IDLE);
-
-
---bit_count[1] is bit_count[1] at FF_X15_Y22_N5
+--A1L82Q is rx_buffer[10]~reg0 at FF_X28_Y21_N3
 --register power-up is low
 
-bit_count[1] = DFFEAS(A1L68, GLOBAL(A1L9), GLOBAL(A1L13),  , A1L52,  ,  ,  ,  );
+A1L82Q = DFFEAS(A1L83, GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43,  ,  ,  ,  );
 
 
---A1L94 is state~13 at LCCOMB_X15_Y22_N14
-A1L94 = (bit_count[1] & (((!sample_count[0]) # (!sample_count[2])) # (!sample_count[1])));
-
-
---bit_count[2] is bit_count[2] at FF_X15_Y22_N25
+--A1L86Q is rx_buffer[11]~reg0 at FF_X30_Y17_N7
 --register power-up is low
 
-bit_count[2] = DFFEAS(A1L66, GLOBAL(A1L9), GLOBAL(A1L13),  , A1L52,  ,  ,  ,  );
+A1L86Q = DFFEAS(A1L87, GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43,  ,  ,  ,  );
 
 
---bit_count[0] is bit_count[0] at FF_X15_Y22_N23
+--A1L90Q is rx_buffer[12]~reg0 at FF_X28_Y15_N7
 --register power-up is low
 
-bit_count[0] = DFFEAS(A1L70, GLOBAL(A1L9), GLOBAL(A1L13),  , A1L52,  ,  ,  ,  );
+A1L90Q = DFFEAS(A1L91, GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43,  ,  ,  ,  );
 
 
---A1L95 is state~14 at LCCOMB_X16_Y22_N20
-A1L95 = (state.SAMPLING & (((!A1L94) # (!bit_count[0])) # (!bit_count[2])));
-
-
---state.START is state.START at FF_X16_Y22_N23
+--A1L94Q is rx_buffer[13]~reg0 at FF_X25_Y13_N3
 --register power-up is low
 
-state.START = DFFEAS(A1L92, GLOBAL(A1L9), GLOBAL(A1L13),  ,  ,  ,  ,  ,  );
+A1L94Q = DFFEAS(A1L95, GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43,  ,  ,  ,  );
 
 
---A1L96 is state~15 at LCCOMB_X16_Y22_N4
-A1L96 = (state.START & ((sample_count[2]) # ((!sample_count[0]) # (!sample_count[1]))));
+--A1L98Q is rx_buffer[14]~reg0 at FF_X19_Y15_N15
+--register power-up is low
+
+A1L98Q = DFFEAS(A1L99, GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43,  ,  ,  ,  );
 
 
---A1L97 is state~16 at LCCOMB_X16_Y22_N18
-A1L97 = ((A1L96) # ((A1L93) # (A1L95))) # (!A1L52);
+--A1L102Q is rx_buffer[15]~reg0 at FF_X20_Y15_N21
+--register power-up is low
+
+A1L102Q = DFFEAS(A1L103, GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43,  ,  ,  ,  );
 
 
---A1L88 is state.DONE~0 at LCCOMB_X16_Y22_N16
-A1L88 = (A1L97 & ((state.DONE))) # (!A1L97 & (state.SAMPLING));
+--A1L106Q is rx_buffer[16]~reg0 at FF_X18_Y15_N21
+--register power-up is low
+
+A1L106Q = DFFEAS(A1L107, GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43,  ,  ,  ,  );
 
 
---A1L98 is state~17 at LCCOMB_X16_Y22_N26
-A1L98 = (state.START & !A1L50);
+--A1L110Q is rx_buffer[17]~reg0 at FF_X29_Y11_N25
+--register power-up is low
+
+A1L110Q = DFFEAS( , GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43, A1L137Q,  ,  , VCC);
 
 
---A1L99 is state~18 at LCCOMB_X16_Y22_N8
-A1L99 = (A1L50 & (!state.SAMPLING & !state.IDLE));
+--A1L113Q is rx_buffer[18]~reg0 at FF_X28_Y21_N29
+--register power-up is low
+
+A1L113Q = DFFEAS( , GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43, A1L141Q,  ,  , VCC);
 
 
---A1L100 is state~19 at LCCOMB_X16_Y22_N14
-A1L100 = (A1L52 & (!A1L99 & (!A1L96 & !A1L95)));
+--A1L116Q is rx_buffer[19]~reg0 at FF_X30_Y17_N17
+--register power-up is low
+
+A1L116Q = DFFEAS(A1L117, GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43,  ,  ,  ,  );
 
 
---A1L60 is sample_count[2]~0 at LCCOMB_X16_Y22_N28
-A1L60 = (state.START & (A1L50 & (sample_count[0] & !sample_count[2])));
+--A1L120Q is rx_buffer[20]~reg0 at FF_X28_Y15_N1
+--register power-up is low
+
+A1L120Q = DFFEAS(A1L121, GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43,  ,  ,  ,  );
 
 
---A1L61 is sample_count[2]~1 at LCCOMB_X16_Y22_N2
-A1L61 = (A1L52 & (!state.DONE & ((!A1L60) # (!sample_count[1]))));
+--A1L124Q is rx_buffer[21]~reg0 at FF_X27_Y17_N1
+--register power-up is low
+
+A1L124Q = DFFEAS( , GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43, A1L153Q,  ,  , VCC);
 
 
---A1L62 is sample_count[2]~2 at LCCOMB_X15_Y22_N12
-A1L62 = (!sample_count[2] & (sample_count[0] & (sample_count[1] & state.START)));
+--A1L127Q is rx_buffer[22]~reg0 at FF_X19_Y15_N29
+--register power-up is low
+
+A1L127Q = DFFEAS( , GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43, A1L157Q,  ,  , VCC);
 
 
---A1L55 is sample_count[0]~3 at LCCOMB_X15_Y22_N18
-A1L55 = (state.IDLE & (!A1L73 & (!A1L62 & A1L61)));
+--A1L130Q is rx_buffer[23]~reg0 at FF_X20_Y15_N3
+--register power-up is low
+
+A1L130Q = DFFEAS(A1L131, GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43,  ,  ,  ,  );
 
 
---A1L1 is Add0~0 at LCCOMB_X15_Y22_N28
-A1L1 = (sample_count[1] & sample_count[0]);
+--A1L134Q is rx_buffer[24]~reg0 at FF_X18_Y15_N3
+--register power-up is low
+
+A1L134Q = DFFEAS( , GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43, A1L165Q,  ,  , VCC);
 
 
---A1L63 is sample_count[2]~4 at LCCOMB_X15_Y22_N8
-A1L63 = (sample_count[2] & (((!A1L1 & A1L55)) # (!A1L61))) # (!sample_count[2] & (((A1L1 & A1L55))));
+--A1L137Q is rx_buffer[25]~reg0 at FF_X29_Y11_N23
+--register power-up is low
+
+A1L137Q = DFFEAS(A1L138, GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43,  ,  ,  ,  );
 
 
---A1L58 is sample_count[1]~5 at LCCOMB_X15_Y22_N6
-A1L58 = (sample_count[1] & (((!sample_count[0] & A1L55)) # (!A1L61))) # (!sample_count[1] & (((sample_count[0] & A1L55))));
+--A1L141Q is rx_buffer[26]~reg0 at FF_X28_Y21_N23
+--register power-up is low
+
+A1L141Q = DFFEAS(A1L142, GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43,  ,  ,  ,  );
 
 
---A1L56 is sample_count[0]~6 at LCCOMB_X15_Y22_N16
-A1L56 = (sample_count[0] & (!A1L61)) # (!sample_count[0] & ((A1L55)));
+--A1L145Q is rx_buffer[27]~reg0 at FF_X30_Y17_N3
+--register power-up is low
+
+A1L145Q = DFFEAS(A1L146, GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43,  ,  ,  ,  );
 
 
---A1L101 is state~20 at LCCOMB_X16_Y22_N24
-A1L101 = (state.START & (!A1L50)) # (!state.START & ((!state.DONE)));
+--A1L149Q is rx_buffer[28]~reg0 at FF_X28_Y15_N3
+--register power-up is low
+
+A1L149Q = DFFEAS(A1L150, GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43,  ,  ,  ,  );
 
 
---A1L10 is LessThan0~0 at LCCOMB_X15_Y22_N30
-A1L10 = ((!sample_count[0]) # (!sample_count[2])) # (!sample_count[1]);
+--A1L153Q is rx_buffer[29]~reg0 at FF_X24_Y17_N25
+--register power-up is low
+
+A1L153Q = DFFEAS(A1L154, GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43,  ,  ,  ,  );
 
 
---A1L67 is Selector4~0 at LCCOMB_X15_Y22_N0
-A1L67 = (state.SAMPLING & (bit_count[1] $ (((bit_count[0] & A1L10)))));
+--A1L157Q is rx_buffer[30]~reg0 at FF_X19_Y15_N23
+--register power-up is low
+
+A1L157Q = DFFEAS(A1L158, GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43,  ,  ,  ,  );
 
 
---A1L68 is Selector4~1 at LCCOMB_X15_Y22_N4
-A1L68 = (A1L67) # ((bit_count[1] & ((state.DONE) # (state.START))));
+--A1L161Q is rx_buffer[31]~reg0 at FF_X20_Y15_N13
+--register power-up is low
+
+A1L161Q = DFFEAS(A1L162, GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43,  ,  ,  ,  );
 
 
---A1L64 is Selector3~0 at LCCOMB_X15_Y22_N10
-A1L64 = (bit_count[1] & (A1L73 & (bit_count[0] $ (bit_count[2]))));
+--A1L165Q is rx_buffer[32]~reg0 at FF_X18_Y15_N9
+--register power-up is low
+
+A1L165Q = DFFEAS(A1L166, GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43,  ,  ,  ,  );
 
 
---A1L65 is Selector3~1 at LCCOMB_X15_Y22_N20
-A1L65 = (A1L64) # ((bit_count[2] & (state.SAMPLING & !A1L94)));
+--A1L169Q is rx_buffer[33]~reg0 at FF_X29_Y11_N17
+--register power-up is low
+
+A1L169Q = DFFEAS( , GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43, A1L198Q,  ,  , VCC);
 
 
---A1L66 is Selector3~2 at LCCOMB_X15_Y22_N24
-A1L66 = (A1L65) # ((bit_count[2] & ((state.DONE) # (state.START))));
+--A1L172Q is rx_buffer[34]~reg0 at FF_X28_Y21_N25
+--register power-up is low
+
+A1L172Q = DFFEAS( , GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43, A1L202Q,  ,  , VCC);
 
 
---A1L69 is Selector5~0 at LCCOMB_X15_Y22_N26
-A1L69 = (bit_count[0] & ((state.DONE) # (state.START)));
+--A1L175Q is rx_buffer[35]~reg0 at FF_X30_Y17_N1
+--register power-up is low
+
+A1L175Q = DFFEAS(A1L176, GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43,  ,  ,  ,  );
 
 
---A1L70 is Selector5~1 at LCCOMB_X15_Y22_N22
-A1L70 = (A1L69) # ((state.SAMPLING & (A1L10 $ (bit_count[0]))));
+--A1L179Q is rx_buffer[36]~reg0 at FF_X28_Y15_N25
+--register power-up is low
+
+A1L179Q = DFFEAS( , GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43, A1L209Q,  ,  , VCC);
 
 
---A1L92 is state.START~0 at LCCOMB_X16_Y22_N22
-A1L92 = (state.START & (((A1L97)))) # (!state.START & (!state.SAMPLING & (!state.DONE & !A1L97)));
+--A1L182Q is rx_buffer[37]~reg0 at FF_X27_Y15_N5
+--register power-up is low
+
+A1L182Q = DFFEAS(A1L183, GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43,  ,  ,  ,  );
 
 
---A1L17 is rx_data[0]~output at IOOBUF_X13_Y25_N16
-A1L17 = OUTPUT_BUFFER.O(.I(A1L18Q), , , , , , , , , , , , , , , , , );
+--A1L186Q is rx_buffer[38]~reg0 at FF_X19_Y15_N17
+--register power-up is low
+
+A1L186Q = DFFEAS(A1L187, GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43,  ,  ,  ,  );
 
 
---rx_data[0] is rx_data[0] at PIN_E9
+--A1L190Q is rx_buffer[39]~reg0 at FF_X25_Y15_N3
+--register power-up is low
+
+A1L190Q = DFFEAS(A1L191, GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43,  ,  ,  ,  );
+
+
+--A1L194Q is rx_buffer[40]~reg0 at FF_X18_Y15_N19
+--register power-up is low
+
+A1L194Q = DFFEAS(A1L195, GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43,  ,  ,  ,  );
+
+
+--A1L198Q is rx_buffer[41]~reg0 at FF_X29_Y11_N15
+--register power-up is low
+
+A1L198Q = DFFEAS(A1L199, GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43,  ,  ,  ,  );
+
+
+--A1L202Q is rx_buffer[42]~reg0 at FF_X28_Y21_N15
+--register power-up is low
+
+A1L202Q = DFFEAS(A1L203, GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43,  ,  ,  ,  );
+
+
+--A1L206Q is rx_buffer[43]~reg0 at FF_X30_Y17_N19
+--register power-up is low
+
+A1L206Q = DFFEAS( , GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43, A1L236Q,  ,  , VCC);
+
+
+--A1L209Q is rx_buffer[44]~reg0 at FF_X28_Y15_N15
+--register power-up is low
+
+A1L209Q = DFFEAS(A1L210, GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43,  ,  ,  ,  );
+
+
+--A1L213Q is rx_buffer[45]~reg0 at FF_X27_Y17_N15
+--register power-up is low
+
+A1L213Q = DFFEAS(A1L214, GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43,  ,  ,  ,  );
+
+
+--A1L217Q is rx_buffer[46]~reg0 at FF_X19_Y15_N3
+--register power-up is low
+
+A1L217Q = DFFEAS(A1L218, GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43,  ,  ,  ,  );
+
+
+--A1L221Q is rx_buffer[47]~reg0 at FF_X27_Y14_N1
+--register power-up is low
+
+A1L221Q = DFFEAS(A1L222, GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43,  ,  ,  ,  );
+
+
+--A1L225Q is rx_buffer[48]~reg0 at FF_X18_Y15_N1
+--register power-up is low
+
+A1L225Q = DFFEAS(A1L226, GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43,  ,  ,  ,  );
+
+
+--A1L229Q is rx_buffer[49]~reg0 at FF_X29_Y11_N21
+--register power-up is low
+
+A1L229Q = DFFEAS( , GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43, A1L258Q,  ,  , VCC);
+
+
+--A1L232Q is rx_buffer[50]~reg0 at FF_X28_Y21_N1
+--register power-up is low
+
+A1L232Q = DFFEAS(A1L233, GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43,  ,  ,  ,  );
+
+
+--A1L236Q is rx_buffer[51]~reg0 at FF_X30_Y17_N5
+--register power-up is low
+
+A1L236Q = DFFEAS( , GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43, A1L265Q,  ,  , VCC);
+
+
+--A1L239Q is rx_buffer[52]~reg0 at FF_X28_Y15_N21
+--register power-up is low
+
+A1L239Q = DFFEAS(A1L240, GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43,  ,  ,  ,  );
+
+
+--A1L243Q is rx_buffer[53]~reg0 at FF_X27_Y17_N13
+--register power-up is low
+
+A1L243Q = DFFEAS(A1L244, GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43,  ,  ,  ,  );
+
+
+--A1L247Q is rx_buffer[54]~reg0 at FF_X19_Y15_N1
+--register power-up is low
+
+A1L247Q = DFFEAS( , GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43, A1L276Q,  ,  , VCC);
+
+
+--A1L250Q is rx_buffer[55]~reg0 at FF_X27_Y14_N19
+--register power-up is low
+
+A1L250Q = DFFEAS(A1L251, GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43,  ,  ,  ,  );
+
+
+--A1L254Q is rx_buffer[56]~reg0 at FF_X18_Y15_N7
+--register power-up is low
+
+A1L254Q = DFFEAS(A1L255, GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43,  ,  ,  ,  );
+
+
+--A1L258Q is rx_buffer[57]~reg0 at FF_X29_Y11_N27
+--register power-up is low
+
+A1L258Q = DFFEAS(A1L259, GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43,  ,  ,  ,  );
+
+
+--A1L262Q is rx_buffer[58]~reg0 at FF_X28_Y21_N7
+--register power-up is low
+
+A1L262Q = DFFEAS( , GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43, A1L291Q,  ,  , VCC);
+
+
+--A1L265Q is rx_buffer[59]~reg0 at FF_X30_Y17_N15
+--register power-up is low
+
+A1L265Q = DFFEAS(A1L266, GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43,  ,  ,  ,  );
+
+
+--A1L269Q is rx_buffer[60]~reg0 at FF_X28_Y15_N19
+--register power-up is low
+
+A1L269Q = DFFEAS( , GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43, A1L297Q,  ,  , VCC);
+
+
+--A1L272Q is rx_buffer[61]~reg0 at FF_X27_Y17_N11
+--register power-up is low
+
+A1L272Q = DFFEAS(A1L273, GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43,  ,  ,  ,  );
+
+
+--A1L276Q is rx_buffer[62]~reg0 at FF_X19_Y15_N31
+--register power-up is low
+
+A1L276Q = DFFEAS(A1L277, GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43,  ,  ,  ,  );
+
+
+--A1L280Q is rx_buffer[63]~reg0 at FF_X25_Y15_N29
+--register power-up is low
+
+A1L280Q = DFFEAS(A1L281, GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43,  ,  ,  ,  );
+
+
+--A1L284Q is rx_buffer[64]~reg0 at FF_X18_Y15_N13
+--register power-up is low
+
+A1L284Q = DFFEAS( , GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43, A1L311Q,  ,  , VCC);
+
+
+--A1L287Q is rx_buffer[65]~reg0 at FF_X29_Y11_N29
+--register power-up is low
+
+A1L287Q = DFFEAS(A1L288, GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43,  ,  ,  ,  );
+
+
+--A1L291Q is rx_buffer[66]~reg0 at FF_X28_Y21_N9
+--register power-up is low
+
+A1L291Q = DFFEAS( , GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43, A1L318Q,  ,  , VCC);
+
+
+--A1L294Q is rx_buffer[67]~reg0 at FF_X30_Y17_N25
+--register power-up is low
+
+A1L294Q = DFFEAS( , GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43, A1L322Q,  ,  , VCC);
+
+
+--A1L297Q is rx_buffer[68]~reg0 at FF_X28_Y15_N5
+--register power-up is low
+
+A1L297Q = DFFEAS( , GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43, A1L326Q,  ,  , VCC);
+
+
+--A1L300Q is rx_buffer[69]~reg0 at FF_X25_Y13_N25
+--register power-up is low
+
+A1L300Q = DFFEAS(A1L301, GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43,  ,  ,  ,  );
+
+
+--A1L304Q is rx_buffer[70]~reg0 at FF_X19_Y15_N25
+--register power-up is low
+
+A1L304Q = DFFEAS(A1L305, GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43,  ,  ,  ,  );
+
+
+--A1L308Q is rx_buffer[71]~reg0 at FF_X24_Y14_N17
+--register power-up is low
+
+A1L308Q = DFFEAS( , GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43, A1L338Q,  ,  , VCC);
+
+
+--A1L311Q is rx_buffer[72]~reg0 at FF_X18_Y15_N23
+--register power-up is low
+
+A1L311Q = DFFEAS( , GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43, A1L342Q,  ,  , VCC);
+
+
+--A1L314Q is rx_buffer[73]~reg0 at FF_X29_Y11_N19
+--register power-up is low
+
+A1L314Q = DFFEAS(A1L315, GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43,  ,  ,  ,  );
+
+
+--A1L318Q is rx_buffer[74]~reg0 at FF_X28_Y21_N27
+--register power-up is low
+
+A1L318Q = DFFEAS(A1L319, GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43,  ,  ,  ,  );
+
+
+--A1L322Q is rx_buffer[75]~reg0 at FF_X30_Y17_N31
+--register power-up is low
+
+A1L322Q = DFFEAS(A1L323, GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43,  ,  ,  ,  );
+
+
+--A1L326Q is rx_buffer[76]~reg0 at FF_X28_Y15_N31
+--register power-up is low
+
+A1L326Q = DFFEAS(A1L327, GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43,  ,  ,  ,  );
+
+
+--A1L330Q is rx_buffer[77]~reg0 at FF_X25_Y13_N7
+--register power-up is low
+
+A1L330Q = DFFEAS(A1L331, GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43,  ,  ,  ,  );
+
+
+--A1L334Q is rx_buffer[78]~reg0 at FF_X19_Y15_N11
+--register power-up is low
+
+A1L334Q = DFFEAS(A1L335, GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43,  ,  ,  ,  );
+
+
+--A1L338Q is rx_buffer[79]~reg0 at FF_X20_Y15_N31
+--register power-up is low
+
+A1L338Q = DFFEAS(A1L339, GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43,  ,  ,  ,  );
+
+
+--A1L342Q is rx_buffer[80]~reg0 at FF_X18_Y15_N5
+--register power-up is low
+
+A1L342Q = DFFEAS( , GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43, A1L372Q,  ,  , VCC);
+
+
+--A1L345Q is rx_buffer[81]~reg0 at FF_X29_Y11_N13
+--register power-up is low
+
+A1L345Q = DFFEAS(A1L346, GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43,  ,  ,  ,  );
+
+
+--A1L349Q is rx_buffer[82]~reg0 at FF_X28_Y21_N17
+--register power-up is low
+
+A1L349Q = DFFEAS(A1L350, GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43,  ,  ,  ,  );
+
+
+--A1L353Q is rx_buffer[83]~reg0 at FF_X30_Y17_N29
+--register power-up is low
+
+A1L353Q = DFFEAS(A1L354, GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43,  ,  ,  ,  );
+
+
+--A1L357Q is rx_buffer[84]~reg0 at FF_X28_Y15_N29
+--register power-up is low
+
+A1L357Q = DFFEAS( , GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43, A1L387Q,  ,  , VCC);
+
+
+--A1L360Q is rx_buffer[85]~reg0 at FF_X25_Y13_N17
+--register power-up is low
+
+A1L360Q = DFFEAS(A1L361, GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43,  ,  ,  ,  );
+
+
+--A1L364Q is rx_buffer[86]~reg0 at FF_X19_Y15_N13
+--register power-up is low
+
+A1L364Q = DFFEAS(A1L365, GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43,  ,  ,  ,  );
+
+
+--A1L368Q is rx_buffer[87]~reg0 at FF_X20_Y15_N25
+--register power-up is low
+
+A1L368Q = DFFEAS(A1L369, GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43,  ,  ,  ,  );
+
+
+--A1L372Q is rx_buffer[88]~reg0 at FF_X18_Y15_N15
+--register power-up is low
+
+A1L372Q = DFFEAS(A1L373, GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43,  ,  ,  ,  );
+
+
+--A1L376Q is rx_buffer[89]~reg0 at FF_X29_Y11_N7
+--register power-up is low
+
+A1L376Q = DFFEAS( , GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43, A1L406Q,  ,  , VCC);
+
+
+--A1L379Q is rx_buffer[90]~reg0 at FF_X28_Y21_N11
+--register power-up is low
+
+A1L379Q = DFFEAS(A1L380, GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43,  ,  ,  ,  );
+
+
+--A1L383Q is rx_buffer[91]~reg0 at FF_X30_Y17_N11
+--register power-up is low
+
+A1L383Q = DFFEAS(A1L384, GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43,  ,  ,  ,  );
+
+
+--A1L387Q is rx_buffer[92]~reg0 at FF_X28_Y15_N27
+--register power-up is low
+
+A1L387Q = DFFEAS(A1L388, GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43,  ,  ,  ,  );
+
+
+--A1L391Q is rx_buffer[93]~reg0 at FF_X25_Y15_N7
+--register power-up is low
+
+A1L391Q = DFFEAS(A1L392, GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43,  ,  ,  ,  );
+
+
+--A1L395Q is rx_buffer[94]~reg0 at FF_X19_Y15_N7
+--register power-up is low
+
+A1L395Q = DFFEAS(A1L396, GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43,  ,  ,  ,  );
+
+
+--A1L399Q is rx_buffer[95]~reg0 at FF_X27_Y15_N15
+--register power-up is low
+
+A1L399Q = DFFEAS( , GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43, A1L426Q,  ,  , VCC);
+
+
+--A1L402Q is rx_buffer[96]~reg0 at FF_X18_Y15_N29
+--register power-up is low
+
+A1L402Q = DFFEAS(A1L403, GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43,  ,  ,  ,  );
+
+
+--A1L406Q is rx_buffer[97]~reg0 at FF_X29_Y11_N9
+--register power-up is low
+
+A1L406Q = DFFEAS(A1L407, GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43,  ,  ,  ,  );
+
+
+--A1L410Q is rx_buffer[98]~reg0 at FF_X28_Y21_N21
+--register power-up is low
+
+A1L410Q = DFFEAS(A1L411, GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43,  ,  ,  ,  );
+
+
+--A1L414Q is rx_buffer[99]~reg0 at FF_X30_Y17_N21
+--register power-up is low
+
+A1L414Q = DFFEAS( , GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43, A1L441Q,  ,  , VCC);
+
+
+--A1L417Q is rx_buffer[100]~reg0 at FF_X28_Y15_N13
+--register power-up is low
+
+A1L417Q = DFFEAS( , GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43, A1L445Q,  ,  , VCC);
+
+
+--A1L420Q is rx_buffer[101]~reg0 at FF_X25_Y15_N21
+--register power-up is low
+
+A1L420Q = DFFEAS( , GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43, A1L449Q,  ,  , VCC);
+
+
+--A1L423Q is rx_buffer[102]~reg0 at FF_X19_Y15_N21
+--register power-up is low
+
+A1L423Q = DFFEAS( , GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43, A1L452Q,  ,  , VCC);
+
+
+--A1L426Q is rx_buffer[103]~reg0 at FF_X25_Y15_N31
+--register power-up is low
+
+A1L426Q = DFFEAS(A1L427, GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43,  ,  ,  ,  );
+
+
+--A1L430Q is rx_buffer[104]~reg0 at FF_X18_Y15_N11
+--register power-up is low
+
+A1L430Q = DFFEAS(A1L431, GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43,  ,  ,  ,  );
+
+
+--A1L434Q is rx_buffer[105]~reg0 at FF_X29_Y11_N11
+--register power-up is low
+
+A1L434Q = DFFEAS( , GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43, A1L462Q,  ,  , VCC);
+
+
+--A1L437Q is rx_buffer[106]~reg0 at FF_X28_Y21_N19
+--register power-up is low
+
+A1L437Q = DFFEAS(A1L438, GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43,  ,  ,  ,  );
+
+
+--A1L441Q is rx_buffer[107]~reg0 at FF_X30_Y17_N27
+--register power-up is low
+
+A1L441Q = DFFEAS(A1L442, GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43,  ,  ,  ,  );
+
+
+--A1L445Q is rx_buffer[108]~reg0 at FF_X28_Y15_N23
+--register power-up is low
+
+A1L445Q = DFFEAS(A1L446, GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43,  ,  ,  ,  );
+
+
+--A1L449Q is rx_buffer[109]~reg0 at FF_X25_Y17_N25
+--register power-up is low
+
+A1L449Q = DFFEAS( , GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43, A1L478Q,  ,  , VCC);
+
+
+--A1L452Q is rx_buffer[110]~reg0 at FF_X19_Y15_N27
+--register power-up is low
+
+A1L452Q = DFFEAS( , GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43, A1L482Q,  ,  , VCC);
+
+
+--A1L455Q is rx_buffer[111]~reg0 at FF_X25_Y15_N17
+--register power-up is low
+
+A1L455Q = DFFEAS(A1L456, GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43,  ,  ,  ,  );
+
+
+--A1L459Q is rx_buffer[112]~reg0 at FF_X18_Y15_N25
+--register power-up is low
+
+A1L459Q = DFFEAS( , GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43, A1L489Q,  ,  , VCC);
+
+
+--A1L462Q is rx_buffer[113]~reg0 at FF_X29_Y11_N5
+--register power-up is low
+
+A1L462Q = DFFEAS(A1L463, GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43,  ,  ,  ,  );
+
+
+--A1L466Q is rx_buffer[114]~reg0 at FF_X28_Y21_N13
+--register power-up is low
+
+A1L466Q = DFFEAS(A1L467, GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43,  ,  ,  ,  );
+
+
+--A1L470Q is rx_buffer[115]~reg0 at FF_X30_Y15_N5
+--register power-up is low
+
+A1L470Q = DFFEAS(A1L471, GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43,  ,  ,  ,  );
+
+
+--A1L474Q is rx_buffer[116]~reg0 at FF_X28_Y15_N17
+--register power-up is low
+
+A1L474Q = DFFEAS(A1L475, GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43,  ,  ,  ,  );
+
+
+--A1L478Q is rx_buffer[117]~reg0 at FF_X24_Y17_N7
+--register power-up is low
+
+A1L478Q = DFFEAS(A1L479, GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43,  ,  ,  ,  );
+
+
+--A1L482Q is rx_buffer[118]~reg0 at FF_X19_Y15_N5
+--register power-up is low
+
+A1L482Q = DFFEAS(A1L483, GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43,  ,  ,  ,  );
+
+
+--A1L486Q is rx_buffer[119]~reg0 at FF_X25_Y15_N11
+--register power-up is low
+
+A1L486Q = DFFEAS( , GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43, A1L516Q,  ,  , VCC);
+
+
+--A1L489Q is rx_buffer[120]~reg0 at FF_X18_Y15_N31
+--register power-up is low
+
+A1L489Q = DFFEAS(A1L490, GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43,  ,  ,  ,  );
+
+
+--A1L493Q is rx_buffer[121]~reg0 at FF_X25_Y15_N9
+--register power-up is low
+
+A1L493Q = DFFEAS(A1L494, GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43,  ,  ,  ,  );
+
+
+--A1L497Q is rx_buffer[122]~reg0 at FF_X27_Y14_N5
+--register power-up is low
+
+A1L497Q = DFFEAS(A1L498, GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43,  ,  ,  ,  );
+
+
+--A1L501Q is rx_buffer[123]~reg0 at FF_X30_Y15_N19
+--register power-up is low
+
+A1L501Q = DFFEAS(A1L502, GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43,  ,  ,  ,  );
+
+
+--A1L505Q is rx_buffer[124]~reg0 at FF_X28_Y15_N11
+--register power-up is low
+
+A1L505Q = DFFEAS( , GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43, shift_reg[4],  ,  , VCC);
+
+
+--A1L508Q is rx_buffer[125]~reg0 at FF_X20_Y15_N23
+--register power-up is low
+
+A1L508Q = DFFEAS(A1L509, GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43,  ,  ,  ,  );
+
+
+--A1L512Q is rx_buffer[126]~reg0 at FF_X19_Y15_N19
+--register power-up is low
+
+A1L512Q = DFFEAS(A1L513, GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43,  ,  ,  ,  );
+
+
+--A1L516Q is rx_buffer[127]~reg0 at FF_X20_Y15_N9
+--register power-up is low
+
+A1L516Q = DFFEAS(A1L517, GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43,  ,  ,  ,  );
+
+
+--A1L37Q is parity_wrong~reg0 at FF_X24_Y15_N7
+--register power-up is low
+
+A1L37Q = DFFEAS(A1L35, GLOBAL(A1L24), GLOBAL(A1L40),  ,  ,  ,  ,  ,  );
+
+
+--shift_reg[0] is shift_reg[0] at FF_X24_Y15_N13
+--register power-up is low
+
+shift_reg[0] = DFFEAS( , GLOBAL(A1L24), GLOBAL(A1L40),  , A1L595, shift_reg[1],  ,  , VCC);
+
+
+--state.DONE is state.DONE at FF_X27_Y15_N17
+--register power-up is low
+
+state.DONE = DFFEAS(A1L592, GLOBAL(A1L24), GLOBAL(A1L40),  , A1L554,  ,  ,  ,  );
+
+
+--A1L520 is rx_data[0]~0 at LCCOMB_X22_Y15_N22
+A1L520 = (A1L554 & state.DONE);
+
+
+--shift_reg[1] is shift_reg[1] at FF_X24_Y15_N15
+--register power-up is low
+
+shift_reg[1] = DFFEAS( , GLOBAL(A1L24), GLOBAL(A1L40),  , A1L595, shift_reg[2],  ,  , VCC);
+
+
+--shift_reg[2] is shift_reg[2] at FF_X24_Y15_N9
+--register power-up is low
+
+shift_reg[2] = DFFEAS( , GLOBAL(A1L24), GLOBAL(A1L40),  , A1L595, shift_reg[3],  ,  , VCC);
+
+
+--shift_reg[3] is shift_reg[3] at FF_X24_Y15_N27
+--register power-up is low
+
+shift_reg[3] = DFFEAS( , GLOBAL(A1L24), GLOBAL(A1L40),  , A1L595, shift_reg[4],  ,  , VCC);
+
+
+--shift_reg[4] is shift_reg[4] at FF_X24_Y15_N31
+--register power-up is low
+
+shift_reg[4] = DFFEAS(A1L600, GLOBAL(A1L24), GLOBAL(A1L40),  , A1L595,  ,  ,  ,  );
+
+
+--shift_reg[5] is shift_reg[5] at FF_X24_Y15_N25
+--register power-up is low
+
+shift_reg[5] = DFFEAS( , GLOBAL(A1L24), GLOBAL(A1L40),  , A1L595, shift_reg[6],  ,  , VCC);
+
+
+--shift_reg[6] is shift_reg[6] at FF_X24_Y15_N17
+--register power-up is low
+
+shift_reg[6] = DFFEAS( , GLOBAL(A1L24), GLOBAL(A1L40),  , A1L595, shift_reg[7],  ,  , VCC);
+
+
+--shift_reg[7] is shift_reg[7] at FF_X24_Y15_N5
+--register power-up is low
+
+shift_reg[7] = DFFEAS(A1L29, GLOBAL(A1L24), GLOBAL(A1L40),  , A1L595,  ,  ,  ,  );
+
+
+--A1L43 is rx_buffer[0]~0 at LCCOMB_X27_Y15_N6
+A1L43 = (A1L554 & (!buffer_counter[4] & state.DONE));
+
+
+--samples_reg[6] is samples_reg[6] at FF_X24_Y15_N21
+--register power-up is low
+
+samples_reg[6] = DFFEAS(A1L580, GLOBAL(A1L24), GLOBAL(A1L40),  ,  ,  ,  ,  ,  );
+
+
+--samples_reg[3] is samples_reg[3] at FF_X24_Y15_N19
+--register power-up is low
+
+samples_reg[3] = DFFEAS(A1L571, GLOBAL(A1L24), GLOBAL(A1L40),  ,  ,  ,  ,  ,  );
+
+
+--samples_reg[4] is samples_reg[4] at FF_X24_Y15_N23
+--register power-up is low
+
+samples_reg[4] = DFFEAS(A1L573, GLOBAL(A1L24), GLOBAL(A1L40),  ,  ,  ,  ,  ,  );
+
+
+--samples_reg[2] is samples_reg[2] at FF_X22_Y15_N25
+--register power-up is low
+
+samples_reg[2] = DFFEAS(A1L568, GLOBAL(A1L24), GLOBAL(A1L40),  ,  ,  ,  ,  ,  );
+
+
+--samples_reg[5] is samples_reg[5] at FF_X24_Y15_N3
+--register power-up is low
+
+samples_reg[5] = DFFEAS(A1L576, GLOBAL(A1L24), GLOBAL(A1L40),  ,  ,  ,  ,  ,  );
+
+
+--A1L27 is LessThan0~0 at LCCOMB_X24_Y15_N14
+A1L27 = samples_reg[4] $ (samples_reg[5] $ (samples_reg[2]));
+
+
+--A1L28 is LessThan0~1 at LCCOMB_X24_Y15_N8
+A1L28 = (samples_reg[4] & ((samples_reg[5]) # (samples_reg[2]))) # (!samples_reg[4] & (samples_reg[5] & samples_reg[2]));
+
+
+--A1L29 is LessThan0~2 at LCCOMB_X24_Y15_N4
+A1L29 = (samples_reg[3] & ((A1L28) # ((samples_reg[6] & A1L27)))) # (!samples_reg[3] & (A1L28 & ((samples_reg[6]) # (A1L27))));
+
+
+--A1L30 is p1_process~0 at LCCOMB_X24_Y15_N16
+A1L30 = shift_reg[4] $ (shift_reg[7] $ (shift_reg[6] $ (shift_reg[5])));
+
+
+--A1L31 is p1_process~1 at LCCOMB_X24_Y15_N26
+A1L31 = shift_reg[0] $ (shift_reg[2] $ (shift_reg[3] $ (shift_reg[1])));
+
+
+--A1L32 is p1_process~2 at LCCOMB_X24_Y15_N10
+A1L32 = A1L31 $ (A1L30);
+
+
+--state.PARITY_CHECK is state.PARITY_CHECK at FF_X23_Y15_N15
+--register power-up is low
+
+state.PARITY_CHECK = DFFEAS( , GLOBAL(A1L24), GLOBAL(A1L40),  , A1L616, state.SAMPLING,  ,  , VCC);
+
+
+--sample_count[2] is sample_count[2] at FF_X23_Y15_N23
+--register power-up is low
+
+sample_count[2] = DFFEAS(A1L565, GLOBAL(A1L24), GLOBAL(A1L40),  ,  ,  ,  ,  ,  );
+
+
+--sample_count[1] is sample_count[1] at FF_X23_Y15_N17
+--register power-up is low
+
+sample_count[1] = DFFEAS(A1L560, GLOBAL(A1L24), GLOBAL(A1L40),  ,  ,  ,  ,  ,  );
+
+
+--sample_count[0] is sample_count[0] at FF_X23_Y15_N11
+--register power-up is low
+
+sample_count[0] = DFFEAS(A1L558, GLOBAL(A1L24), GLOBAL(A1L40),  ,  ,  ,  ,  ,  );
+
+
+--A1L26 is Equal2~0 at LCCOMB_X23_Y15_N28
+A1L26 = (sample_count[1] & (sample_count[2] & sample_count[0]));
+
+
+--A1L34 is parity_wrong~0 at LCCOMB_X24_Y15_N0
+A1L34 = (state.PARITY_CHECK & (A1L554 & A1L26));
+
+
+--A1L35 is parity_wrong~1 at LCCOMB_X24_Y15_N6
+A1L35 = (A1L34 & (A1L32 $ ((A1L29)))) # (!A1L34 & (((A1L37Q))));
+
+
+--state.SAMPLING is state.SAMPLING at FF_X27_Y15_N9
+--register power-up is low
+
+state.SAMPLING = DFFEAS(A1L591, GLOBAL(A1L24), GLOBAL(A1L40),  , A1L554,  ,  ,  ,  );
+
+
+--A1L595 is shift_reg[0]~0 at LCCOMB_X24_Y15_N12
+A1L595 = (state.SAMPLING & (A1L554 & A1L26));
+
+
+--A1L25 is Equal0~0 at LCCOMB_X23_Y15_N18
+A1L25 = (sample_count[1] & (!sample_count[2] & sample_count[0]));
+
+
+--state.STOPP is state.STOPP at FF_X23_Y15_N9
+--register power-up is low
+
+state.STOPP = DFFEAS( , GLOBAL(A1L24), GLOBAL(A1L40),  , A1L616, state.PARITY_CHECK,  ,  , VCC);
+
+
+--A1L592 is Selector12~0 at LCCOMB_X27_Y15_N16
+A1L592 = (state.STOPP & (A1L25 & A1L552));
+
+
+--buffer_counter[0] is buffer_counter[0] at FF_X27_Y15_N11
+--register power-up is low
+
+buffer_counter[0] = DFFEAS(A1L9, GLOBAL(A1L24), GLOBAL(A1L40),  , A1L43,  ,  ,  ,  );
+
+
+--A1L578 is samples_reg[6]~0 at LCCOMB_X27_Y15_N12
+A1L578 = (A1L554 & (sample_count[2] & ((state.SAMPLING) # (state.PARITY_CHECK))));
+
+
+--A1L579 is samples_reg[6]~1 at LCCOMB_X27_Y15_N18
+A1L579 = (!sample_count[0] & A1L578);
+
+
+--A1L580 is samples_reg[6]~2 at LCCOMB_X24_Y15_N20
+A1L580 = (sample_count[1] & ((A1L579 & (A1L552)) # (!A1L579 & ((samples_reg[6]))))) # (!sample_count[1] & (((samples_reg[6]))));
+
+
+--A1L581 is samples_reg[6]~3 at LCCOMB_X27_Y15_N28
+A1L581 = (state.SAMPLING) # (state.PARITY_CHECK);
+
+
+--A1L570 is samples_reg[3]~4 at LCCOMB_X27_Y15_N30
+A1L570 = (!sample_count[2] & (A1L554 & (sample_count[1] & A1L581)));
+
+
+--A1L571 is samples_reg[3]~5 at LCCOMB_X24_Y15_N18
+A1L571 = (sample_count[0] & ((A1L570 & (A1L552)) # (!A1L570 & ((samples_reg[3]))))) # (!sample_count[0] & (((samples_reg[3]))));
+
+
+--A1L573 is samples_reg[4]~6 at LCCOMB_X24_Y15_N22
+A1L573 = (sample_count[1] & (((samples_reg[4])))) # (!sample_count[1] & ((A1L579 & (A1L552)) # (!A1L579 & ((samples_reg[4])))));
+
+
+--A1L568 is samples_reg[2]~7 at LCCOMB_X22_Y15_N24
+A1L568 = (sample_count[0] & (((samples_reg[2])))) # (!sample_count[0] & ((A1L570 & (A1L552)) # (!A1L570 & ((samples_reg[2])))));
+
+
+--A1L575 is samples_reg[5]~8 at LCCOMB_X27_Y15_N0
+A1L575 = (!sample_count[1] & A1L578);
+
+
+--A1L576 is samples_reg[5]~9 at LCCOMB_X24_Y15_N2
+A1L576 = (sample_count[0] & ((A1L575 & (A1L552)) # (!A1L575 & ((samples_reg[5]))))) # (!sample_count[0] & (((samples_reg[5]))));
+
+
+--state.START is state.START at FF_X23_Y15_N13
+--register power-up is low
+
+state.START = DFFEAS(A1L609, GLOBAL(A1L24), GLOBAL(A1L40),  , A1L616,  ,  ,  ,  );
+
+
+--state.WAIT_START is state.WAIT_START at FF_X22_Y15_N11
+--register power-up is low
+
+state.WAIT_START = DFFEAS(A1L590, GLOBAL(A1L24), GLOBAL(A1L40),  , A1L554,  ,  ,  ,  );
+
+
+--A1L612 is state~18 at LCCOMB_X23_Y15_N26
+A1L612 = (state.WAIT_START) # ((state.STOPP) # (state.START));
+
+
+--bit_count[1] is bit_count[1] at FF_X22_Y15_N17
+--register power-up is low
+
+bit_count[1] = DFFEAS(A1L586, GLOBAL(A1L24), GLOBAL(A1L40),  , A1L554,  ,  ,  ,  );
+
+
+--A1L582 is Selector3~0 at LCCOMB_X23_Y15_N24
+A1L582 = (sample_count[2] & (sample_count[1] & (bit_count[1] & sample_count[0])));
+
+
+--bit_count[2] is bit_count[2] at FF_X22_Y15_N3
+--register power-up is low
+
+bit_count[2] = DFFEAS(A1L584, GLOBAL(A1L24), GLOBAL(A1L40),  , A1L554,  ,  ,  ,  );
+
+
+--bit_count[0] is bit_count[0] at FF_X22_Y15_N5
+--register power-up is low
+
+bit_count[0] = DFFEAS(A1L587, GLOBAL(A1L24), GLOBAL(A1L40),  , A1L554,  ,  ,  ,  );
+
+
+--A1L613 is state~19 at LCCOMB_X23_Y15_N4
+A1L613 = (state.SAMPLING & (((!A1L582) # (!bit_count[0])) # (!bit_count[2])));
+
+
+--state.IDLE is state.IDLE at FF_X22_Y15_N15
+--register power-up is low
+
+state.IDLE = DFFEAS(A1L589, GLOBAL(A1L24), GLOBAL(A1L40),  , A1L554,  ,  ,  ,  );
+
+
+--A1L614 is state~20 at LCCOMB_X23_Y15_N2
+A1L614 = (state.PARITY_CHECK & (((!sample_count[0]) # (!sample_count[1])) # (!sample_count[2])));
+
+
+--A1L615 is state~21 at LCCOMB_X23_Y15_N6
+A1L615 = (A1L554 & (!A1L614 & ((state.IDLE) # (!A1L552))));
+
+
+--A1L616 is state~22 at LCCOMB_X23_Y15_N30
+A1L616 = (!A1L613 & (A1L615 & ((A1L25) # (!A1L612))));
+
+
+--A1L1 is Add0~0 at LCCOMB_X23_Y15_N14
+A1L1 = sample_count[2] $ (((sample_count[1] & sample_count[0])));
+
+
+--A1L562 is sample_count[2]~0 at LCCOMB_X23_Y15_N20
+A1L562 = (!state.WAIT_START & (A1L26 & ((state.PARITY_CHECK) # (state.SAMPLING))));
+
+
+--A1L557 is sample_count[0]~1 at LCCOMB_X23_Y15_N0
+A1L557 = (state.IDLE & (!A1L562 & ((!A1L612) # (!A1L25))));
+
+
+--A1L563 is sample_count[2]~2 at LCCOMB_X23_Y15_N8
+A1L563 = (A1L552 & (!state.STOPP & state.START)) # (!A1L552 & (state.STOPP));
+
+
+--A1L564 is sample_count[2]~3 at LCCOMB_X24_Y15_N28
+A1L564 = (A1L554 & (!state.DONE & ((!A1L25) # (!A1L563))));
+
+
+--A1L565 is sample_count[2]~4 at LCCOMB_X23_Y15_N22
+A1L565 = (A1L564 & (A1L1 & (A1L557))) # (!A1L564 & (((sample_count[2]))));
+
+
+--A1L560 is sample_count[1]~5 at LCCOMB_X23_Y15_N16
+A1L560 = (A1L564 & (A1L557 & (sample_count[0] $ (sample_count[1])))) # (!A1L564 & (((sample_count[1]))));
+
+
+--A1L558 is sample_count[0]~6 at LCCOMB_X23_Y15_N10
+A1L558 = (sample_count[0] & ((!A1L564))) # (!sample_count[0] & (A1L557 & A1L564));
+
+
+--A1L591 is Selector9~0 at LCCOMB_X27_Y15_N8
+A1L591 = (A1L613) # ((state.WAIT_START & A1L25));
+
+
+--A1L590 is Selector8~0 at LCCOMB_X22_Y15_N10
+A1L590 = (A1L25 & (state.START & ((!A1L552)))) # (!A1L25 & (((state.WAIT_START))));
+
+
+--A1L585 is Selector4~0 at LCCOMB_X22_Y15_N28
+A1L585 = (state.SAMPLING & (bit_count[1] $ (((bit_count[0] & A1L26)))));
+
+
+--A1L586 is Selector4~1 at LCCOMB_X22_Y15_N16
+A1L586 = (A1L585) # ((!state.SAMPLING & (state.IDLE & bit_count[1])));
+
+
+--A1L583 is Selector3~1 at LCCOMB_X22_Y15_N18
+A1L583 = (state.SAMPLING & ((bit_count[0]))) # (!state.SAMPLING & (state.IDLE));
+
+
+--A1L584 is Selector3~2 at LCCOMB_X22_Y15_N2
+A1L584 = (state.SAMPLING & (bit_count[2] $ (((A1L582 & A1L583))))) # (!state.SAMPLING & (((bit_count[2] & A1L583))));
+
+
+--A1L587 is Selector5~0 at LCCOMB_X22_Y15_N4
+A1L587 = (state.SAMPLING & ((bit_count[0] $ (A1L26)))) # (!state.SAMPLING & (state.IDLE & (bit_count[0])));
+
+
+--A1L588 is Selector6~0 at LCCOMB_X22_Y15_N20
+A1L588 = (A1L25 & ((A1L552 & (state.START)) # (!A1L552 & ((state.STOPP)))));
+
+
+--A1L589 is Selector6~1 at LCCOMB_X22_Y15_N14
+A1L589 = (!state.DONE & (!A1L588 & ((state.IDLE) # (!A1L552))));
+
+
+--A1L9 is buffer_counter[0]~12 at LCCOMB_X27_Y15_N10
+A1L9 = !buffer_counter[0];
+
+
+--A1L609 is state.START~0 at LCCOMB_X23_Y15_N12
+A1L609 = !state.IDLE;
+
+
+--A1L521 is rx_data[0]~output at IOOBUF_X17_Y0_N30
+A1L521 = OUTPUT_BUFFER.O(.I(A1L522Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_data[0] is rx_data[0] at PIN_R11
 rx_data[0] = OUTPUT();
 
 
---A1L20 is rx_data[1]~output at IOOBUF_X13_Y25_N9
-A1L20 = OUTPUT_BUFFER.O(.I(A1L21Q), , , , , , , , , , , , , , , , , );
+--A1L524 is rx_data[1]~output at IOOBUF_X17_Y25_N2
+A1L524 = OUTPUT_BUFFER.O(.I(A1L525Q), , , , , , , , , , , , , , , , , );
 
 
---rx_data[1] is rx_data[1] at PIN_D10
+--rx_data[1] is rx_data[1] at PIN_E10
 rx_data[1] = OUTPUT();
 
 
---A1L23 is rx_data[2]~output at IOOBUF_X10_Y22_N9
-A1L23 = OUTPUT_BUFFER.O(.I(A1L24Q), , , , , , , , , , , , , , , , , );
+--A1L528 is rx_data[2]~output at IOOBUF_X1_Y10_N23
+A1L528 = OUTPUT_BUFFER.O(.I(A1L529Q), , , , , , , , , , , , , , , , , );
 
 
---rx_data[2] is rx_data[2] at PIN_E3
+--rx_data[2] is rx_data[2] at PIN_C3
 rx_data[2] = OUTPUT();
 
 
---A1L27 is rx_data[3]~output at IOOBUF_X10_Y22_N2
-A1L27 = OUTPUT_BUFFER.O(.I(A1L28Q), , , , , , , , , , , , , , , , , );
+--A1L532 is rx_data[3]~output at IOOBUF_X31_Y15_N9
+A1L532 = OUTPUT_BUFFER.O(.I(A1L533Q), , , , , , , , , , , , , , , , , );
 
 
---rx_data[3] is rx_data[3] at PIN_E4
+--rx_data[3] is rx_data[3] at PIN_D22
 rx_data[3] = OUTPUT();
 
 
---A1L31 is rx_data[4]~output at IOOBUF_X13_Y25_N30
-A1L31 = OUTPUT_BUFFER.O(.I(A1L32Q), , , , , , , , , , , , , , , , , );
+--A1L535 is rx_data[4]~output at IOOBUF_X10_Y19_N23
+A1L535 = OUTPUT_BUFFER.O(.I(A1L536Q), , , , , , , , , , , , , , , , , );
 
 
---rx_data[4] is rx_data[4] at PIN_D7
+--rx_data[4] is rx_data[4] at PIN_K6
 rx_data[4] = OUTPUT();
 
 
---A1L35 is rx_data[5]~output at IOOBUF_X13_Y25_N23
-A1L35 = OUTPUT_BUFFER.O(.I(A1L36Q), , , , , , , , , , , , , , , , , );
+--A1L539 is rx_data[5]~output at IOOBUF_X13_Y25_N30
+A1L539 = OUTPUT_BUFFER.O(.I(A1L540Q), , , , , , , , , , , , , , , , , );
 
 
---rx_data[5] is rx_data[5] at PIN_C6
+--rx_data[5] is rx_data[5] at PIN_D7
 rx_data[5] = OUTPUT();
 
 
---A1L39 is rx_data[6]~output at IOOBUF_X15_Y25_N23
-A1L39 = OUTPUT_BUFFER.O(.I(A1L40Q), , , , , , , , , , , , , , , , , );
+--A1L543 is rx_data[6]~output at IOOBUF_X15_Y25_N16
+A1L543 = OUTPUT_BUFFER.O(.I(A1L544Q), , , , , , , , , , , , , , , , , );
 
 
---rx_data[6] is rx_data[6] at PIN_D9
+--rx_data[6] is rx_data[6] at PIN_D8
 rx_data[6] = OUTPUT();
 
 
---A1L42 is rx_data[7]~output at IOOBUF_X13_Y25_N2
-A1L42 = OUTPUT_BUFFER.O(.I(A1L43Q), , , , , , , , , , , , , , , , , );
+--A1L546 is rx_data[7]~output at IOOBUF_X17_Y25_N23
+A1L546 = OUTPUT_BUFFER.O(.I(A1L547Q), , , , , , , , , , , , , , , , , );
 
 
---rx_data[7] is rx_data[7] at PIN_A4
+--rx_data[7] is rx_data[7] at PIN_J10
 rx_data[7] = OUTPUT();
 
 
---A1L46 is rx_done~output at IOOBUF_X10_Y22_N16
-A1L46 = OUTPUT_BUFFER.O(.I(A1L47Q), , , , , , , , , , , , , , , , , );
+--A1L549 is rx_done~output at IOOBUF_X31_Y15_N16
+A1L549 = OUTPUT_BUFFER.O(.I(A1L550Q), , , , , , , , , , , , , , , , , );
 
 
---rx_done is rx_done at PIN_F5
+--rx_done is rx_done at PIN_F20
 rx_done = OUTPUT();
 
 
---A1L8 is clk~input at IOIBUF_X0_Y6_N15
-A1L8 = INPUT_BUFFER(.I(clk), , );
+--A1L44 is rx_buffer[0]~output at IOOBUF_X6_Y10_N9
+A1L44 = OUTPUT_BUFFER.O(.I(A1L45Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_buffer[0] is rx_buffer[0] at PIN_B5
+rx_buffer[0] = OUTPUT();
+
+
+--A1L47 is rx_buffer[1]~output at IOOBUF_X31_Y11_N2
+A1L47 = OUTPUT_BUFFER.O(.I(A1L48Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_buffer[1] is rx_buffer[1] at PIN_J21
+rx_buffer[1] = OUTPUT();
+
+
+--A1L50 is rx_buffer[2]~output at IOOBUF_X27_Y25_N23
+A1L50 = OUTPUT_BUFFER.O(.I(A1L51Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_buffer[2] is rx_buffer[2] at PIN_C14
+rx_buffer[2] = OUTPUT();
+
+
+--A1L54 is rx_buffer[3]~output at IOOBUF_X31_Y13_N16
+A1L54 = OUTPUT_BUFFER.O(.I(A1L55Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_buffer[3] is rx_buffer[3] at PIN_M14
+rx_buffer[3] = OUTPUT();
+
+
+--A1L58 is rx_buffer[4]~output at IOOBUF_X31_Y15_N23
+A1L58 = OUTPUT_BUFFER.O(.I(A1L59Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_buffer[4] is rx_buffer[4] at PIN_F21
+rx_buffer[4] = OUTPUT();
+
+
+--A1L62 is rx_buffer[5]~output at IOOBUF_X22_Y25_N23
+A1L62 = OUTPUT_BUFFER.O(.I(A1L63Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_buffer[5] is rx_buffer[5] at PIN_A7
+rx_buffer[5] = OUTPUT();
+
+
+--A1L66 is rx_buffer[6]~output at IOOBUF_X10_Y15_N9
+A1L66 = OUTPUT_BUFFER.O(.I(A1L67Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_buffer[6] is rx_buffer[6] at PIN_F2
+rx_buffer[6] = OUTPUT();
+
+
+--A1L69 is rx_buffer[7]~output at IOOBUF_X6_Y10_N23
+A1L69 = OUTPUT_BUFFER.O(.I(A1L70Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_buffer[7] is rx_buffer[7] at PIN_E8
+rx_buffer[7] = OUTPUT();
+
+
+--A1L73 is rx_buffer[8]~output at IOOBUF_X10_Y21_N16
+A1L73 = OUTPUT_BUFFER.O(.I(A1L74Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_buffer[8] is rx_buffer[8] at PIN_J8
+rx_buffer[8] = OUTPUT();
+
+
+--A1L77 is rx_buffer[9]~output at IOOBUF_X31_Y9_N9
+A1L77 = OUTPUT_BUFFER.O(.I(A1L78Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_buffer[9] is rx_buffer[9] at PIN_H22
+rx_buffer[9] = OUTPUT();
+
+
+--A1L81 is rx_buffer[10]~output at IOOBUF_X29_Y25_N16
+A1L81 = OUTPUT_BUFFER.O(.I(A1L82Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_buffer[10] is rx_buffer[10] at PIN_D17
+rx_buffer[10] = OUTPUT();
+
+
+--A1L85 is rx_buffer[11]~output at IOOBUF_X31_Y19_N2
+A1L85 = OUTPUT_BUFFER.O(.I(A1L86Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_buffer[11] is rx_buffer[11] at PIN_L20
+rx_buffer[11] = OUTPUT();
+
+
+--A1L89 is rx_buffer[12]~output at IOOBUF_X31_Y22_N9
+A1L89 = OUTPUT_BUFFER.O(.I(A1L90Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_buffer[12] is rx_buffer[12] at PIN_D18
+rx_buffer[12] = OUTPUT();
+
+
+--A1L93 is rx_buffer[13]~output at IOOBUF_X17_Y25_N9
+A1L93 = OUTPUT_BUFFER.O(.I(A1L94Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_buffer[13] is rx_buffer[13] at PIN_C8
+rx_buffer[13] = OUTPUT();
+
+
+--A1L97 is rx_buffer[14]~output at IOOBUF_X6_Y10_N16
+A1L97 = OUTPUT_BUFFER.O(.I(A1L98Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_buffer[14] is rx_buffer[14] at PIN_C4
+rx_buffer[14] = OUTPUT();
+
+
+--A1L101 is rx_buffer[15]~output at IOOBUF_X10_Y15_N23
+A1L101 = OUTPUT_BUFFER.O(.I(A1L102Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_buffer[15] is rx_buffer[15] at PIN_L9
+rx_buffer[15] = OUTPUT();
+
+
+--A1L105 is rx_buffer[16]~output at IOOBUF_X17_Y25_N30
+A1L105 = OUTPUT_BUFFER.O(.I(A1L106Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_buffer[16] is rx_buffer[16] at PIN_H11
+rx_buffer[16] = OUTPUT();
+
+
+--A1L109 is rx_buffer[17]~output at IOOBUF_X27_Y0_N16
+A1L109 = OUTPUT_BUFFER.O(.I(A1L110Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_buffer[17] is rx_buffer[17] at PIN_AB16
+rx_buffer[17] = OUTPUT();
+
+
+--A1L112 is rx_buffer[18]~output at IOOBUF_X31_Y21_N23
+A1L112 = OUTPUT_BUFFER.O(.I(A1L113Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_buffer[18] is rx_buffer[18] at PIN_K14
+rx_buffer[18] = OUTPUT();
+
+
+--A1L115 is rx_buffer[19]~output at IOOBUF_X31_Y17_N2
+A1L115 = OUTPUT_BUFFER.O(.I(A1L116Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_buffer[19] is rx_buffer[19] at PIN_C21
+rx_buffer[19] = OUTPUT();
+
+
+--A1L119 is rx_buffer[20]~output at IOOBUF_X31_Y11_N9
+A1L119 = OUTPUT_BUFFER.O(.I(A1L120Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_buffer[20] is rx_buffer[20] at PIN_J22
+rx_buffer[20] = OUTPUT();
+
+
+--A1L123 is rx_buffer[21]~output at IOOBUF_X24_Y25_N23
+A1L123 = OUTPUT_BUFFER.O(.I(A1L124Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_buffer[21] is rx_buffer[21] at PIN_E13
+rx_buffer[21] = OUTPUT();
+
+
+--A1L126 is rx_buffer[22]~output at IOOBUF_X10_Y22_N23
+A1L126 = OUTPUT_BUFFER.O(.I(A1L127Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_buffer[22] is rx_buffer[22] at PIN_F4
+rx_buffer[22] = OUTPUT();
+
+
+--A1L129 is rx_buffer[23]~output at IOOBUF_X10_Y22_N9
+A1L129 = OUTPUT_BUFFER.O(.I(A1L130Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_buffer[23] is rx_buffer[23] at PIN_E3
+rx_buffer[23] = OUTPUT();
+
+
+--A1L133 is rx_buffer[24]~output at IOOBUF_X13_Y25_N9
+A1L133 = OUTPUT_BUFFER.O(.I(A1L134Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_buffer[24] is rx_buffer[24] at PIN_D10
+rx_buffer[24] = OUTPUT();
+
+
+--A1L136 is rx_buffer[25]~output at IOOBUF_X31_Y9_N2
+A1L136 = OUTPUT_BUFFER.O(.I(A1L137Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_buffer[25] is rx_buffer[25] at PIN_H21
+rx_buffer[25] = OUTPUT();
+
+
+--A1L140 is rx_buffer[26]~output at IOOBUF_X29_Y25_N9
+A1L140 = OUTPUT_BUFFER.O(.I(A1L141Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_buffer[26] is rx_buffer[26] at PIN_E15
+rx_buffer[26] = OUTPUT();
+
+
+--A1L144 is rx_buffer[27]~output at IOOBUF_X31_Y13_N9
+A1L144 = OUTPUT_BUFFER.O(.I(A1L145Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_buffer[27] is rx_buffer[27] at PIN_E22
+rx_buffer[27] = OUTPUT();
+
+
+--A1L148 is rx_buffer[28]~output at IOOBUF_X27_Y0_N23
+A1L148 = OUTPUT_BUFFER.O(.I(A1L149Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_buffer[28] is rx_buffer[28] at PIN_W15
+rx_buffer[28] = OUTPUT();
+
+
+--A1L152 is rx_buffer[29]~output at IOOBUF_X19_Y25_N30
+A1L152 = OUTPUT_BUFFER.O(.I(A1L153Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_buffer[29] is rx_buffer[29] at PIN_E11
+rx_buffer[29] = OUTPUT();
+
+
+--A1L156 is rx_buffer[30]~output at IOOBUF_X15_Y25_N30
+A1L156 = OUTPUT_BUFFER.O(.I(A1L157Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_buffer[30] is rx_buffer[30] at PIN_A5
+rx_buffer[30] = OUTPUT();
+
+
+--A1L160 is rx_buffer[31]~output at IOOBUF_X10_Y17_N9
+A1L160 = OUTPUT_BUFFER.O(.I(A1L161Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_buffer[31] is rx_buffer[31] at PIN_D1
+rx_buffer[31] = OUTPUT();
+
+
+--A1L164 is rx_buffer[32]~output at IOOBUF_X10_Y18_N2
+A1L164 = OUTPUT_BUFFER.O(.I(A1L165Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_buffer[32] is rx_buffer[32] at PIN_D3
+rx_buffer[32] = OUTPUT();
+
+
+--A1L168 is rx_buffer[33]~output at IOOBUF_X31_Y7_N9
+A1L168 = OUTPUT_BUFFER.O(.I(A1L169Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_buffer[33] is rx_buffer[33] at PIN_N21
+rx_buffer[33] = OUTPUT();
+
+
+--A1L171 is rx_buffer[34]~output at IOOBUF_X27_Y25_N30
+A1L171 = OUTPUT_BUFFER.O(.I(A1L172Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_buffer[34] is rx_buffer[34] at PIN_C13
+rx_buffer[34] = OUTPUT();
+
+
+--A1L174 is rx_buffer[35]~output at IOOBUF_X31_Y14_N2
+A1L174 = OUTPUT_BUFFER.O(.I(A1L175Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_buffer[35] is rx_buffer[35] at PIN_N20
+rx_buffer[35] = OUTPUT();
+
+
+--A1L178 is rx_buffer[36]~output at IOOBUF_X31_Y14_N9
+A1L178 = OUTPUT_BUFFER.O(.I(A1L179Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_buffer[36] is rx_buffer[36] at PIN_M20
+rx_buffer[36] = OUTPUT();
+
+
+--A1L181 is rx_buffer[37]~output at IOOBUF_X22_Y25_N16
+A1L181 = OUTPUT_BUFFER.O(.I(A1L182Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_buffer[37] is rx_buffer[37] at PIN_J11
+rx_buffer[37] = OUTPUT();
+
+
+--A1L185 is rx_buffer[38]~output at IOOBUF_X10_Y22_N16
+A1L185 = OUTPUT_BUFFER.O(.I(A1L186Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_buffer[38] is rx_buffer[38] at PIN_F5
+rx_buffer[38] = OUTPUT();
+
+
+--A1L189 is rx_buffer[39]~output at IOOBUF_X10_Y15_N2
+A1L189 = OUTPUT_BUFFER.O(.I(A1L190Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_buffer[39] is rx_buffer[39] at PIN_E1
+rx_buffer[39] = OUTPUT();
+
+
+--A1L193 is rx_buffer[40]~output at IOOBUF_X6_Y10_N30
+A1L193 = OUTPUT_BUFFER.O(.I(A1L194Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_buffer[40] is rx_buffer[40] at PIN_F7
+rx_buffer[40] = OUTPUT();
+
+
+--A1L197 is rx_buffer[41]~output at IOOBUF_X31_Y4_N16
+A1L197 = OUTPUT_BUFFER.O(.I(A1L198Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_buffer[41] is rx_buffer[41] at PIN_U22
+rx_buffer[41] = OUTPUT();
+
+
+--A1L201 is rx_buffer[42]~output at IOOBUF_X27_Y25_N16
+A1L201 = OUTPUT_BUFFER.O(.I(A1L202Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_buffer[42] is rx_buffer[42] at PIN_B15
+rx_buffer[42] = OUTPUT();
+
+
+--A1L205 is rx_buffer[43]~output at IOOBUF_X31_Y13_N2
+A1L205 = OUTPUT_BUFFER.O(.I(A1L206Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_buffer[43] is rx_buffer[43] at PIN_E21
+rx_buffer[43] = OUTPUT();
+
+
+--A1L208 is rx_buffer[44]~output at IOOBUF_X31_Y12_N16
+A1L208 = OUTPUT_BUFFER.O(.I(A1L209Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_buffer[44] is rx_buffer[44] at PIN_G19
+rx_buffer[44] = OUTPUT();
+
+
+--A1L212 is rx_buffer[45]~output at IOOBUF_X13_Y25_N16
+A1L212 = OUTPUT_BUFFER.O(.I(A1L213Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_buffer[45] is rx_buffer[45] at PIN_E9
+rx_buffer[45] = OUTPUT();
+
+
+--A1L216 is rx_buffer[46]~output at IOOBUF_X11_Y25_N23
+A1L216 = OUTPUT_BUFFER.O(.I(A1L217Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_buffer[46] is rx_buffer[46] at PIN_A3
+rx_buffer[46] = OUTPUT();
+
+
+--A1L220 is rx_buffer[47]~output at IOOBUF_X3_Y10_N2
+A1L220 = OUTPUT_BUFFER.O(.I(A1L221Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_buffer[47] is rx_buffer[47] at PIN_C5
+rx_buffer[47] = OUTPUT();
+
+
+--A1L224 is rx_buffer[48]~output at IOOBUF_X17_Y0_N2
+A1L224 = OUTPUT_BUFFER.O(.I(A1L225Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_buffer[48] is rx_buffer[48] at PIN_Y10
+rx_buffer[48] = OUTPUT();
+
+
+--A1L228 is rx_buffer[49]~output at IOOBUF_X31_Y11_N23
+A1L228 = OUTPUT_BUFFER.O(.I(A1L229Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_buffer[49] is rx_buffer[49] at PIN_K22
+rx_buffer[49] = OUTPUT();
+
+
+--A1L231 is rx_buffer[50]~output at IOOBUF_X24_Y25_N30
+A1L231 = OUTPUT_BUFFER.O(.I(A1L232Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_buffer[50] is rx_buffer[50] at PIN_E12
+rx_buffer[50] = OUTPUT();
+
+
+--A1L235 is rx_buffer[51]~output at IOOBUF_X31_Y20_N23
+A1L235 = OUTPUT_BUFFER.O(.I(A1L236Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_buffer[51] is rx_buffer[51] at PIN_E19
+rx_buffer[51] = OUTPUT();
+
+
+--A1L238 is rx_buffer[52]~output at IOOBUF_X31_Y19_N16
+A1L238 = OUTPUT_BUFFER.O(.I(A1L239Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_buffer[52] is rx_buffer[52] at PIN_L18
+rx_buffer[52] = OUTPUT();
+
+
+--A1L242 is rx_buffer[53]~output at IOOBUF_X19_Y25_N23
+A1L242 = OUTPUT_BUFFER.O(.I(A1L243Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_buffer[53] is rx_buffer[53] at PIN_B8
+rx_buffer[53] = OUTPUT();
+
+
+--A1L246 is rx_buffer[54]~output at IOOBUF_X15_Y25_N23
+A1L246 = OUTPUT_BUFFER.O(.I(A1L247Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_buffer[54] is rx_buffer[54] at PIN_D9
+rx_buffer[54] = OUTPUT();
+
+
+--A1L249 is rx_buffer[55]~output at IOOBUF_X19_Y0_N23
+A1L249 = OUTPUT_BUFFER.O(.I(A1L250Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_buffer[55] is rx_buffer[55] at PIN_W12
+rx_buffer[55] = OUTPUT();
+
+
+--A1L253 is rx_buffer[56]~output at IOOBUF_X10_Y17_N2
+A1L253 = OUTPUT_BUFFER.O(.I(A1L254Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_buffer[56] is rx_buffer[56] at PIN_C1
+rx_buffer[56] = OUTPUT();
+
+
+--A1L257 is rx_buffer[57]~output at IOOBUF_X31_Y6_N23
+A1L257 = OUTPUT_BUFFER.O(.I(A1L258Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_buffer[57] is rx_buffer[57] at PIN_R18
+rx_buffer[57] = OUTPUT();
+
+
+--A1L261 is rx_buffer[58]~output at IOOBUF_X19_Y25_N16
+A1L261 = OUTPUT_BUFFER.O(.I(A1L262Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_buffer[58] is rx_buffer[58] at PIN_A9
+rx_buffer[58] = OUTPUT();
+
+
+--A1L264 is rx_buffer[59]~output at IOOBUF_X31_Y17_N9
+A1L264 = OUTPUT_BUFFER.O(.I(A1L265Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_buffer[59] is rx_buffer[59] at PIN_D21
+rx_buffer[59] = OUTPUT();
+
+
+--A1L268 is rx_buffer[60]~output at IOOBUF_X22_Y0_N16
+A1L268 = OUTPUT_BUFFER.O(.I(A1L269Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_buffer[60] is rx_buffer[60] at PIN_R13
+rx_buffer[60] = OUTPUT();
+
+
+--A1L271 is rx_buffer[61]~output at IOOBUF_X10_Y20_N23
+A1L271 = OUTPUT_BUFFER.O(.I(A1L272Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_buffer[61] is rx_buffer[61] at PIN_H3
+rx_buffer[61] = OUTPUT();
+
+
+--A1L275 is rx_buffer[62]~output at IOOBUF_X19_Y0_N30
+A1L275 = OUTPUT_BUFFER.O(.I(A1L276Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_buffer[62] is rx_buffer[62] at PIN_AA10
+rx_buffer[62] = OUTPUT();
+
+
+--A1L279 is rx_buffer[63]~output at IOOBUF_X1_Y10_N2
+A1L279 = OUTPUT_BUFFER.O(.I(A1L280Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_buffer[63] is rx_buffer[63] at PIN_B1
+rx_buffer[63] = OUTPUT();
+
+
+--A1L283 is rx_buffer[64]~output at IOOBUF_X10_Y19_N9
+A1L283 = OUTPUT_BUFFER.O(.I(A1L284Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_buffer[64] is rx_buffer[64] at PIN_J3
+rx_buffer[64] = OUTPUT();
+
+
+--A1L286 is rx_buffer[65]~output at IOOBUF_X31_Y5_N16
+A1L286 = OUTPUT_BUFFER.O(.I(A1L287Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_buffer[65] is rx_buffer[65] at PIN_P14
+rx_buffer[65] = OUTPUT();
+
+
+--A1L290 is rx_buffer[66]~output at IOOBUF_X31_Y21_N9
+A1L290 = OUTPUT_BUFFER.O(.I(A1L291Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_buffer[66] is rx_buffer[66] at PIN_C20
+rx_buffer[66] = OUTPUT();
+
+
+--A1L293 is rx_buffer[67]~output at IOOBUF_X31_Y17_N16
+A1L293 = OUTPUT_BUFFER.O(.I(A1L294Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_buffer[67] is rx_buffer[67] at PIN_L15
+rx_buffer[67] = OUTPUT();
+
+
+--A1L296 is rx_buffer[68]~output at IOOBUF_X31_Y12_N9
+A1L296 = OUTPUT_BUFFER.O(.I(A1L297Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_buffer[68] is rx_buffer[68] at PIN_G22
+rx_buffer[68] = OUTPUT();
+
+
+--A1L299 is rx_buffer[69]~output at IOOBUF_X24_Y25_N16
+A1L299 = OUTPUT_BUFFER.O(.I(A1L300Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_buffer[69] is rx_buffer[69] at PIN_D14
+rx_buffer[69] = OUTPUT();
+
+
+--A1L303 is rx_buffer[70]~output at IOOBUF_X13_Y25_N2
+A1L303 = OUTPUT_BUFFER.O(.I(A1L304Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_buffer[70] is rx_buffer[70] at PIN_A4
+rx_buffer[70] = OUTPUT();
+
+
+--A1L307 is rx_buffer[71]~output at IOOBUF_X10_Y18_N23
+A1L307 = OUTPUT_BUFFER.O(.I(A1L308Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_buffer[71] is rx_buffer[71] at PIN_K9
+rx_buffer[71] = OUTPUT();
+
+
+--A1L310 is rx_buffer[72]~output at IOOBUF_X10_Y20_N16
+A1L310 = OUTPUT_BUFFER.O(.I(A1L311Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_buffer[72] is rx_buffer[72] at PIN_J4
+rx_buffer[72] = OUTPUT();
+
+
+--A1L313 is rx_buffer[73]~output at IOOBUF_X31_Y7_N2
+A1L313 = OUTPUT_BUFFER.O(.I(A1L314Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_buffer[73] is rx_buffer[73] at PIN_M22
+rx_buffer[73] = OUTPUT();
+
+
+--A1L317 is rx_buffer[74]~output at IOOBUF_X29_Y25_N30
+A1L317 = OUTPUT_BUFFER.O(.I(A1L318Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_buffer[74] is rx_buffer[74] at PIN_H14
+rx_buffer[74] = OUTPUT();
+
+
+--A1L321 is rx_buffer[75]~output at IOOBUF_X31_Y22_N16
+A1L321 = OUTPUT_BUFFER.O(.I(A1L322Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_buffer[75] is rx_buffer[75] at PIN_G17
+rx_buffer[75] = OUTPUT();
+
+
+--A1L325 is rx_buffer[76]~output at IOOBUF_X31_Y13_N23
+A1L325 = OUTPUT_BUFFER.O(.I(A1L326Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_buffer[76] is rx_buffer[76] at PIN_M15
+rx_buffer[76] = OUTPUT();
+
+
+--A1L329 is rx_buffer[77]~output at IOOBUF_X24_Y25_N9
+A1L329 = OUTPUT_BUFFER.O(.I(A1L330Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_buffer[77] is rx_buffer[77] at PIN_B14
+rx_buffer[77] = OUTPUT();
+
+
+--A1L333 is rx_buffer[78]~output at IOOBUF_X11_Y25_N16
+A1L333 = OUTPUT_BUFFER.O(.I(A1L334Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_buffer[78] is rx_buffer[78] at PIN_A2
+rx_buffer[78] = OUTPUT();
+
+
+--A1L337 is rx_buffer[79]~output at IOOBUF_X1_Y10_N9
+A1L337 = OUTPUT_BUFFER.O(.I(A1L338Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_buffer[79] is rx_buffer[79] at PIN_D6
+rx_buffer[79] = OUTPUT();
+
+
+--A1L341 is rx_buffer[80]~output at IOOBUF_X10_Y19_N2
+A1L341 = OUTPUT_BUFFER.O(.I(A1L342Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_buffer[80] is rx_buffer[80] at PIN_K4
+rx_buffer[80] = OUTPUT();
+
+
+--A1L344 is rx_buffer[81]~output at IOOBUF_X31_Y7_N16
+A1L344 = OUTPUT_BUFFER.O(.I(A1L345Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_buffer[81] is rx_buffer[81] at PIN_L22
+rx_buffer[81] = OUTPUT();
+
+
+--A1L348 is rx_buffer[82]~output at IOOBUF_X29_Y25_N23
+A1L348 = OUTPUT_BUFFER.O(.I(A1L349Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_buffer[82] is rx_buffer[82] at PIN_C17
+rx_buffer[82] = OUTPUT();
+
+
+--A1L352 is rx_buffer[83]~output at IOOBUF_X31_Y22_N2
+A1L352 = OUTPUT_BUFFER.O(.I(A1L353Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_buffer[83] is rx_buffer[83] at PIN_E18
+rx_buffer[83] = OUTPUT();
+
+
+--A1L356 is rx_buffer[84]~output at IOOBUF_X0_Y8_N2
+A1L356 = OUTPUT_BUFFER.O(.I(A1L357Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_buffer[84] is rx_buffer[84] at PIN_G1
+rx_buffer[84] = OUTPUT();
+
+
+--A1L359 is rx_buffer[85]~output at IOOBUF_X24_Y25_N2
+A1L359 = OUTPUT_BUFFER.O(.I(A1L360Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_buffer[85] is rx_buffer[85] at PIN_A14
+rx_buffer[85] = OUTPUT();
+
+
+--A1L363 is rx_buffer[86]~output at IOOBUF_X31_Y15_N2
+A1L363 = OUTPUT_BUFFER.O(.I(A1L364Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_buffer[86] is rx_buffer[86] at PIN_C22
+rx_buffer[86] = OUTPUT();
+
+
+--A1L367 is rx_buffer[87]~output at IOOBUF_X10_Y18_N9
+A1L367 = OUTPUT_BUFFER.O(.I(A1L368Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_buffer[87] is rx_buffer[87] at PIN_D2
+rx_buffer[87] = OUTPUT();
+
+
+--A1L371 is rx_buffer[88]~output at IOOBUF_X10_Y22_N2
+A1L371 = OUTPUT_BUFFER.O(.I(A1L372Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_buffer[88] is rx_buffer[88] at PIN_E4
+rx_buffer[88] = OUTPUT();
+
+
+--A1L375 is rx_buffer[89]~output at IOOBUF_X31_Y9_N16
+A1L375 = OUTPUT_BUFFER.O(.I(A1L376Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_buffer[89] is rx_buffer[89] at PIN_N15
+rx_buffer[89] = OUTPUT();
+
+
+--A1L378 is rx_buffer[90]~output at IOOBUF_X27_Y25_N9
+A1L378 = OUTPUT_BUFFER.O(.I(A1L379Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_buffer[90] is rx_buffer[90] at PIN_A15
+rx_buffer[90] = OUTPUT();
+
+
+--A1L382 is rx_buffer[91]~output at IOOBUF_X31_Y20_N16
+A1L382 = OUTPUT_BUFFER.O(.I(A1L383Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_buffer[91] is rx_buffer[91] at PIN_F18
+rx_buffer[91] = OUTPUT();
+
+
+--A1L386 is rx_buffer[92]~output at IOOBUF_X31_Y6_N9
+A1L386 = OUTPUT_BUFFER.O(.I(A1L387Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_buffer[92] is rx_buffer[92] at PIN_P19
+rx_buffer[92] = OUTPUT();
+
+
+--A1L390 is rx_buffer[93]~output at IOOBUF_X10_Y16_N9
+A1L390 = OUTPUT_BUFFER.O(.I(A1L391Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_buffer[93] is rx_buffer[93] at PIN_L2
+rx_buffer[93] = OUTPUT();
+
+
+--A1L394 is rx_buffer[94]~output at IOOBUF_X0_Y8_N9
+A1L394 = OUTPUT_BUFFER.O(.I(A1L395Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_buffer[94] is rx_buffer[94] at PIN_F1
+rx_buffer[94] = OUTPUT();
+
+
+--A1L398 is rx_buffer[95]~output at IOOBUF_X3_Y10_N30
+A1L398 = OUTPUT_BUFFER.O(.I(A1L399Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_buffer[95] is rx_buffer[95] at PIN_B2
+rx_buffer[95] = OUTPUT();
+
+
+--A1L401 is rx_buffer[96]~output at IOOBUF_X13_Y25_N23
+A1L401 = OUTPUT_BUFFER.O(.I(A1L402Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_buffer[96] is rx_buffer[96] at PIN_C6
+rx_buffer[96] = OUTPUT();
+
+
+--A1L405 is rx_buffer[97]~output at IOOBUF_X31_Y7_N23
+A1L405 = OUTPUT_BUFFER.O(.I(A1L406Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_buffer[97] is rx_buffer[97] at PIN_M21
+rx_buffer[97] = OUTPUT();
+
+
+--A1L409 is rx_buffer[98]~output at IOOBUF_X27_Y25_N2
+A1L409 = OUTPUT_BUFFER.O(.I(A1L410Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_buffer[98] is rx_buffer[98] at PIN_J13
+rx_buffer[98] = OUTPUT();
+
+
+--A1L413 is rx_buffer[99]~output at IOOBUF_X31_Y19_N9
+A1L413 = OUTPUT_BUFFER.O(.I(A1L414Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_buffer[99] is rx_buffer[99] at PIN_L19
+rx_buffer[99] = OUTPUT();
+
+
+--A1L416 is rx_buffer[100]~output at IOOBUF_X31_Y14_N16
+A1L416 = OUTPUT_BUFFER.O(.I(A1L417Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_buffer[100] is rx_buffer[100] at PIN_N19
+rx_buffer[100] = OUTPUT();
+
+
+--A1L419 is rx_buffer[101]~output at IOOBUF_X22_Y25_N2
+A1L419 = OUTPUT_BUFFER.O(.I(A1L420Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_buffer[101] is rx_buffer[101] at PIN_D13
+rx_buffer[101] = OUTPUT();
+
+
+--A1L422 is rx_buffer[102]~output at IOOBUF_X15_Y25_N2
+A1L422 = OUTPUT_BUFFER.O(.I(A1L423Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_buffer[102] is rx_buffer[102] at PIN_B7
+rx_buffer[102] = OUTPUT();
+
+
+--A1L425 is rx_buffer[103]~output at IOOBUF_X17_Y0_N16
+A1L425 = OUTPUT_BUFFER.O(.I(A1L426Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_buffer[103] is rx_buffer[103] at PIN_AA9
+rx_buffer[103] = OUTPUT();
+
+
+--A1L429 is rx_buffer[104]~output at IOOBUF_X10_Y16_N2
+A1L429 = OUTPUT_BUFFER.O(.I(A1L430Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_buffer[104] is rx_buffer[104] at PIN_K2
+rx_buffer[104] = OUTPUT();
+
+
+--A1L433 is rx_buffer[105]~output at IOOBUF_X31_Y9_N23
+A1L433 = OUTPUT_BUFFER.O(.I(A1L434Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_buffer[105] is rx_buffer[105] at PIN_N14
+rx_buffer[105] = OUTPUT();
+
+
+--A1L436 is rx_buffer[106]~output at IOOBUF_X31_Y21_N16
+A1L436 = OUTPUT_BUFFER.O(.I(A1L437Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_buffer[106] is rx_buffer[106] at PIN_K15
+rx_buffer[106] = OUTPUT();
+
+
+--A1L440 is rx_buffer[107]~output at IOOBUF_X31_Y17_N23
+A1L440 = OUTPUT_BUFFER.O(.I(A1L441Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_buffer[107] is rx_buffer[107] at PIN_L14
+rx_buffer[107] = OUTPUT();
+
+
+--A1L444 is rx_buffer[108]~output at IOOBUF_X31_Y19_N23
+A1L444 = OUTPUT_BUFFER.O(.I(A1L445Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_buffer[108] is rx_buffer[108] at PIN_M18
+rx_buffer[108] = OUTPUT();
+
+
+--A1L448 is rx_buffer[109]~output at IOOBUF_X29_Y25_N2
+A1L448 = OUTPUT_BUFFER.O(.I(A1L449Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_buffer[109] is rx_buffer[109] at PIN_E16
+rx_buffer[109] = OUTPUT();
+
+
+--A1L451 is rx_buffer[110]~output at IOOBUF_X15_Y25_N9
+A1L451 = OUTPUT_BUFFER.O(.I(A1L452Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_buffer[110] is rx_buffer[110] at PIN_A6
+rx_buffer[110] = OUTPUT();
+
+
+--A1L454 is rx_buffer[111]~output at IOOBUF_X3_Y10_N9
+A1L454 = OUTPUT_BUFFER.O(.I(A1L455Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_buffer[111] is rx_buffer[111] at PIN_D5
+rx_buffer[111] = OUTPUT();
+
+
+--A1L458 is rx_buffer[112]~output at IOOBUF_X10_Y19_N16
+A1L458 = OUTPUT_BUFFER.O(.I(A1L459Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_buffer[112] is rx_buffer[112] at PIN_K5
+rx_buffer[112] = OUTPUT();
+
+
+--A1L461 is rx_buffer[113]~output at IOOBUF_X31_Y6_N16
+A1L461 = OUTPUT_BUFFER.O(.I(A1L462Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_buffer[113] is rx_buffer[113] at PIN_P18
+rx_buffer[113] = OUTPUT();
+
+
+--A1L465 is rx_buffer[114]~output at IOOBUF_X11_Y25_N30
+A1L465 = OUTPUT_BUFFER.O(.I(A1L466Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_buffer[114] is rx_buffer[114] at PIN_B3
+rx_buffer[114] = OUTPUT();
+
+
+--A1L469 is rx_buffer[115]~output at IOOBUF_X31_Y22_N23
+A1L469 = OUTPUT_BUFFER.O(.I(A1L470Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_buffer[115] is rx_buffer[115] at PIN_H17
+rx_buffer[115] = OUTPUT();
+
+
+--A1L473 is rx_buffer[116]~output at IOOBUF_X31_Y12_N23
+A1L473 = OUTPUT_BUFFER.O(.I(A1L474Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_buffer[116] is rx_buffer[116] at PIN_G20
+rx_buffer[116] = OUTPUT();
+
+
+--A1L477 is rx_buffer[117]~output at IOOBUF_X22_Y25_N9
+A1L477 = OUTPUT_BUFFER.O(.I(A1L478Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_buffer[117] is rx_buffer[117] at PIN_H12
+rx_buffer[117] = OUTPUT();
+
+
+--A1L481 is rx_buffer[118]~output at IOOBUF_X17_Y25_N16
+A1L481 = OUTPUT_BUFFER.O(.I(A1L482Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_buffer[118] is rx_buffer[118] at PIN_C7
+rx_buffer[118] = OUTPUT();
+
+
+--A1L485 is rx_buffer[119]~output at IOOBUF_X10_Y18_N16
+A1L485 = OUTPUT_BUFFER.O(.I(A1L486Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_buffer[119] is rx_buffer[119] at PIN_K8
+rx_buffer[119] = OUTPUT();
+
+
+--A1L488 is rx_buffer[120]~output at IOOBUF_X10_Y21_N23
+A1L488 = OUTPUT_BUFFER.O(.I(A1L489Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_buffer[120] is rx_buffer[120] at PIN_J9
+rx_buffer[120] = OUTPUT();
+
+
+--A1L492 is rx_buffer[121]~output at IOOBUF_X31_Y11_N16
+A1L492 = OUTPUT_BUFFER.O(.I(A1L493Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_buffer[121] is rx_buffer[121] at PIN_K21
+rx_buffer[121] = OUTPUT();
+
+
+--A1L496 is rx_buffer[122]~output at IOOBUF_X31_Y21_N2
+A1L496 = OUTPUT_BUFFER.O(.I(A1L497Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_buffer[122] is rx_buffer[122] at PIN_D19
+rx_buffer[122] = OUTPUT();
+
+
+--A1L500 is rx_buffer[123]~output at IOOBUF_X31_Y14_N23
+A1L500 = OUTPUT_BUFFER.O(.I(A1L501Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_buffer[123] is rx_buffer[123] at PIN_N18
+rx_buffer[123] = OUTPUT();
+
+
+--A1L504 is rx_buffer[124]~output at IOOBUF_X31_Y12_N2
+A1L504 = OUTPUT_BUFFER.O(.I(A1L505Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_buffer[124] is rx_buffer[124] at PIN_F22
+rx_buffer[124] = OUTPUT();
+
+
+--A1L507 is rx_buffer[125]~output at IOOBUF_X19_Y25_N2
+A1L507 = OUTPUT_BUFFER.O(.I(A1L508Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_buffer[125] is rx_buffer[125] at PIN_B10
+rx_buffer[125] = OUTPUT();
+
+
+--A1L511 is rx_buffer[126]~output at IOOBUF_X6_Y10_N2
+A1L511 = OUTPUT_BUFFER.O(.I(A1L512Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_buffer[126] is rx_buffer[126] at PIN_B4
+rx_buffer[126] = OUTPUT();
+
+
+--A1L515 is rx_buffer[127]~output at IOOBUF_X10_Y15_N16
+A1L515 = OUTPUT_BUFFER.O(.I(A1L516Q), , , , , , , , , , , , , , , , , );
+
+
+--rx_buffer[127] is rx_buffer[127] at PIN_L8
+rx_buffer[127] = OUTPUT();
+
+
+--A1L36 is parity_wrong~output at IOOBUF_X22_Y0_N2
+A1L36 = OUTPUT_BUFFER.O(.I(A1L37Q), , , , , , , , , , , , , , , , , );
+
+
+--parity_wrong is parity_wrong at PIN_AA14
+parity_wrong = OUTPUT();
+
+
+--A1L23 is clk~input at IOIBUF_X0_Y6_N15
+A1L23 = INPUT_BUFFER(.I(clk), , );
 
 
 --clk is clk at PIN_M8
 clk = INPUT();
 
 
---A1L12 is rst~input at IOIBUF_X0_Y6_N22
-A1L12 = INPUT_BUFFER(.I(rst), , );
+--A1L39 is rst~input at IOIBUF_X0_Y6_N22
+A1L39 = INPUT_BUFFER(.I(rst), , );
 
 
 --rst is rst at PIN_M9
 rst = INPUT();
 
 
---A1L52 is rx_tick~input at IOIBUF_X10_Y22_N22
-A1L52 = INPUT_BUFFER(.I(rx_tick), , );
+--A1L554 is rx_tick~input at IOIBUF_X22_Y0_N29
+A1L554 = INPUT_BUFFER(.I(rx_tick), , );
 
 
---rx_tick is rx_tick at PIN_F4
+--rx_tick is rx_tick at PIN_AA13
 rx_tick = INPUT();
 
 
---A1L50 is rx_in~input at IOIBUF_X15_Y25_N1
-A1L50 = INPUT_BUFFER(.I(rx_in), , );
+--A1L552 is rx_in~input at IOIBUF_X22_Y25_N29
+A1L552 = INPUT_BUFFER(.I(rx_in), , );
 
 
---rx_in is rx_in at PIN_B7
+--rx_in is rx_in at PIN_A8
 rx_in = INPUT();
 
 
---A1L119 is ~QUARTUS_CREATED_GND~I at LCCOMB_X11_Y24_N20
-A1L119 = GND;
+--A1L634 is ~QUARTUS_CREATED_GND~I at LCCOMB_X11_Y20_N20
+A1L634 = GND;
 
 
 
@@ -420,55 +2405,395 @@ A1L119 = GND;
 
 
 
---A1L13 is rst~inputclkctrl at CLKCTRL_G4
-A1L13 = fiftyfivenm_clkctrl(.INCLK[0] = A1L12) WITH (clock_type = "Global Clock", ena_register_mode = "none");
+--A1L40 is rst~inputclkctrl at CLKCTRL_G4
+A1L40 = fiftyfivenm_clkctrl(.INCLK[0] = A1L39) WITH (clock_type = "Global Clock", ena_register_mode = "none");
 
 
---A1L9 is clk~inputclkctrl at CLKCTRL_G3
-A1L9 = fiftyfivenm_clkctrl(.INCLK[0] = A1L8) WITH (clock_type = "Global Clock", ena_register_mode = "none");
+--A1L24 is clk~inputclkctrl at CLKCTRL_G3
+A1L24 = fiftyfivenm_clkctrl(.INCLK[0] = A1L23) WITH (clock_type = "Global Clock", ena_register_mode = "none");
 
 
---A1L48 is rx_done~reg0feeder at LCCOMB_X13_Y22_N24
-A1L48 = A1L16;
+--A1L52 is rx_buffer[2]~reg0feeder at LCCOMB_X28_Y21_N4
+A1L52 = A1L82Q;
 
 
---A1L25 is rx_data[2]~reg0feeder at LCCOMB_X14_Y22_N14
-A1L25 = shift_reg[2];
+--A1L56 is rx_buffer[3]~reg0feeder at LCCOMB_X30_Y17_N12
+A1L56 = A1L86Q;
 
 
---A1L76 is shift_reg[1]~feeder at LCCOMB_X14_Y22_N4
-A1L76 = shift_reg[2];
+--A1L60 is rx_buffer[4]~reg0feeder at LCCOMB_X28_Y15_N8
+A1L60 = A1L90Q;
 
 
---A1L29 is rx_data[3]~reg0feeder at LCCOMB_X14_Y22_N18
-A1L29 = shift_reg[3];
+--A1L64 is rx_buffer[5]~reg0feeder at LCCOMB_X25_Y13_N0
+A1L64 = A1L94Q;
 
 
---A1L78 is shift_reg[2]~feeder at LCCOMB_X14_Y22_N10
-A1L78 = shift_reg[3];
+--A1L71 is rx_buffer[7]~reg0feeder at LCCOMB_X25_Y15_N24
+A1L71 = A1L102Q;
 
 
---A1L33 is rx_data[4]~reg0feeder at LCCOMB_X14_Y22_N30
-A1L33 = shift_reg[4];
+--A1L75 is rx_buffer[8]~reg0feeder at LCCOMB_X18_Y15_N26
+A1L75 = A1L106Q;
 
 
---A1L80 is shift_reg[3]~feeder at LCCOMB_X14_Y22_N2
-A1L80 = shift_reg[4];
+--A1L79 is rx_buffer[9]~reg0feeder at LCCOMB_X29_Y11_N30
+A1L79 = A1L110Q;
 
 
---A1L37 is rx_data[5]~reg0feeder at LCCOMB_X14_Y22_N26
-A1L37 = shift_reg[5];
+--A1L83 is rx_buffer[10]~reg0feeder at LCCOMB_X28_Y21_N2
+A1L83 = A1L113Q;
 
 
---A1L82 is shift_reg[4]~feeder at LCCOMB_X14_Y22_N12
-A1L82 = shift_reg[5];
+--A1L87 is rx_buffer[11]~reg0feeder at LCCOMB_X30_Y17_N6
+A1L87 = A1L116Q;
 
 
---A1L44 is rx_data[7]~reg0feeder at LCCOMB_X14_Y22_N6
-A1L44 = shift_reg[7];
+--A1L91 is rx_buffer[12]~reg0feeder at LCCOMB_X28_Y15_N6
+A1L91 = A1L120Q;
 
 
---A1L85 is shift_reg[6]~feeder at LCCOMB_X14_Y22_N24
-A1L85 = shift_reg[7];
+--A1L95 is rx_buffer[13]~reg0feeder at LCCOMB_X25_Y13_N2
+A1L95 = A1L124Q;
+
+
+--A1L99 is rx_buffer[14]~reg0feeder at LCCOMB_X19_Y15_N14
+A1L99 = A1L127Q;
+
+
+--A1L103 is rx_buffer[15]~reg0feeder at LCCOMB_X20_Y15_N20
+A1L103 = A1L130Q;
+
+
+--A1L107 is rx_buffer[16]~reg0feeder at LCCOMB_X18_Y15_N20
+A1L107 = A1L134Q;
+
+
+--A1L117 is rx_buffer[19]~reg0feeder at LCCOMB_X30_Y17_N16
+A1L117 = A1L145Q;
+
+
+--A1L121 is rx_buffer[20]~reg0feeder at LCCOMB_X28_Y15_N0
+A1L121 = A1L149Q;
+
+
+--A1L131 is rx_buffer[23]~reg0feeder at LCCOMB_X20_Y15_N2
+A1L131 = A1L161Q;
+
+
+--A1L138 is rx_buffer[25]~reg0feeder at LCCOMB_X29_Y11_N22
+A1L138 = A1L169Q;
+
+
+--A1L142 is rx_buffer[26]~reg0feeder at LCCOMB_X28_Y21_N22
+A1L142 = A1L172Q;
+
+
+--A1L146 is rx_buffer[27]~reg0feeder at LCCOMB_X30_Y17_N2
+A1L146 = A1L175Q;
+
+
+--A1L150 is rx_buffer[28]~reg0feeder at LCCOMB_X28_Y15_N2
+A1L150 = A1L179Q;
+
+
+--A1L154 is rx_buffer[29]~reg0feeder at LCCOMB_X24_Y17_N24
+A1L154 = A1L182Q;
+
+
+--A1L158 is rx_buffer[30]~reg0feeder at LCCOMB_X19_Y15_N22
+A1L158 = A1L186Q;
+
+
+--A1L162 is rx_buffer[31]~reg0feeder at LCCOMB_X20_Y15_N12
+A1L162 = A1L190Q;
+
+
+--A1L166 is rx_buffer[32]~reg0feeder at LCCOMB_X18_Y15_N8
+A1L166 = A1L194Q;
+
+
+--A1L176 is rx_buffer[35]~reg0feeder at LCCOMB_X30_Y17_N0
+A1L176 = A1L206Q;
+
+
+--A1L183 is rx_buffer[37]~reg0feeder at LCCOMB_X27_Y15_N4
+A1L183 = A1L213Q;
+
+
+--A1L187 is rx_buffer[38]~reg0feeder at LCCOMB_X19_Y15_N16
+A1L187 = A1L217Q;
+
+
+--A1L191 is rx_buffer[39]~reg0feeder at LCCOMB_X25_Y15_N2
+A1L191 = A1L221Q;
+
+
+--A1L195 is rx_buffer[40]~reg0feeder at LCCOMB_X18_Y15_N18
+A1L195 = A1L225Q;
+
+
+--A1L199 is rx_buffer[41]~reg0feeder at LCCOMB_X29_Y11_N14
+A1L199 = A1L229Q;
+
+
+--A1L203 is rx_buffer[42]~reg0feeder at LCCOMB_X28_Y21_N14
+A1L203 = A1L232Q;
+
+
+--A1L210 is rx_buffer[44]~reg0feeder at LCCOMB_X28_Y15_N14
+A1L210 = A1L239Q;
+
+
+--A1L214 is rx_buffer[45]~reg0feeder at LCCOMB_X27_Y17_N14
+A1L214 = A1L243Q;
+
+
+--A1L218 is rx_buffer[46]~reg0feeder at LCCOMB_X19_Y15_N2
+A1L218 = A1L247Q;
+
+
+--A1L222 is rx_buffer[47]~reg0feeder at LCCOMB_X27_Y14_N0
+A1L222 = A1L250Q;
+
+
+--A1L226 is rx_buffer[48]~reg0feeder at LCCOMB_X18_Y15_N0
+A1L226 = A1L254Q;
+
+
+--A1L233 is rx_buffer[50]~reg0feeder at LCCOMB_X28_Y21_N0
+A1L233 = A1L262Q;
+
+
+--A1L240 is rx_buffer[52]~reg0feeder at LCCOMB_X28_Y15_N20
+A1L240 = A1L269Q;
+
+
+--A1L244 is rx_buffer[53]~reg0feeder at LCCOMB_X27_Y17_N12
+A1L244 = A1L272Q;
+
+
+--A1L251 is rx_buffer[55]~reg0feeder at LCCOMB_X27_Y14_N18
+A1L251 = A1L280Q;
+
+
+--A1L255 is rx_buffer[56]~reg0feeder at LCCOMB_X18_Y15_N6
+A1L255 = A1L284Q;
+
+
+--A1L259 is rx_buffer[57]~reg0feeder at LCCOMB_X29_Y11_N26
+A1L259 = A1L287Q;
+
+
+--A1L266 is rx_buffer[59]~reg0feeder at LCCOMB_X30_Y17_N14
+A1L266 = A1L294Q;
+
+
+--A1L273 is rx_buffer[61]~reg0feeder at LCCOMB_X27_Y17_N10
+A1L273 = A1L300Q;
+
+
+--A1L277 is rx_buffer[62]~reg0feeder at LCCOMB_X19_Y15_N30
+A1L277 = A1L304Q;
+
+
+--A1L281 is rx_buffer[63]~reg0feeder at LCCOMB_X25_Y15_N28
+A1L281 = A1L308Q;
+
+
+--A1L288 is rx_buffer[65]~reg0feeder at LCCOMB_X29_Y11_N28
+A1L288 = A1L314Q;
+
+
+--A1L301 is rx_buffer[69]~reg0feeder at LCCOMB_X25_Y13_N24
+A1L301 = A1L330Q;
+
+
+--A1L305 is rx_buffer[70]~reg0feeder at LCCOMB_X19_Y15_N24
+A1L305 = A1L334Q;
+
+
+--A1L315 is rx_buffer[73]~reg0feeder at LCCOMB_X29_Y11_N18
+A1L315 = A1L345Q;
+
+
+--A1L319 is rx_buffer[74]~reg0feeder at LCCOMB_X28_Y21_N26
+A1L319 = A1L349Q;
+
+
+--A1L323 is rx_buffer[75]~reg0feeder at LCCOMB_X30_Y17_N30
+A1L323 = A1L353Q;
+
+
+--A1L327 is rx_buffer[76]~reg0feeder at LCCOMB_X28_Y15_N30
+A1L327 = A1L357Q;
+
+
+--A1L331 is rx_buffer[77]~reg0feeder at LCCOMB_X25_Y13_N6
+A1L331 = A1L360Q;
+
+
+--A1L335 is rx_buffer[78]~reg0feeder at LCCOMB_X19_Y15_N10
+A1L335 = A1L364Q;
+
+
+--A1L339 is rx_buffer[79]~reg0feeder at LCCOMB_X20_Y15_N30
+A1L339 = A1L368Q;
+
+
+--A1L346 is rx_buffer[81]~reg0feeder at LCCOMB_X29_Y11_N12
+A1L346 = A1L376Q;
+
+
+--A1L350 is rx_buffer[82]~reg0feeder at LCCOMB_X28_Y21_N16
+A1L350 = A1L379Q;
+
+
+--A1L354 is rx_buffer[83]~reg0feeder at LCCOMB_X30_Y17_N28
+A1L354 = A1L383Q;
+
+
+--A1L361 is rx_buffer[85]~reg0feeder at LCCOMB_X25_Y13_N16
+A1L361 = A1L391Q;
+
+
+--A1L365 is rx_buffer[86]~reg0feeder at LCCOMB_X19_Y15_N12
+A1L365 = A1L395Q;
+
+
+--A1L369 is rx_buffer[87]~reg0feeder at LCCOMB_X20_Y15_N24
+A1L369 = A1L399Q;
+
+
+--A1L373 is rx_buffer[88]~reg0feeder at LCCOMB_X18_Y15_N14
+A1L373 = A1L402Q;
+
+
+--A1L380 is rx_buffer[90]~reg0feeder at LCCOMB_X28_Y21_N10
+A1L380 = A1L410Q;
+
+
+--A1L384 is rx_buffer[91]~reg0feeder at LCCOMB_X30_Y17_N10
+A1L384 = A1L414Q;
+
+
+--A1L388 is rx_buffer[92]~reg0feeder at LCCOMB_X28_Y15_N26
+A1L388 = A1L417Q;
+
+
+--A1L392 is rx_buffer[93]~reg0feeder at LCCOMB_X25_Y15_N6
+A1L392 = A1L420Q;
+
+
+--A1L396 is rx_buffer[94]~reg0feeder at LCCOMB_X19_Y15_N6
+A1L396 = A1L423Q;
+
+
+--A1L403 is rx_buffer[96]~reg0feeder at LCCOMB_X18_Y15_N28
+A1L403 = A1L430Q;
+
+
+--A1L407 is rx_buffer[97]~reg0feeder at LCCOMB_X29_Y11_N8
+A1L407 = A1L434Q;
+
+
+--A1L411 is rx_buffer[98]~reg0feeder at LCCOMB_X28_Y21_N20
+A1L411 = A1L437Q;
+
+
+--A1L427 is rx_buffer[103]~reg0feeder at LCCOMB_X25_Y15_N30
+A1L427 = A1L455Q;
+
+
+--A1L431 is rx_buffer[104]~reg0feeder at LCCOMB_X18_Y15_N10
+A1L431 = A1L459Q;
+
+
+--A1L438 is rx_buffer[106]~reg0feeder at LCCOMB_X28_Y21_N18
+A1L438 = A1L466Q;
+
+
+--A1L442 is rx_buffer[107]~reg0feeder at LCCOMB_X30_Y17_N26
+A1L442 = A1L470Q;
+
+
+--A1L446 is rx_buffer[108]~reg0feeder at LCCOMB_X28_Y15_N22
+A1L446 = A1L474Q;
+
+
+--A1L456 is rx_buffer[111]~reg0feeder at LCCOMB_X25_Y15_N16
+A1L456 = A1L486Q;
+
+
+--A1L463 is rx_buffer[113]~reg0feeder at LCCOMB_X29_Y11_N4
+A1L463 = A1L493Q;
+
+
+--A1L467 is rx_buffer[114]~reg0feeder at LCCOMB_X28_Y21_N12
+A1L467 = A1L497Q;
+
+
+--A1L471 is rx_buffer[115]~reg0feeder at LCCOMB_X30_Y15_N4
+A1L471 = A1L501Q;
+
+
+--A1L475 is rx_buffer[116]~reg0feeder at LCCOMB_X28_Y15_N16
+A1L475 = A1L505Q;
+
+
+--A1L479 is rx_buffer[117]~reg0feeder at LCCOMB_X24_Y17_N6
+A1L479 = A1L508Q;
+
+
+--A1L483 is rx_buffer[118]~reg0feeder at LCCOMB_X19_Y15_N4
+A1L483 = A1L512Q;
+
+
+--A1L490 is rx_buffer[120]~reg0feeder at LCCOMB_X18_Y15_N30
+A1L490 = shift_reg[0];
+
+
+--A1L526 is rx_data[1]~reg0feeder at LCCOMB_X25_Y15_N0
+A1L526 = shift_reg[1];
+
+
+--A1L494 is rx_buffer[121]~reg0feeder at LCCOMB_X25_Y15_N8
+A1L494 = shift_reg[1];
+
+
+--A1L530 is rx_data[2]~reg0feeder at LCCOMB_X25_Y15_N22
+A1L530 = shift_reg[2];
+
+
+--A1L498 is rx_buffer[122]~reg0feeder at LCCOMB_X27_Y14_N4
+A1L498 = shift_reg[2];
+
+
+--A1L502 is rx_buffer[123]~reg0feeder at LCCOMB_X30_Y15_N18
+A1L502 = shift_reg[3];
+
+
+--A1L537 is rx_data[4]~reg0feeder at LCCOMB_X20_Y15_N18
+A1L537 = shift_reg[4];
+
+
+--A1L541 is rx_data[5]~reg0feeder at LCCOMB_X20_Y15_N16
+A1L541 = shift_reg[5];
+
+
+--A1L509 is rx_buffer[125]~reg0feeder at LCCOMB_X20_Y15_N22
+A1L509 = shift_reg[5];
+
+
+--A1L600 is shift_reg[4]~feeder at LCCOMB_X24_Y15_N30
+A1L600 = shift_reg[5];
+
+
+--A1L513 is rx_buffer[126]~reg0feeder at LCCOMB_X19_Y15_N18
+A1L513 = shift_reg[6];
+
+
+--A1L517 is rx_buffer[127]~reg0feeder at LCCOMB_X20_Y15_N8
+A1L517 = shift_reg[7];
 
 

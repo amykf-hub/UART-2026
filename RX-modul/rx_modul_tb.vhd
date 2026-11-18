@@ -26,7 +26,6 @@ architecture SimulationModel of rx_modul_tb is
 	
 	--Signal fra baud_generator
 	signal rx_tick  : std_logic := '0';
-	signal tx_tick  : std_logic := '0';
 	
 	--Signal fra rx_modul
 	signal rx_in 	 	  : std_logic := '1';
@@ -62,8 +61,7 @@ begin
       clk       => clk,
       rst       => rst,
 		baud_sel  => baud_sel, --kommer fra baud.gen
-		rx_tick 		 => rx_tick,  --rx kommer fra utgang av baud.gen 
-		tx_baud 		 => tx_tick	  --tx kommer fra utgang av baud.gen
+		rx_tick 		 => rx_tick  --rx kommer fra utgang av baud.gen 
 		);
 
 --Initialisering av rx-modul
@@ -75,7 +73,7 @@ begin
 		rx_tick	    => rx_tick,
       rx_data      => rx_data,
 		rx_done 	 	 => rx_done,
-		parity_wrong => parity_err --mottar 1 fra RX-modul når feil oppdages
+		parity_wrong => parity_wrong --mottar 1 fra RX-modul når feil oppdages
       );
 
 
@@ -152,7 +150,7 @@ begin
       wait for 200 us;
 		
 		--sim ferdig
-      report "Simulering er ferdig!" severity note;
-      wait;
+		assert false
+			report "Simulering er ferdig!" severity failure;
   end process p_main;
 end architecture SimulationModel;

@@ -60,7 +60,8 @@ begin
 			if rx_tick = '1' then
 			
 					case state is
-						when IDLE =>							
+						when IDLE =>
+							parity_wrong   <= '0';
 							sample_count 	<= 0;
 							bit_count 		<= 0;
 							

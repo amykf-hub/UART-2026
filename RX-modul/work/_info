@@ -1,8 +1,20 @@
 m255
 K4
 z2
-!s12c _opt
-Z0 !s99 nomlopt
+Z0 !s12c _opt
+Z1 !s99 nomlopt
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
+R0
+R1
 !s11e MIXED_VERSIONS
 13
 !s112 1.1
@@ -10,44 +22,43 @@ Z0 !s99 nomlopt
 !i10e 25
 !i10f 100
 cModel Technology
-Z1 dC:/Users/Amy Fiamingo/AppData/Local/quartus
+dC:/Users/Amy Fiamingo/AppData/Local/quartus
 T_opt
 !i145 1
 !i144 0
-!s110 1794831680
-Vi^:^0`4;LNiBa_=O>Y;[73
+!s110 1795011248
+VKZ2YcFRzj_KzJh]VL`?Z23
 04 11 15 work rx_modul_tb simulationmodel 1
-=1-14755bf0b018-6afaf53e-179-954
-R0
+=4-14755bf0b018-6afdb2b0-1c4-53a4
+R1
 !s12f OEM100
 !s12b OEM100
-!s124 OEM10U2 
+!s124 OEM10U3 
 !s135 nogc
 o-quiet -auto_acc_if_foreign -work work
 tCvgOpt 0 defaultOptions 1107585188
 n@_opt
 OL;O;2025.2;82
-R1
-Erx_modul
-Z2 w1794997540
+Ebaud_generator
+Z2 w1795009406
 Z3 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
 Z4 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
 Z5 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
-!i122 11
+!i122 37
 Z6 dC:/Users/Amy Fiamingo/git/Projects/UART-2026/RX-modul
-Z7 8C:/Users/Amy Fiamingo/git/Projects/UART-2026/RX-modul/rx-modul.vhd
-Z8 FC:/Users/Amy Fiamingo/git/Projects/UART-2026/RX-modul/rx-modul.vhd
+Z7 8C:/Users/Amy Fiamingo/git/Projects/UART-2026/baud_generator.vhd
+Z8 FC:/Users/Amy Fiamingo/git/Projects/UART-2026/baud_generator.vhd
 l0
 L5 1
-V>bKL[4dD4ABfHRbgF0m4W2
-!s100 gKaPgkGAW@NgE1?=oWg4R0
+VGLV_B^CaRIAigbG9dlX:S2
+!s100 4[TGRnHN5E>ld]fXdRL=?1
 Z9 OL;C;2025.2;82
 32
-Z10 !s110 1794997727
+Z10 !s110 1795011241
 !i10b 1
-Z11 !s108 1794997727.000000
-Z12 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|C:/Users/Amy Fiamingo/git/Projects/UART-2026/RX-modul/rx-modul.vhd|
-Z13 !s107 C:/Users/Amy Fiamingo/git/Projects/UART-2026/RX-modul/rx-modul.vhd|
+Z11 !s108 1795011241.000000
+Z12 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|C:/Users/Amy Fiamingo/git/Projects/UART-2026/baud_generator.vhd|
+Z13 !s107 C:/Users/Amy Fiamingo/git/Projects/UART-2026/baud_generator.vhd|
 !i113 0
 Z14 o-work work -2002 -explicit
 Z15 tExplicit 1 CvgOpt 0 defaultOptions 1083072464
@@ -55,12 +66,12 @@ Artl
 R3
 R4
 R5
-Z16 DEx4 work 8 rx_modul 0 22 >bKL[4dD4ABfHRbgF0m4W2
-!i122 11
-l29
-L18 187
-V==SQ_[Qf<ZPEoBYaK?<h;1
-!s100 ^CLaWPkhiXIR4JdjET]1P0
+Z16 DEx4 work 14 baud_generator 0 22 GLV_B^CaRIAigbG9dlX:S2
+!i122 37
+l32
+L22 51
+V]8PS^=P2MEejWOR`<:Bbi1
+!s100 ca6h^m1^`2V0c_^D]Zdh^3
 R9
 32
 R10
@@ -71,15 +82,58 @@ R13
 !i113 0
 R14
 R15
-Erx_modul_tb
-w1794997490
+Erx_modul
+Z17 w1795009781
 R3
 R4
 R5
-!i122 10
+!i122 36
 R6
-Z17 8C:/Users/Amy Fiamingo/git/Projects/UART-2026/RX-modul/rx_modul_tb.vhd
-Z18 FC:/Users/Amy Fiamingo/git/Projects/UART-2026/RX-modul/rx_modul_tb.vhd
+Z18 8C:/Users/Amy Fiamingo/git/Projects/UART-2026/RX-modul/rx-modul.vhd
+Z19 FC:/Users/Amy Fiamingo/git/Projects/UART-2026/RX-modul/rx-modul.vhd
+l0
+L5 1
+V>bKL[4dD4ABfHRbgF0m4W2
+!s100 gKaPgkGAW@NgE1?=oWg4R0
+R9
+32
+R10
+!i10b 1
+R11
+Z20 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|C:/Users/Amy Fiamingo/git/Projects/UART-2026/RX-modul/rx-modul.vhd|
+Z21 !s107 C:/Users/Amy Fiamingo/git/Projects/UART-2026/RX-modul/rx-modul.vhd|
+!i113 0
+R14
+R15
+Artl
+R3
+R4
+R5
+Z22 DEx4 work 8 rx_modul 0 22 >bKL[4dD4ABfHRbgF0m4W2
+!i122 36
+l29
+L18 188
+V;?WdzdzkYclVWEP;6Be7V3
+!s100 eU;W``WB4dg3oN?_^1:K60
+R9
+32
+R10
+!i10b 1
+R11
+R20
+R21
+!i113 0
+R14
+R15
+Erx_modul_tb
+Z23 w1795011238
+R3
+R4
+R5
+!i122 35
+R6
+Z24 8C:/Users/Amy Fiamingo/git/Projects/UART-2026/RX-modul/rx_modul_tb.vhd
+Z25 FC:/Users/Amy Fiamingo/git/Projects/UART-2026/RX-modul/rx_modul_tb.vhd
 l0
 L8 1
 VP]7gZhIiKf7S;e62GPL4J3
@@ -89,30 +143,30 @@ R9
 R10
 !i10b 1
 R11
-Z19 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|C:/Users/Amy Fiamingo/git/Projects/UART-2026/RX-modul/rx_modul_tb.vhd|
-Z20 !s107 C:/Users/Amy Fiamingo/git/Projects/UART-2026/RX-modul/rx_modul_tb.vhd|
+Z26 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|C:/Users/Amy Fiamingo/git/Projects/UART-2026/RX-modul/rx_modul_tb.vhd|
+Z27 !s107 C:/Users/Amy Fiamingo/git/Projects/UART-2026/RX-modul/rx_modul_tb.vhd|
 !i113 0
 R14
 R15
 Asimulationmodel
-DEx4 work 8 rx_modul 0 22 [onSFoa1hzNFjeSOIaA]72
+R22
+R16
 R3
 R4
 R5
 DEx4 work 11 rx_modul_tb 0 22 P]7gZhIiKf7S;e62GPL4J3
-!i122 2
-l47
-L12 118
-V79HoHGCM>?ejoYhT^O3@T2
-!s100 R4`6Ga]2=JgSk^f5Y9@3=3
+!i122 35
+l48
+L12 145
+VC@5J5UhVhm<R@IR5=QY?e3
+!s100 0oDC<T6NlBa@4Qh`8m6gg3
 R9
 32
-!s110 1794831659
+R10
 !i10b 1
-!s108 1794831659.000000
-R19
-R20
+R11
+R26
+R27
 !i113 0
 R14
 R15
-w1794831423

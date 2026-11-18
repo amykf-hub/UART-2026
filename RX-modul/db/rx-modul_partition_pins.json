@@ -40,6 +40,522 @@
 					"strict" : false
 				},
 				{
+					"name" : "rx_buffer[0]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_buffer[1]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_buffer[2]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_buffer[3]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_buffer[4]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_buffer[5]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_buffer[6]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_buffer[7]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_buffer[8]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_buffer[9]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_buffer[10]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_buffer[11]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_buffer[12]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_buffer[13]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_buffer[14]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_buffer[15]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_buffer[16]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_buffer[17]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_buffer[18]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_buffer[19]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_buffer[20]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_buffer[21]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_buffer[22]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_buffer[23]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_buffer[24]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_buffer[25]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_buffer[26]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_buffer[27]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_buffer[28]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_buffer[29]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_buffer[30]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_buffer[31]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_buffer[32]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_buffer[33]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_buffer[34]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_buffer[35]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_buffer[36]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_buffer[37]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_buffer[38]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_buffer[39]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_buffer[40]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_buffer[41]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_buffer[42]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_buffer[43]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_buffer[44]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_buffer[45]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_buffer[46]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_buffer[47]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_buffer[48]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_buffer[49]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_buffer[50]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_buffer[51]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_buffer[52]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_buffer[53]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_buffer[54]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_buffer[55]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_buffer[56]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_buffer[57]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_buffer[58]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_buffer[59]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_buffer[60]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_buffer[61]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_buffer[62]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_buffer[63]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_buffer[64]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_buffer[65]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_buffer[66]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_buffer[67]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_buffer[68]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_buffer[69]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_buffer[70]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_buffer[71]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_buffer[72]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_buffer[73]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_buffer[74]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_buffer[75]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_buffer[76]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_buffer[77]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_buffer[78]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_buffer[79]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_buffer[80]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_buffer[81]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_buffer[82]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_buffer[83]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_buffer[84]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_buffer[85]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_buffer[86]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_buffer[87]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_buffer[88]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_buffer[89]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_buffer[90]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_buffer[91]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_buffer[92]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_buffer[93]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_buffer[94]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_buffer[95]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_buffer[96]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_buffer[97]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_buffer[98]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_buffer[99]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_buffer[100]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_buffer[101]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_buffer[102]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_buffer[103]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_buffer[104]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_buffer[105]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_buffer[106]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_buffer[107]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_buffer[108]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_buffer[109]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_buffer[110]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_buffer[111]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_buffer[112]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_buffer[113]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_buffer[114]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_buffer[115]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_buffer[116]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_buffer[117]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_buffer[118]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_buffer[119]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_buffer[120]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_buffer[121]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_buffer[122]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_buffer[123]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_buffer[124]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_buffer[125]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_buffer[126]",
+					"strict" : false
+				},
+				{
+					"name" : "rx_buffer[127]",
+					"strict" : false
+				},
+				{
+					"name" : "parity_wrong",
+					"strict" : false
+				},
+				{
 					"name" : "clk",
 					"strict" : false
 				},

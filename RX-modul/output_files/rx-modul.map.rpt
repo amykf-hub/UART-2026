@@ -1,5 +1,5 @@
 Analysis & Synthesis report for rx-modul
-Wed Nov 18 11:42:06 2026
+Wed Nov 18 14:36:04 2026
 Quartus Prime Version 25.1std.0 Build 1129 10/21/2025 SC Lite Edition
 
 
@@ -10,7 +10,16 @@ Quartus Prime Version 25.1std.0 Build 1129 10/21/2025 SC Lite Edition
   2. Analysis & Synthesis Summary
   3. Analysis & Synthesis Settings
   4. Parallel Compilation
-  5. Analysis & Synthesis Messages
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |rx_modul|state
+  9. General Register Statistics
+ 10. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 11. Post-Synthesis Netlist Statistics for Top Partition
+ 12. Elapsed Time Per Partition
+ 13. Analysis & Synthesis Equations
+ 14. Analysis & Synthesis Messages
 
 
 
@@ -37,22 +46,22 @@ on the Quartus Prime software download page.
 +--------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status        ; Failed - Wed Nov 18 11:42:06 2026               ;
+; Analysis & Synthesis Status        ; Successful - Wed Nov 18 14:36:04 2026           ;
 ; Quartus Prime Version              ; 25.1std.0 Build 1129 10/21/2025 SC Lite Edition ;
 ; Revision Name                      ; rx-modul                                        ;
 ; Top-level Entity Name              ; rx_modul                                        ;
 ; Family                             ; MAX 10                                          ;
-; Total logic elements               ; N/A until Partition Merge                       ;
-;     Total combinational functions  ; N/A until Partition Merge                       ;
-;     Dedicated logic registers      ; N/A until Partition Merge                       ;
-; Total registers                    ; N/A until Partition Merge                       ;
-; Total pins                         ; N/A until Partition Merge                       ;
-; Total virtual pins                 ; N/A until Partition Merge                       ;
-; Total memory bits                  ; N/A until Partition Merge                       ;
-; Embedded Multiplier 9-bit elements ; N/A until Partition Merge                       ;
-; Total PLLs                         ; N/A until Partition Merge                       ;
-; UFM blocks                         ; N/A until Partition Merge                       ;
-; ADC blocks                         ; N/A until Partition Merge                       ;
+; Total logic elements               ; 198                                             ;
+;     Total combinational functions  ; 53                                              ;
+;     Dedicated logic registers      ; 169                                             ;
+; Total registers                    ; 169                                             ;
+; Total pins                         ; 142                                             ;
+; Total virtual pins                 ; 0                                               ;
+; Total memory bits                  ; 0                                               ;
+; Embedded Multiplier 9-bit elements ; 0                                               ;
+; Total PLLs                         ; 0                                               ;
+; UFM blocks                         ; 0                                               ;
+; ADC blocks                         ; 0                                               ;
 +------------------------------------+-------------------------------------------------+
 
 
@@ -151,11 +160,144 @@ on the Quartus Prime software download page.
 ; Maximum allowed            ; 10          ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 1           ;
+; Maximum used               ; 10          ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
+;     Processors 2-10        ;   0.0%      ;
 +----------------------------+-------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                              ;
++----------------------------------+-----------------+-----------------+--------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                       ; Library ;
++----------------------------------+-----------------+-----------------+--------------------------------------------------------------------+---------+
+; rx-modul.vhd                     ; yes             ; User VHDL File  ; C:/Users/Amy Fiamingo/git/Projects/UART-2026/RX-modul/rx-modul.vhd ;         ;
++----------------------------------+-----------------+-----------------+--------------------------------------------------------------------+---------+
+
+
++---------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary             ;
++---------------------------------------------+-----------+
+; Resource                                    ; Usage     ;
++---------------------------------------------+-----------+
+; Estimated Total logic elements              ; 198       ;
+;                                             ;           ;
+; Total combinational functions               ; 53        ;
+; Logic element usage by number of LUT inputs ;           ;
+;     -- 4 input functions                    ; 28        ;
+;     -- 3 input functions                    ; 15        ;
+;     -- <=2 input functions                  ; 10        ;
+;                                             ;           ;
+; Logic elements by mode                      ;           ;
+;     -- normal mode                          ; 50        ;
+;     -- arithmetic mode                      ; 3         ;
+;                                             ;           ;
+; Total registers                             ; 169       ;
+;     -- Dedicated logic registers            ; 169       ;
+;     -- I/O registers                        ; 0         ;
+;                                             ;           ;
+; I/O pins                                    ; 142       ;
+;                                             ;           ;
+; Embedded Multiplier 9-bit elements          ; 0         ;
+;                                             ;           ;
+; Maximum fan-out node                        ; clk~input ;
+; Maximum fan-out                             ; 169       ;
+; Total fan-out                               ; 1120      ;
+; Average fan-out                             ; 2.21      ;
++---------------------------------------------+-----------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                ;
++----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------+-------------+--------------+
+; Compilation Hierarchy Node ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name ; Entity Name ; Library Name ;
++----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------+-------------+--------------+
+; |rx_modul                  ; 53 (53)             ; 169 (169)                 ; 0           ; 0          ; 0            ; 0       ; 0         ; 142  ; 0            ; 0          ; |rx_modul           ; rx_modul    ; work         ;
++----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+---------------------+-------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++-----------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |rx_modul|state                                                                                                   ;
++--------------------+------------+-------------+--------------------+----------------+------------------+-------------+------------+
+; Name               ; state.DONE ; state.STOPP ; state.PARITY_CHECK ; state.SAMPLING ; state.WAIT_START ; state.START ; state.IDLE ;
++--------------------+------------+-------------+--------------------+----------------+------------------+-------------+------------+
+; state.IDLE         ; 0          ; 0           ; 0                  ; 0              ; 0                ; 0           ; 0          ;
+; state.START        ; 0          ; 0           ; 0                  ; 0              ; 0                ; 1           ; 1          ;
+; state.WAIT_START   ; 0          ; 0           ; 0                  ; 0              ; 1                ; 0           ; 1          ;
+; state.SAMPLING     ; 0          ; 0           ; 0                  ; 1              ; 0                ; 0           ; 1          ;
+; state.PARITY_CHECK ; 0          ; 0           ; 1                  ; 0              ; 0                ; 0           ; 1          ;
+; state.STOPP        ; 0          ; 1           ; 0                  ; 0              ; 0                ; 0           ; 1          ;
+; state.DONE         ; 1          ; 0           ; 0                  ; 0              ; 0                ; 0           ; 1          ;
++--------------------+------------+-------------+--------------------+----------------+------------------+-------------+------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 169   ;
+; Number of registers using Synchronous Clear  ; 0     ;
+; Number of registers using Synchronous Load   ; 0     ;
+; Number of registers using Asynchronous Clear ; 169   ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 159   ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+; 12:1               ; 3 bits    ; 24 LEs        ; 3 LEs                ; 21 LEs                 ; Yes        ; |rx_modul|sample_count[2]  ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |rx_modul|bit_count        ;
+; 10:1               ; 3 bits    ; 18 LEs        ; 12 LEs               ; 6 LEs                  ; No         ; |rx_modul|state            ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 142                         ;
+; cycloneiii_ff         ; 169                         ;
+;     CLR               ; 10                          ;
+;     ENA CLR           ; 159                         ;
+; cycloneiii_lcell_comb ; 53                          ;
+;     arith             ; 3                           ;
+;         2 data inputs ; 2                           ;
+;         3 data inputs ; 1                           ;
+;     normal            ; 50                          ;
+;         1 data inputs ; 3                           ;
+;         2 data inputs ; 5                           ;
+;         3 data inputs ; 14                          ;
+;         4 data inputs ; 28                          ;
+;                       ;                             ;
+; Max LUT depth         ; 4.00                        ;
+; Average LUT depth     ; 1.02                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:00     ;
++----------------+--------------+
+
+
++--------------------------------+
+; Analysis & Synthesis Equations ;
++--------------------------------+
+The equations can be found in C:/Users/Amy Fiamingo/git/Projects/UART-2026/RX-modul/output_files/rx-modul.map.eqn.
 
 
 +-------------------------------+
@@ -164,21 +306,32 @@ on the Quartus Prime software download page.
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 25.1std.0 Build 1129 10/21/2025 SC Lite Edition
-    Info: Processing started: Wed Nov 18 11:42:01 2026
+    Info: Processing started: Wed Nov 18 14:35:54 2026
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off rx-modul -c rx-modul
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 10 of the 10 processors detected
+Info (12021): Found 2 design units, including 1 entities, in source file /users/amy fiamingo/git/projects/uart-2026/baud_generator.vhd
+    Info (12022): Found design unit 1: baud_generator-rtl File: C:/Users/Amy Fiamingo/git/Projects/UART-2026/baud_generator.vhd Line: 22
+    Info (12023): Found entity 1: baud_generator File: C:/Users/Amy Fiamingo/git/Projects/UART-2026/baud_generator.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file rx-modul.vhd
     Info (12022): Found design unit 1: rx_modul-RTL File: C:/Users/Amy Fiamingo/git/Projects/UART-2026/RX-modul/rx-modul.vhd Line: 18
     Info (12023): Found entity 1: rx_modul File: C:/Users/Amy Fiamingo/git/Projects/UART-2026/RX-modul/rx-modul.vhd Line: 5
 Info (12021): Found 2 design units, including 1 entities, in source file rx_modul_tb.vhd
     Info (12022): Found design unit 1: rx_modul_tb-SimulationModel File: C:/Users/Amy Fiamingo/git/Projects/UART-2026/RX-modul/rx_modul_tb.vhd Line: 12
     Info (12023): Found entity 1: rx_modul_tb File: C:/Users/Amy Fiamingo/git/Projects/UART-2026/RX-modul/rx_modul_tb.vhd Line: 8
-Error (10481): VHDL Use Clause error at rx_modul_tb.vhd(55): design library "work" does not contain primary unit "baud_generator". Verify that the primary unit exists in the library and has been successfully compiled. File: C:/Users/Amy Fiamingo/git/Projects/UART-2026/RX-modul/rx_modul_tb.vhd Line: 55
-Error: Quartus Prime Analysis & Synthesis was unsuccessful. 1 error, 1 warning
-    Error: Peak virtual memory: 4808 megabytes
-    Error: Processing ended: Wed Nov 18 11:42:06 2026
-    Error: Elapsed time: 00:00:05
-    Error: Total CPU time (on all processors): 00:00:13
+Info (12127): Elaborating entity "rx_modul" for the top level hierarchy
+Warning (10036): Verilog HDL or VHDL warning at rx-modul.vhd(27): object "buffer_full" assigned a value but never read File: C:/Users/Amy Fiamingo/git/Projects/UART-2026/RX-modul/rx-modul.vhd Line: 27
+Info (286030): Timing-Driven Synthesis is running
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 342 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 4 input pins
+    Info (21059): Implemented 138 output pins
+    Info (21061): Implemented 200 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 2 warnings
+    Info: Peak virtual memory: 4915 megabytes
+    Info: Processing ended: Wed Nov 18 14:36:04 2026
+    Info: Elapsed time: 00:00:10
+    Info: Total CPU time (on all processors): 00:00:21
 
 
