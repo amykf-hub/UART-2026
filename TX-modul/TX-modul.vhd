@@ -85,7 +85,8 @@ begin
 								
 						when STOPP =>
 							tx_out <= '1';
-							state <= IDLE;				
+							state <= IDLE;
+							tx_busy <= '0';
 							
 					end case;
 			end if;

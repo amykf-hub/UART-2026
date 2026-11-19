@@ -1,0 +1,270 @@
+-- Copyright (C) 2025  Altera Corporation. All rights reserved.
+-- Your use of Altera Corporation's design tools, logic functions 
+-- and other software and tools, and any partner logic 
+-- functions, and any output files from any of the foregoing 
+-- (including device programming or simulation files), and any 
+-- associated documentation or information are expressly subject 
+-- to the terms and conditions of the Altera Program License 
+-- Subscription Agreement, the Altera Quartus Prime License Agreement,
+-- the Altera IP License Agreement, or other applicable license
+-- agreement, including, without limitation, that your use is for
+-- the sole purpose of programming logic devices manufactured by
+-- Altera and sold by Altera or its authorized distributors.  Please
+-- refer to the Altera Software License Subscription Agreements 
+-- on the Quartus Prime software download page.
+--tx_out is tx_out
+tx_out = OUTPUT(A1L57);
+
+
+--tx_busy is tx_busy
+tx_busy = OUTPUT(A1L35Q);
+
+
+--A1L56Q is tx_out~reg0
+--register power-up is low
+
+A1L56Q = DFFEAS(A1L16, clk, rst,  , A1L55,  ,  ,  ,  );
+
+
+--A1L35Q is tx_busy~reg0
+--register power-up is low
+
+A1L35Q = DFFEAS(A1L33, clk, rst,  , A1L34,  ,  ,  ,  );
+
+
+--state.STOPP is state.STOPP
+--register power-up is low
+
+state.STOPP = DFFEAS(state.PARITY, clk, rst,  , tx_baud,  ,  ,  ,  );
+
+
+--state.DATA is state.DATA
+--register power-up is low
+
+state.DATA = DFFEAS(A1L28, clk, rst,  ,  ,  ,  ,  ,  );
+
+
+--tx_data[2] is tx_data[2]
+--register power-up is low
+
+tx_data[2] = DFFEAS(tx_in[2], clk, rst,  , A1L8,  ,  ,  ,  );
+
+
+--bit_count[1] is bit_count[1]
+--register power-up is low
+
+bit_count[1] = DFFEAS(A1L19, clk, rst,  , A1L55,  ,  ,  ,  );
+
+
+--tx_data[1] is tx_data[1]
+--register power-up is low
+
+tx_data[1] = DFFEAS(tx_in[1], clk, rst,  , A1L8,  ,  ,  ,  );
+
+
+--bit_count[0] is bit_count[0]
+--register power-up is low
+
+bit_count[0] = DFFEAS(A1L20, clk, rst,  , A1L55,  ,  ,  ,  );
+
+
+--tx_data[0] is tx_data[0]
+--register power-up is low
+
+tx_data[0] = DFFEAS(tx_in[0], clk, rst,  , A1L8,  ,  ,  ,  );
+
+
+--A1L6 is Mux0~0
+A1L6 = (bit_count[1] & (((bit_count[0])))) # (!bit_count[1] & ((bit_count[0] & (tx_data[1])) # (!bit_count[0] & ((tx_data[0])))));
+
+
+--tx_data[3] is tx_data[3]
+--register power-up is low
+
+tx_data[3] = DFFEAS(tx_in[3], clk, rst,  , A1L8,  ,  ,  ,  );
+
+
+--A1L7 is Mux0~1
+A1L7 = (bit_count[1] & ((A1L6 & ((tx_data[3]))) # (!A1L6 & (tx_data[2])))) # (!bit_count[1] & (((A1L6))));
+
+
+--bit_count[2] is bit_count[2]
+--register power-up is low
+
+bit_count[2] = DFFEAS(A1L18, clk, rst,  , A1L55,  ,  ,  ,  );
+
+
+--state.PARITY is state.PARITY
+--register power-up is low
+
+state.PARITY = DFFEAS(A1L21, clk, rst,  , tx_baud,  ,  ,  ,  );
+
+
+--tx_data[7] is tx_data[7]
+--register power-up is low
+
+tx_data[7] = DFFEAS(tx_in[7], clk, rst,  , A1L8,  ,  ,  ,  );
+
+
+--tx_data[6] is tx_data[6]
+--register power-up is low
+
+tx_data[6] = DFFEAS(tx_in[6], clk, rst,  , A1L8,  ,  ,  ,  );
+
+
+--tx_data[5] is tx_data[5]
+--register power-up is low
+
+tx_data[5] = DFFEAS(tx_in[5], clk, rst,  , A1L8,  ,  ,  ,  );
+
+
+--tx_data[4] is tx_data[4]
+--register power-up is low
+
+tx_data[4] = DFFEAS(tx_in[4], clk, rst,  , A1L8,  ,  ,  ,  );
+
+
+--A1L9 is parity_bit~0
+A1L9 = tx_data[7] $ (tx_data[6] $ (tx_data[5] $ (tx_data[4])));
+
+
+--A1L10 is parity_bit~1
+A1L10 = tx_data[2] $ (tx_data[1] $ (tx_data[0] $ (tx_data[3])));
+
+
+--A1L12 is Selector1~0
+A1L12 = (state.PARITY & (A1L9 $ (A1L10)));
+
+
+--state.IDLE is state.IDLE
+--register power-up is low
+
+state.IDLE = DFFEAS(A1L29, clk, rst,  ,  ,  ,  ,  ,  );
+
+
+--A1L13 is Selector1~1
+A1L13 = (bit_count[1] & ((tx_data[6]) # ((bit_count[0])))) # (!bit_count[1] & (((!bit_count[0] & tx_data[4]))));
+
+
+--A1L14 is Selector1~2
+A1L14 = (bit_count[0] & ((A1L13 & ((tx_data[7]))) # (!A1L13 & (tx_data[5])))) # (!bit_count[0] & (((A1L13))));
+
+
+--clk is clk
+clk = INPUT();
+
+
+--rst is rst
+rst = INPUT();
+
+
+--tx_baud is tx_baud
+tx_baud = INPUT();
+
+
+--tx_start is tx_start
+tx_start = INPUT();
+
+
+--A1L55 is tx_out~0
+A1L55 = (tx_baud & ((state.IDLE) # (!tx_start)));
+
+
+--state.START is state.START
+--register power-up is low
+
+state.START = DFFEAS(A1L8, clk, rst,  , A1L34,  ,  ,  ,  );
+
+
+--A1L32 is tx_busy~0
+A1L32 = (state.START) # ((A1L35Q & ((state.DATA) # (state.PARITY))));
+
+
+--A1L33 is tx_busy~1
+A1L33 = (A1L32) # ((tx_start & !state.IDLE));
+
+
+--A1L34 is tx_busy~2
+A1L34 = (tx_baud) # ((tx_start & !state.IDLE));
+
+
+--A1L27 is state~13
+A1L27 = (((!tx_baud) # (!bit_count[0])) # (!bit_count[1])) # (!bit_count[2]);
+
+
+--A1L28 is state~14
+A1L28 = (state.DATA & ((A1L27) # ((tx_baud & state.START)))) # (!state.DATA & (tx_baud & (state.START)));
+
+
+--tx_in[2] is tx_in[2]
+tx_in[2] = INPUT();
+
+
+--A1L8 is p1_process~1
+A1L8 = (tx_start & !state.IDLE);
+
+
+--A1L19 is Selector3~0
+A1L19 = (state.DATA & ((bit_count[1] $ (bit_count[0])))) # (!state.DATA & (state.IDLE & (bit_count[1])));
+
+
+--tx_in[1] is tx_in[1]
+tx_in[1] = INPUT();
+
+
+--A1L20 is Selector4~0
+A1L20 = (state.DATA & ((!bit_count[0]))) # (!state.DATA & (state.IDLE & bit_count[0]));
+
+
+--tx_in[0] is tx_in[0]
+tx_in[0] = INPUT();
+
+
+--tx_in[3] is tx_in[3]
+tx_in[3] = INPUT();
+
+
+--A1L17 is Selector2~0
+A1L17 = (state.DATA & ((bit_count[1]))) # (!state.DATA & (state.IDLE));
+
+
+--A1L18 is Selector2~1
+A1L18 = (state.DATA & (bit_count[2] $ (((bit_count[0] & A1L17))))) # (!state.DATA & (bit_count[2] & ((A1L17))));
+
+
+--A1L21 is Selector8~0
+A1L21 = (bit_count[2] & (state.DATA & (bit_count[1] & bit_count[0])));
+
+
+--tx_in[7] is tx_in[7]
+tx_in[7] = INPUT();
+
+
+--tx_in[6] is tx_in[6]
+tx_in[6] = INPUT();
+
+
+--tx_in[5] is tx_in[5]
+tx_in[5] = INPUT();
+
+
+--tx_in[4] is tx_in[4]
+tx_in[4] = INPUT();
+
+
+--A1L29 is state~15
+A1L29 = (state.IDLE & (((!tx_baud) # (!state.STOPP)))) # (!state.IDLE & (tx_start));
+
+
+--A1L15 is Selector1~3
+A1L15 = (state.DATA & ((bit_count[2] & (A1L14)) # (!bit_count[2] & ((A1L7)))));
+
+
+--A1L16 is Selector1~4
+A1L16 = (state.IDLE & (!A1L15 & (!state.STOPP & !A1L12)));
+
+
+--A1L57 is tx_out~reg0_wirecell
+A1L57 = !A1L56Q;
+
+

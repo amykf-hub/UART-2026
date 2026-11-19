@@ -1,0 +1,65 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "tx_out",
+					"strict" : false
+				},
+				{
+					"name" : "tx_busy",
+					"strict" : false
+				},
+				{
+					"name" : "clk",
+					"strict" : false
+				},
+				{
+					"name" : "rst",
+					"strict" : false
+				},
+				{
+					"name" : "tx_baud",
+					"strict" : false
+				},
+				{
+					"name" : "tx_start",
+					"strict" : false
+				},
+				{
+					"name" : "tx_in[2]",
+					"strict" : false
+				},
+				{
+					"name" : "tx_in[1]",
+					"strict" : false
+				},
+				{
+					"name" : "tx_in[0]",
+					"strict" : false
+				},
+				{
+					"name" : "tx_in[3]",
+					"strict" : false
+				},
+				{
+					"name" : "tx_in[7]",
+					"strict" : false
+				},
+				{
+					"name" : "tx_in[6]",
+					"strict" : false
+				},
+				{
+					"name" : "tx_in[5]",
+					"strict" : false
+				},
+				{
+					"name" : "tx_in[4]",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

@@ -1,0 +1,360 @@
+-- Copyright (C) 2025  Altera Corporation. All rights reserved.
+-- Your use of Altera Corporation's design tools, logic functions 
+-- and other software and tools, and any partner logic 
+-- functions, and any output files from any of the foregoing 
+-- (including device programming or simulation files), and any 
+-- associated documentation or information are expressly subject 
+-- to the terms and conditions of the Altera Program License 
+-- Subscription Agreement, the Altera Quartus Prime License Agreement,
+-- the Altera IP License Agreement, or other applicable license
+-- agreement, including, without limitation, that your use is for
+-- the sole purpose of programming logic devices manufactured by
+-- Altera and sold by Altera or its authorized distributors.  Please
+-- refer to the Altera Software License Subscription Agreements 
+-- on the Quartus Prime software download page.
+--A1L74Q is tx_out~reg0 at FF_X13_Y1_N1
+--register power-up is low
+
+A1L74Q = DFFEAS(A1L21, GLOBAL(A1L8), GLOBAL(A1L16),  , A1L72,  ,  ,  ,  );
+
+
+--A1L44Q is tx_busy~reg0 at FF_X12_Y1_N1
+--register power-up is low
+
+A1L44Q = DFFEAS(A1L41, GLOBAL(A1L8), GLOBAL(A1L16),  , A1L42,  ,  ,  ,  );
+
+
+--state.STOPP is state.STOPP at FF_X14_Y1_N29
+--register power-up is low
+
+state.STOPP = DFFEAS(A1L33, GLOBAL(A1L8), GLOBAL(A1L16),  , A1L38,  ,  ,  ,  );
+
+
+--state.DATA is state.DATA at FF_X12_Y1_N15
+--register power-up is low
+
+state.DATA = DFFEAS(A1L35, GLOBAL(A1L8), GLOBAL(A1L16),  ,  ,  ,  ,  ,  );
+
+
+--tx_data[2] is tx_data[2] at FF_X13_Y1_N27
+--register power-up is low
+
+tx_data[2] = DFFEAS( , GLOBAL(A1L8), GLOBAL(A1L16),  , A1L11, A1L60,  ,  , VCC);
+
+
+--bit_count[1] is bit_count[1] at FF_X13_Y1_N9
+--register power-up is low
+
+bit_count[1] = DFFEAS(A1L24, GLOBAL(A1L8), GLOBAL(A1L16),  , A1L72,  ,  ,  ,  );
+
+
+--tx_data[1] is tx_data[1] at FF_X13_Y1_N11
+--register power-up is low
+
+tx_data[1] = DFFEAS( , GLOBAL(A1L8), GLOBAL(A1L16),  , A1L11, A1L58,  ,  , VCC);
+
+
+--bit_count[0] is bit_count[0] at FF_X13_Y1_N17
+--register power-up is low
+
+bit_count[0] = DFFEAS(A1L25, GLOBAL(A1L8), GLOBAL(A1L16),  , A1L72,  ,  ,  ,  );
+
+
+--tx_data[0] is tx_data[0] at FF_X13_Y1_N31
+--register power-up is low
+
+tx_data[0] = DFFEAS( , GLOBAL(A1L8), GLOBAL(A1L16),  , A1L11, A1L56,  ,  , VCC);
+
+
+--A1L9 is Mux0~0 at LCCOMB_X13_Y1_N20
+A1L9 = (bit_count[1] & (((bit_count[0])))) # (!bit_count[1] & ((bit_count[0] & (tx_data[1])) # (!bit_count[0] & ((tx_data[0])))));
+
+
+--tx_data[3] is tx_data[3] at FF_X13_Y1_N19
+--register power-up is low
+
+tx_data[3] = DFFEAS( , GLOBAL(A1L8), GLOBAL(A1L16),  , A1L11, A1L62,  ,  , VCC);
+
+
+--A1L10 is Mux0~1 at LCCOMB_X13_Y1_N18
+A1L10 = (bit_count[1] & ((A1L9 & ((tx_data[3]))) # (!A1L9 & (tx_data[2])))) # (!bit_count[1] & (((A1L9))));
+
+
+--bit_count[2] is bit_count[2] at FF_X13_Y1_N29
+--register power-up is low
+
+bit_count[2] = DFFEAS(A1L23, GLOBAL(A1L8), GLOBAL(A1L16),  , A1L72,  ,  ,  ,  );
+
+
+--state.PARITY is state.PARITY at FF_X14_Y1_N11
+--register power-up is low
+
+state.PARITY = DFFEAS(A1L26, GLOBAL(A1L8), GLOBAL(A1L16),  , A1L38,  ,  ,  ,  );
+
+
+--tx_data[7] is tx_data[7] at FF_X13_Y1_N23
+--register power-up is low
+
+tx_data[7] = DFFEAS( , GLOBAL(A1L8), GLOBAL(A1L16),  , A1L11, A1L70,  ,  , VCC);
+
+
+--tx_data[6] is tx_data[6] at FF_X13_Y1_N5
+--register power-up is low
+
+tx_data[6] = DFFEAS( , GLOBAL(A1L8), GLOBAL(A1L16),  , A1L11, A1L68,  ,  , VCC);
+
+
+--tx_data[5] is tx_data[5] at FF_X13_Y1_N15
+--register power-up is low
+
+tx_data[5] = DFFEAS( , GLOBAL(A1L8), GLOBAL(A1L16),  , A1L11, A1L66,  ,  , VCC);
+
+
+--tx_data[4] is tx_data[4] at FF_X13_Y1_N13
+--register power-up is low
+
+tx_data[4] = DFFEAS( , GLOBAL(A1L8), GLOBAL(A1L16),  , A1L11, A1L64,  ,  , VCC);
+
+
+--A1L12 is parity_bit~0 at LCCOMB_X13_Y1_N22
+A1L12 = tx_data[4] $ (tx_data[6] $ (tx_data[7] $ (tx_data[5])));
+
+
+--A1L13 is parity_bit~1 at LCCOMB_X13_Y1_N10
+A1L13 = tx_data[0] $ (tx_data[2] $ (tx_data[1] $ (tx_data[3])));
+
+
+--A1L17 is Selector1~0 at LCCOMB_X13_Y1_N26
+A1L17 = (state.PARITY & (A1L12 $ (A1L13)));
+
+
+--state.IDLE is state.IDLE at FF_X12_Y1_N25
+--register power-up is low
+
+state.IDLE = DFFEAS(A1L36, GLOBAL(A1L8), GLOBAL(A1L16),  ,  ,  ,  ,  ,  );
+
+
+--A1L18 is Selector1~1 at LCCOMB_X13_Y1_N2
+A1L18 = (bit_count[1] & (((tx_data[6]) # (bit_count[0])))) # (!bit_count[1] & (tx_data[4] & ((!bit_count[0]))));
+
+
+--A1L19 is Selector1~2 at LCCOMB_X13_Y1_N14
+A1L19 = (bit_count[0] & ((A1L18 & (tx_data[7])) # (!A1L18 & ((tx_data[5]))))) # (!bit_count[0] & (((A1L18))));
+
+
+--A1L72 is tx_out~0 at LCCOMB_X13_Y1_N30
+A1L72 = (A1L38 & ((state.IDLE) # (!A1L76)));
+
+
+--state.START is state.START at FF_X12_Y1_N31
+--register power-up is low
+
+state.START = DFFEAS(A1L31, GLOBAL(A1L8), GLOBAL(A1L16),  , A1L42,  ,  ,  ,  );
+
+
+--A1L40 is tx_busy~0 at LCCOMB_X12_Y1_N28
+A1L40 = (state.START) # ((A1L44Q & ((state.DATA) # (state.PARITY))));
+
+
+--A1L41 is tx_busy~1 at LCCOMB_X12_Y1_N0
+A1L41 = (A1L40) # ((A1L76 & !state.IDLE));
+
+
+--A1L42 is tx_busy~2 at LCCOMB_X12_Y1_N2
+A1L42 = (A1L38) # ((A1L76 & !state.IDLE));
+
+
+--A1L34 is state~13 at LCCOMB_X13_Y1_N24
+A1L34 = (((!bit_count[0]) # (!bit_count[1])) # (!bit_count[2])) # (!A1L38);
+
+
+--A1L35 is state~14 at LCCOMB_X12_Y1_N14
+A1L35 = (state.START & ((A1L38) # ((state.DATA & A1L34)))) # (!state.START & (((state.DATA & A1L34))));
+
+
+--A1L11 is p1_process~1 at LCCOMB_X12_Y1_N16
+A1L11 = (A1L76 & !state.IDLE);
+
+
+--A1L24 is Selector3~0 at LCCOMB_X13_Y1_N8
+A1L24 = (state.DATA & (bit_count[0] $ ((bit_count[1])))) # (!state.DATA & (((bit_count[1] & state.IDLE))));
+
+
+--A1L25 is Selector4~0 at LCCOMB_X13_Y1_N16
+A1L25 = (bit_count[0] & (state.IDLE & !state.DATA)) # (!bit_count[0] & ((state.DATA)));
+
+
+--A1L22 is Selector2~0 at LCCOMB_X13_Y1_N12
+A1L22 = (state.DATA & (bit_count[1])) # (!state.DATA & ((state.IDLE)));
+
+
+--A1L23 is Selector2~1 at LCCOMB_X13_Y1_N28
+A1L23 = (state.DATA & (bit_count[2] $ (((bit_count[0] & A1L22))))) # (!state.DATA & (((bit_count[2] & A1L22))));
+
+
+--A1L26 is Selector8~0 at LCCOMB_X14_Y1_N10
+A1L26 = (state.DATA & (bit_count[2] & (bit_count[0] & bit_count[1])));
+
+
+--A1L36 is state~15 at LCCOMB_X12_Y1_N24
+A1L36 = (state.IDLE & (((!state.STOPP)) # (!A1L38))) # (!state.IDLE & (((A1L76))));
+
+
+--A1L20 is Selector1~3 at LCCOMB_X13_Y1_N6
+A1L20 = (state.DATA & ((bit_count[2] & (A1L19)) # (!bit_count[2] & ((A1L10)))));
+
+
+--A1L21 is Selector1~4 at LCCOMB_X13_Y1_N0
+A1L21 = (!state.STOPP & (state.IDLE & (!A1L17 & !A1L20)));
+
+
+--A1L73 is tx_out~output at IOOBUF_X11_Y0_N2
+A1L73 = OUTPUT_BUFFER.O(.I(!A1L74Q), , , , , , , , , , , , , , , , , );
+
+
+--tx_out is tx_out at PIN_P10
+tx_out = OUTPUT();
+
+
+--A1L43 is tx_busy~output at IOOBUF_X11_Y0_N23
+A1L43 = OUTPUT_BUFFER.O(.I(A1L44Q), , , , , , , , , , , , , , , , , );
+
+
+--tx_busy is tx_busy at PIN_AA3
+tx_busy = OUTPUT();
+
+
+--A1L7 is clk~input at IOIBUF_X0_Y6_N15
+A1L7 = INPUT_BUFFER(.I(clk), , );
+
+
+--clk is clk at PIN_M8
+clk = INPUT();
+
+
+--A1L15 is rst~input at IOIBUF_X0_Y6_N22
+A1L15 = INPUT_BUFFER(.I(rst), , );
+
+
+--rst is rst at PIN_M9
+rst = INPUT();
+
+
+--A1L38 is tx_baud~input at IOIBUF_X11_Y0_N8
+A1L38 = INPUT_BUFFER(.I(tx_baud), , );
+
+
+--tx_baud is tx_baud at PIN_R10
+tx_baud = INPUT();
+
+
+--A1L76 is tx_start~input at IOIBUF_X11_Y0_N29
+A1L76 = INPUT_BUFFER(.I(tx_start), , );
+
+
+--tx_start is tx_start at PIN_W8
+tx_start = INPUT();
+
+
+--A1L60 is tx_in[2]~input at IOIBUF_X13_Y0_N8
+A1L60 = INPUT_BUFFER(.I(tx_in[2]), , );
+
+
+--tx_in[2] is tx_in[2] at PIN_AA7
+tx_in[2] = INPUT();
+
+
+--A1L58 is tx_in[1]~input at IOIBUF_X13_Y0_N1
+A1L58 = INPUT_BUFFER(.I(tx_in[1]), , );
+
+
+--tx_in[1] is tx_in[1] at PIN_AB6
+tx_in[1] = INPUT();
+
+
+--A1L56 is tx_in[0]~input at IOIBUF_X15_Y0_N8
+A1L56 = INPUT_BUFFER(.I(tx_in[0]), , );
+
+
+--tx_in[0] is tx_in[0] at PIN_AA8
+tx_in[0] = INPUT();
+
+
+--A1L62 is tx_in[3]~input at IOIBUF_X11_Y0_N15
+A1L62 = INPUT_BUFFER(.I(tx_in[3]), , );
+
+
+--tx_in[3] is tx_in[3] at PIN_AB4
+tx_in[3] = INPUT();
+
+
+--A1L70 is tx_in[7]~input at IOIBUF_X13_Y0_N29
+A1L70 = INPUT_BUFFER(.I(tx_in[7]), , );
+
+
+--tx_in[7] is tx_in[7] at PIN_AA5
+tx_in[7] = INPUT();
+
+
+--A1L68 is tx_in[6]~input at IOIBUF_X15_Y0_N1
+A1L68 = INPUT_BUFFER(.I(tx_in[6]), , );
+
+
+--tx_in[6] is tx_in[6] at PIN_AB8
+tx_in[6] = INPUT();
+
+
+--A1L66 is tx_in[5]~input at IOIBUF_X13_Y0_N15
+A1L66 = INPUT_BUFFER(.I(tx_in[5]), , );
+
+
+--tx_in[5] is tx_in[5] at PIN_AA6
+tx_in[5] = INPUT();
+
+
+--A1L64 is tx_in[4]~input at IOIBUF_X13_Y0_N22
+A1L64 = INPUT_BUFFER(.I(tx_in[4]), , );
+
+
+--tx_in[4] is tx_in[4] at PIN_AB5
+tx_in[4] = INPUT();
+
+
+--A1L94 is ~QUARTUS_CREATED_GND~I at LCCOMB_X11_Y24_N20
+A1L94 = GND;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+--A1L16 is rst~inputclkctrl at CLKCTRL_G4
+A1L16 = fiftyfivenm_clkctrl(.INCLK[0] = A1L15) WITH (clock_type = "Global Clock", ena_register_mode = "none");
+
+
+--A1L8 is clk~inputclkctrl at CLKCTRL_G3
+A1L8 = fiftyfivenm_clkctrl(.INCLK[0] = A1L7) WITH (clock_type = "Global Clock", ena_register_mode = "none");
+
+
+--A1L33 is state.STOPP~feeder at LCCOMB_X14_Y1_N28
+A1L33 = state.PARITY;
+
+
+--A1L31 is state.START~feeder at LCCOMB_X12_Y1_N30
+A1L31 = A1L11;
+
+

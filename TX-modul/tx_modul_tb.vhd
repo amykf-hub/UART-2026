@@ -51,9 +51,8 @@ begin
 		port map (
       clk       => clk,
       rst       => rst,
-		baud_sel  => baud_sel, --kommer fra baud.gen
-		rx 		 => rx_tick,  --tx kommer fra utgang av baud.gen 
-		tx 		 => tx_baud	  --tx kommer fra utgang av baud.gen
+		baud_sel  => baud_sel, --kommer fra baud.gen 
+		tx_baud 	 => tx_baud	  --tx kommer fra utgang av baud.gen
 		);
 
 --Initialisering av rx-modul

@@ -1,0 +1,33 @@
+{C:/Users/Amy Fiamingo/git/Projects/UART-2026/TX-modul/tx_modul_tb.vhd} {1 {vcom -work work -2002 -explicit -vopt -stats=none {C:/Users/Amy Fiamingo/git/Projects/UART-2026/TX-modul/tx_modul_tb.vhd}
+Questa Altera Starter FPGA Edition-64 vcom 2025.2 Compiler 2025.05 May 31 2025
+** Note: (vcom-220) 'C:/Users/Amy Fiamingo/git/Projects/UART-2026/TX-modul/TX-modul.mpf' is used as the ini file.
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity tx_modul_tb
+-- Compiling architecture SimulationModel of tx_modul_tb
+-- Loading entity baud_generator
+-- Loading entity tx_modul
+
+} {} {}} {C:/Users/Amy Fiamingo/git/Projects/UART-2026/baud_generator.vhd} {1 {vcom -work work -2002 -explicit -vopt -stats=none {C:/Users/Amy Fiamingo/git/Projects/UART-2026/baud_generator.vhd}
+Questa Altera Starter FPGA Edition-64 vcom 2025.2 Compiler 2025.05 May 31 2025
+** Note: (vcom-220) 'C:/Users/Amy Fiamingo/git/Projects/UART-2026/TX-modul/TX-modul.mpf' is used as the ini file.
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity baud_generator
+-- Compiling architecture rtl of baud_generator
+
+} {} {}} {C:/Users/Amy Fiamingo/git/Projects/UART-2026/TX-modul/TX-modul.vhd} {1 {vcom -work work -2002 -explicit -vopt -stats=none {C:/Users/Amy Fiamingo/git/Projects/UART-2026/TX-modul/TX-modul.vhd}
+Questa Altera Starter FPGA Edition-64 vcom 2025.2 Compiler 2025.05 May 31 2025
+** Note: (vcom-220) 'C:/Users/Amy Fiamingo/git/Projects/UART-2026/TX-modul/TX-modul.mpf' is used as the ini file.
+-- Loading package STANDARD
+-- Loading package TEXTIO
+-- Loading package std_logic_1164
+-- Loading package NUMERIC_STD
+-- Compiling entity tx_modul
+-- Compiling architecture RTL of tx_modul
+
+} {} {}}

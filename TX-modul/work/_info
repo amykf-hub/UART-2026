@@ -1,0 +1,163 @@
+m255
+K4
+z2
+Z0 !s12c _opt
+Z1 !s99 nomlopt
+R0
+R1
+!s11e MIXED_VERSIONS
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z2 dC:/Users/Amy Fiamingo/AppData/Local/quartus
+T_opt
+!i145 1
+!i144 0
+!s110 1795019031
+V_36Ol>R4aoSIIoWA]mR=73
+04 11 15 work tx_modul_tb simulationmodel 1
+=3-14755bf0b018-6afdd116-2b3-711c
+R1
+!s12f OEM100
+!s12b OEM100
+!s124 OEM10U3 
+!s135 nogc
+o-quiet -auto_acc_if_foreign -work work
+tCvgOpt 0 defaultOptions 1107585188
+n@_opt
+OL;O;2025.2;82
+R2
+Ebaud_generator
+Z3 w1795017821
+Z4 DPx4 ieee 11 numeric_std 0 22 aU^R8eGcicLcUFIaBQSL>3
+Z5 DPx3 std 6 textio 0 22 zE1`LPoLg^DX3Oz^4Fj1K3
+Z6 DPx4 ieee 14 std_logic_1164 0 22 cVAk:aDinOX8^VGI1ekP<3
+!i122 16
+Z7 dC:/Users/Amy Fiamingo/git/Projects/UART-2026/TX-modul
+Z8 8C:/Users/Amy Fiamingo/git/Projects/UART-2026/baud_generator.vhd
+Z9 FC:/Users/Amy Fiamingo/git/Projects/UART-2026/baud_generator.vhd
+l0
+L5 1
+VGLV_B^CaRIAigbG9dlX:S2
+!s100 4[TGRnHN5E>ld]fXdRL=?1
+Z10 OL;C;2025.2;82
+32
+Z11 !s110 1795019046
+!i10b 1
+Z12 !s108 1795019046.000000
+Z13 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|C:/Users/Amy Fiamingo/git/Projects/UART-2026/baud_generator.vhd|
+Z14 !s107 C:/Users/Amy Fiamingo/git/Projects/UART-2026/baud_generator.vhd|
+!i113 0
+Z15 o-work work -2002 -explicit
+Z16 tExplicit 1 CvgOpt 0 defaultOptions 1083072464
+Artl
+R4
+R5
+R6
+Z17 DEx4 work 14 baud_generator 0 22 GLV_B^CaRIAigbG9dlX:S2
+!i122 16
+l32
+Z18 L22 51
+Z19 V]8PS^=P2MEejWOR`<:Bbi1
+Z20 !s100 ca6h^m1^`2V0c_^D]Zdh^3
+R10
+32
+R11
+!i10b 1
+R12
+R13
+R14
+!i113 0
+R15
+R16
+Etx_modul
+Z21 w1795018938
+R4
+R5
+R6
+!i122 15
+R7
+Z22 8C:/Users/Amy Fiamingo/git/Projects/UART-2026/TX-modul/TX-modul.vhd
+Z23 FC:/Users/Amy Fiamingo/git/Projects/UART-2026/TX-modul/TX-modul.vhd
+l0
+L5 1
+V7RMg=l0QX6niC[gGz`2Q@3
+!s100 ?1KQOB@fkk]0EhekY=EnF1
+R10
+32
+R11
+!i10b 1
+R12
+Z24 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|C:/Users/Amy Fiamingo/git/Projects/UART-2026/TX-modul/TX-modul.vhd|
+Z25 !s107 C:/Users/Amy Fiamingo/git/Projects/UART-2026/TX-modul/TX-modul.vhd|
+!i113 0
+R15
+R16
+Artl
+R4
+R5
+R6
+Z26 DEx4 work 8 tx_modul 0 22 7RMg=l0QX6niC[gGz`2Q@3
+!i122 15
+l25
+L17 79
+VkXaV:CV328XXXAH5AnAJk0
+!s100 WU^KEaV8=Z`@HP>LV4b4`2
+R10
+32
+R11
+!i10b 1
+R12
+R24
+R25
+!i113 0
+R15
+R16
+Etx_modul_tb
+Z27 w1795018991
+R4
+R5
+R6
+!i122 14
+R7
+Z28 8C:/Users/Amy Fiamingo/git/Projects/UART-2026/TX-modul/tx_modul_tb.vhd
+Z29 FC:/Users/Amy Fiamingo/git/Projects/UART-2026/TX-modul/tx_modul_tb.vhd
+l0
+L8 1
+VKmF@aX[kU[T?d9Xl:2baS2
+!s100 dJBm<8Oi?Wc8ijYHAgNLa0
+R10
+32
+R11
+!i10b 1
+R12
+Z30 !s90 -reportprogress|300|-work|work|-2002|-explicit|-vopt|-stats=none|C:/Users/Amy Fiamingo/git/Projects/UART-2026/TX-modul/tx_modul_tb.vhd|
+Z31 !s107 C:/Users/Amy Fiamingo/git/Projects/UART-2026/TX-modul/tx_modul_tb.vhd|
+!i113 0
+R15
+R16
+Asimulationmodel
+R26
+R17
+R4
+R5
+R6
+DEx4 work 11 tx_modul_tb 0 22 KmF@aX[kU[T?d9Xl:2baS2
+!i122 14
+l39
+L12 119
+Va:>n_`k1^z`SA9[Mb^l9=0
+!s100 ijld=9k7UjkdY3`b0=<gG2
+R10
+32
+R11
+!i10b 1
+R12
+R30
+R31
+!i113 0
+R15
+R16
