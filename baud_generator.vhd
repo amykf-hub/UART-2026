@@ -58,7 +58,7 @@ begin
                 baud_clk_counter <= 0;
 					 rx_tick <= '1';
 					 
-					 if tx_counter <= OVERSAMPLE - 1 then
+					 if tx_counter = OVERSAMPLE - 1 then
 						tx_counter <= '0';
 						tx_baud <= '1';
 					 else
